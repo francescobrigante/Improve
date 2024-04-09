@@ -1,11 +1,38 @@
+/* Stili per la barra superiore */
+.barrasup {
+    background-color: #1a1a1a; 
+    color: rgb(255, 255, 255); /* colore testo */
+    padding: 10px 20px; /* spaziatura interna */
+    display: flex; /* allineare contenuti */
+    justify-content: space-between; /* spaziare contenuti */
+    align-items: center; /* centra verticalmente contenuti */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    font-family: Arial, sans-serif; 
+}
+
+/* Stili per i link */
+.barrasup a {
+    color: rgb(255, 255, 255); 
+    text-decoration: none; /* rimuove sottolineatura */
+    margin: 0 10px;
+    margin-left: 20px; 
+    transition: color 0.3s; /* transizione colore al passaggio del mouse */
+}
+
+.barrasup a:hover {
+    color: #2572be; /* cambia colore al passaggio del mouse */
+}
+
+
 .header {
     background-color: black;
-    height: 120px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 20px;
+    padding: 20px;
+    text-align: center;
 }
+
 .title {
     color: white;
     font-size: 56px;
@@ -13,7 +40,6 @@
     flex-grow: 1;
     font-weight: bolder;
     margin: 0 auto; 
-
     cursor: pointer;
 }
 
@@ -72,29 +98,4 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: black;
     color: white;
-}
-
-/* Stili per la barra superiore */
-.barrasup {
-    background-color: #1a1a1a; /* Colore di sfondo */
-    color: rgb(255, 255, 255); /* Colore del testo */
-    padding: 10px 20px; /* Spaziatura interna */
-    display: flex; /* Per allineare i contenuti */
-    justify-content: space-between; /* Per spaziare i contenuti */
-    align-items: center; /* Per centrare verticalmente i contenuti */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombra */
-    font-family: Arial, sans-serif; /* Tipo di carattere */
-}
-
-/* Stili per i link */
-.barrasup a {
-    color: rgb(255, 255, 255); /* Colore del testo */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    margin: 0 10px; /* Margine ai link */
-    margin-left: 20px; /* Margine ai link */
-    transition: color 0.3s; /* Transizione del colore al passaggio del mouse */
-}
-
-.barrasup a:hover {
-    color: #2572be; /* Cambia il colore al passaggio del mouse */
 }

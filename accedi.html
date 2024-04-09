@@ -1,19 +1,81 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesso</title>
+    <style>
+        .header {
+            background-color: black;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+        .title {
+            color: white;
+            font-size: 56px;
+            text-align:center;
+            flex-grow: 1;
+            font-weight: bolder;
+            margin: 0 auto; 
+
+            cursor: pointer;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+            
+        
+    </style>
 </head>
 <body>
-    <div class="title">Improve</div>
-    <div class="description"> Accedi al tuo account con username e password</div>
-    <form action="" method="post" class="access_form">
-        <input type="text" class="input_form" maxlength="40" size="40" value="Inserisci username" required>
-        <input type="password" class="input_form" maxlength="40" size="40" value="Inserisci password" required>
-        <br>
-        <button class="button">Accedi</button>
-        <button class="button">Resetta</button>
+    <h1>
+    <div class="header">
+        <div class="arrow"></div>
+        <div class="title">Improve</div>
+        <div class="form"></div>
+    </h1>
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+        <input type="submit" value="Reset"> 
     </form>
+    
 </body>
 </html>

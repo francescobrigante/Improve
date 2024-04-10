@@ -1,6 +1,6 @@
 /* Stili per la barra superiore */
 .barrasup {
-    background-color: #1a1a1a; 
+    background-image: url("../img/sfondobarrasup.jpg");
     color: rgb(255, 255, 255); /* colore testo */
     padding: 10px 20px; /* spaziatura interna */
     display: flex; /* allineare contenuti */
@@ -23,7 +23,6 @@
     color: #2572be; /* cambia colore al passaggio del mouse */
 }
 
-
 .header {
     background-color: black;
     display: flex;
@@ -31,6 +30,10 @@
     justify-content: flex-start;
     padding: 20px;
     text-align: center;
+}
+
+.logo {
+    transform: scale(0.5);
 }
 
 .title {
@@ -44,8 +47,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: Poppins;
 }
 .container {
     max-width: 400px;
@@ -56,8 +58,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
 }
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -65,21 +66,6 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-/* bisogna essere consistenti con lo stile dei colori (e dei bottoni) */
-
-/* input[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-input[type="submit"]:hover {
-    background-color: #45a049;
-} */
 
 input[type="submit"] {
     background-color: #FFFFFF;

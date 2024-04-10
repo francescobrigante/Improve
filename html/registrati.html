@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrazione</title>
         <link rel="stylesheet" type="text/css" href="../css/accedi.css">
+        <script src="../javascript/accedi.js"></script>
     </head>
 <body>
     <!-- Barra superiore -->
@@ -21,12 +22,12 @@
     <h1>Registrati</h1>
     <h2>ed inizia a monitorare i tuoi progressi.</h2>
     <div class="container">
-        <form id="loginForm">
+        <form action="" method="post" name="registr" onsubmit="return validaForm();">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-            <input type="submit" value="Registrati">
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Registrati" onclick="return validaForm();">
         </form>
     </div>    
 </body>

@@ -1,13 +1,13 @@
 /* Stili per la barra superiore */
 .barrasup {
     background-image: url("../img/sfondobarrasup.jpg");
-    color: rgb(255, 255, 255); /* colore testo */
     padding: 10px 20px; /* spaziatura interna */
     display: flex; /* allineare contenuti */
+    background-position: center;
     justify-content: space-between; /* spaziare contenuti */
     align-items: center; /* centra verticalmente contenuti */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    font-family: Arial, sans-serif; 
+    background-size: cover;
+    height: 150px;
 }
 
 /* Stili per i link */
@@ -20,7 +20,9 @@
 }
 
 .barrasup a:hover {
+    background-image: url(../img/orangehome.png.png);
     color: #2572be; /* cambia colore al passaggio del mouse */
+    /* da fare la transizione */
 }
 
 .header {
@@ -32,24 +34,48 @@
     text-align: center;
 }
 
-.logo {
-    transform: scale(0.5);
+img {
+    max-width: 100%; /* Larghezza massima dell'immagine è il 100% del contenitore */
+    height: auto; /* L'altezza viene calcolata automaticamente per mantenere le proporzioni */
+    display: block; /* Assicura che l'immagine sia un blocco, per gestire il layout correttamente */
 }
+.logo {
+    max-width: 100%; /* Larghezza massima dell'immagine è il 100% del contenitore */
+    height: auto; /* L'altezza viene calcolata automaticamente per mantenere le proporzioni */
+    display: block;
+    transform: translateX(-50px);
+}
+@media (max-width: 695px) {
+    .logo {
+        transform: translateX(0px); 
+        transition: 0.3 s;
+    }
+}
+
+
+label {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+}
+
 h1{
     color:#e6851e;
-    font-size: 5rem;
+    font-size: 10vw; 
     text-align:center;
     font-family: Poppins, sans-serif;
     font-weight: bold;
     margin-bottom: -20px;
+    max-width: auto
+    ;
 }
 
 h2{
     color: black;
-    font-size: 20px;
+    font-size: 3vw;
     text-align:center;
     font-family: Poppins, sans-serif;
     font-weight: 500;
+    margin-top: 20px;
 }
 
 .title {
@@ -71,7 +97,7 @@ body {
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     margin-top: 50px;
 }
 input[type="text"], input[type="password"] {
@@ -89,11 +115,7 @@ input[type="submit"] {
     border-radius: 8px;
     color: white;
     padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 20px;
-    margin: 4px 2px;
     cursor: pointer;
     transition: 0.2s;
 }

@@ -14,6 +14,14 @@ function validaForm(){
         alert("Inserire tutti i dati");
         return false;
     }
+    if(!regexEmail.test(email)){
+        alert("Inserire un indirizzo email valido");
+        return false;
+    }
+    if(new Date(dataNascita) >= new Date()){
+        alert("Inserire data di nascita valida");
+        return false;
+    }
     if(password.length < 8){
         alert("La password deve essere di almeno 8 caratteri");
         return false;
@@ -28,3 +36,6 @@ function validaForm(){
     }
     return true;
 }
+
+
+

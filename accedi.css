@@ -1,0 +1,122 @@
+@import url();
+
+/* Stili per la barra superiore */
+.barrasup {
+    background-image: url("../img/sfondobarrasup.jpg");
+    color: rgb(255, 255, 255); /* colore testo */
+    padding: 10px 20px; /* spaziatura interna */
+    display: flex; /* allineare contenuti */
+    justify-content: space-between; /* spaziare contenuti */
+    align-items: center; /* centra verticalmente contenuti */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    font-family: Arial, sans-serif; 
+}
+
+/* Stili per i link */
+.barrasup a {
+    color: rgb(255, 255, 255); 
+    text-decoration: none; /* rimuove sottolineatura */
+    margin: 0 10px;
+    margin-left: 20px; 
+    transition: color 0.3s; /* transizione colore al passaggio del mouse */
+}
+
+.barrasup a:hover {
+    color: #2572be; /* cambia colore al passaggio del mouse */
+}
+
+.header {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    transform: scale(0.5);
+}
+.description {
+    color:#e6851e;
+    font-size: 2rem;
+    text-align:center;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+}
+
+.p{
+    color: black;
+    font-size: 13px;
+    text-align:center;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+}
+
+.title {
+    color: white;
+    font-size: 56px;
+    text-align:center;
+    flex-grow: 1;
+    font-weight: bolder;
+    margin: 0 auto; 
+    cursor: pointer;
+}
+
+body {
+    font-family: Poppins;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #1b1b1b;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+input[type="submit"]:hover {
+    background-color: #e6851e;
+    color: white;
+}
+input[type="date"] {
+    width: 100%; /* Imposta la larghezza desiderata */
+    height: 38.5px;
+    font-size: 18px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px; /* Aggiunge spazio interno */
+  }
+input[type="radio"] {
+        margin-top: 10px; /* Aggiunge spazio sopra */
+        margin-bottom: 20px; /* Aggiunge spazio sotto */
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+  

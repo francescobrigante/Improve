@@ -1,13 +1,13 @@
 /* Stili per la barra superiore */
 .barrasup {
     background-image: url("../img/sfondobarrasup.jpg");
+    background-size: cover;
     color: rgb(255, 255, 255); /* colore testo */
-    padding: 10px 20px; /* spaziatura interna */
     display: flex; /* allineare contenuti */
     justify-content: space-between; /* spaziare contenuti */
     align-items: center; /* centra verticalmente contenuti */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 15px;
 }
 
 /* Stili per i link */
@@ -31,7 +31,11 @@
     padding: 20px;
     text-align: center;
 }
-
+.home{
+    width:30px;
+    position: absolute;
+    top: 40px;
+}
 .logo {
     transform: scale(0.5);
 }
@@ -45,7 +49,23 @@
     margin: 0 auto; 
     cursor: pointer;
 }
+h1{
+    color:#e6851e;
+    font-size: 5rem;
+    text-align:center;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
 
+h2{
+    color: black;
+    font-size: 20px;
+    text-align:center;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+}
 body {
     font-family: Poppins;
 }

@@ -1,13 +1,13 @@
 /* Stili per la barra superiore */
 .barrasup {
     background-image: url("../img/sfondobarrasup.jpg");
+    background-size: cover;
     color: rgb(255, 255, 255); /* colore testo */
-    padding: 10px 20px; /* spaziatura interna */
     display: flex; /* allineare contenuti */
     justify-content: space-between; /* spaziare contenuti */
     align-items: center; /* centra verticalmente contenuti */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 15px;
 }
 
 /* Stili per i link */
@@ -31,7 +31,9 @@
     padding: 20px;
     text-align: center;
 }
-
+.home{
+    width:30px;
+}
 .logo {
     transform: scale(0.5);
 }
@@ -41,6 +43,7 @@ h1{
     text-align:center;
     font-family: Poppins, sans-serif;
     font-weight: bold;
+    margin-top: 5px;
     margin-bottom: -20px;
 }
 

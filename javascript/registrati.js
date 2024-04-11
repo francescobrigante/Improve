@@ -6,6 +6,7 @@ function validaForm(){
     var cognome = document.getElementById("cognome").value; 
     var email = document.getElementById("email").value; 
     var cpassword = document.getElementById("cpassword").value;
+    var regexLiteral = /[A-z0-9\.\+_-]+@[A-z0-9\._-]+\.[A-z]{2,6}/;
     // rendere obbligatori anche data nascita e sesso
     
     if(username =="" || password=="" || nome=="" || cognome=="" || email==""){
@@ -18,6 +19,10 @@ function validaForm(){
     }
     if(password!=cpassword){
         alert("Le password non coincidono");
+        return false;
+    }
+    if(!regexLiteral.test(document.registr.email.value)){
+        alert("Inserisci un indirizzo email valido");
         return false;
     }
     return true;

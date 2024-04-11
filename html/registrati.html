@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrazione</title>
-        <link rel="stylesheet" type="text/css" href="../css/accedi.css">
-        <script src="../javascript/accedi.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/registrati.css">
+        <script src="../javascript/registrati.js"></script>
     </head>
 <body>
     <!-- Barra superiore -->
     <div class="barrasup">
-        <a href="./index.html"><img src="../img/home.png" alt="" name="home"></a>
+        <a href="./index.html"><img src="../img/home.png" alt="" name="home" width = 30px></a>
         <div class="logo">
-            <img src="../img/logo.png" alt="">
+            <img src="../img/logo.png" width=500px>
         </div>
         <!-- Spazio vuoto per spaziare i contenuti -->
         <div></div>
@@ -20,14 +20,33 @@
 
     <!-- corpo -->
     <h1>Registrati</h1>
-    <h2>ed inizia a monitorare i tuoi progressi.</h2>
+    <h2>e inizia a migliorare te stesso </h2>
+
     <div class="container">
         <form action="" method="post" name="registr" onsubmit="return validaForm();">
+            <!-- vedere differenza for e class -->
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome">Nome
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" name="cognome">
+            <label for="email"> Email </label>
+            <input type="text" id="email" name="email">
+            <label for="data"> Data di Nascita </label>
+            <input type="date" id="data" name="data">
+            <label for="sesso">Sesso</label>
+            <br>
+            <input type="radio" id="sesso" name="sesso" value="M">Maschio
+            <!-- <label for="sesso">Maschio</label> -->
+            <input type="radio" id="sesso" name="sesso" value="F">Femmina
+            <!-- <label for="sesso">Femmina</label> -->
+            <br>
             <label for="username">Username</label>
             <input type="text" id="username" name="username">
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
-            <input type="submit" value="Registrati" onclick="return validaForm();">
+            <label for="cpassword">Conferma Password</label>
+            <input type="password" id="cpassword" name="cpassword">
+            <input type="submit" value="Registrati">
         </form>
     </div>    
 </body>

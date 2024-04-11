@@ -6,15 +6,21 @@ function validaForm(){
     var cognome = document.getElementById("cognome").value; 
     var email = document.getElementById("email").value; 
     var cpassword = document.getElementById("cpassword").value;
-    var regexLiteral = /[A-z0-9\.\+_-]+@[A-z0-9\._-]+\.[A-z]{2,6}/;
-    var dataObj = document.getElementById("data").value;
-    var annoCorrente = dataObj.getFullYear();
-    var annoMinimo = annoCorrente - 16;
-    var annoMassimo = annoCorrente - 100;
+    var dataNascita = document.getElementById("data").value;
+    var regexEmail = /.+@.+\..+/;
+    var dataNascita = document.getElementById("data").value;
     // rendere obbligatori anche data nascita e sesso
     
     if(username =="" || password=="" || nome=="" || cognome=="" || email==""){
         alert("Inserire tutti i dati");
+        return false;
+    }
+    if(!regexEmail.test(email)){
+        alert("Inserire un indirizzo email valido");
+        return false;
+    }
+    if(new Date(dataNascita) >= new Date()){
+        alert("Inserire data di nascita valida");
         return false;
     }
     if(password.length < 8){
@@ -25,13 +31,8 @@ function validaForm(){
         alert("Le password non coincidono");
         return false;
     }
-    if(!regexLiteral.test(document.registr.email.value)){
-        alert("Inserisci un indirizzo email valido");
-        return false;
-    }
-    if(dataObj.getFullYear() < annoMassimo || dataObj.getFullYear() > annoMinimo){
-        alert("Inserisci una data di nascita valida");
-        return false;
-    }
     return true;
 }
+
+
+

@@ -1,7 +1,17 @@
+
+
 .barraindex {
-    background-image: url("../img/sfondoindex.jpg");
-    padding-bottom: 300px;
+    background-image: url("../img/sfondobarrasup.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex; /* allineare contenuti */
+    justify-content: center ; /* spaziare contenuti */
+    align-items: center; /* centra verticalmente contenuti */
+    height: 500px;
+    background-repeat: no-repeat no-repeat;
+    max-width: 100%;
 }
+
 b{
     color: #e6851e;
 }

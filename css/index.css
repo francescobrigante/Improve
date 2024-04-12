@@ -26,10 +26,10 @@ h2 {
     color: #1b1b1b;
 }
 .button {
-    background-color: #FFFFFF;
+    background-color: #1b1b1b;
     border: none;
     border-radius: 8px;
-    color: black;
+    color: rgb(255, 255, 255);
     padding: 10px 24px;
     text-align: center;
     text-decoration: none;
@@ -40,6 +40,6 @@ h2 {
     transition: 0.2s;
 }
 .button:hover {
-    background-color: black;
+    background-color: #e6851e;
     color: white;
 }

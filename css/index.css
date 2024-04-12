@@ -1,7 +1,10 @@
-
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
 .barraindex {
-    background-image: url("../img/sfondobarrasup.jpg");
+    background-image: url("../img/sfondoindex.jpg");
     background-position: center;
     background-size: cover;
     display: flex; /* allineare contenuti */
@@ -9,31 +12,33 @@
     align-items: center; /* centra verticalmente contenuti */
     height: 400px;
     flex-direction: column;
-    background-repeat: no-repeat no-repeat;
-  
 }
-.logo{
-    max-width: 100%;
-    margin-bottom: 30px;
-    height: auto;
-    display: flex;
-    margin: 0 auto;
+img{
+    width: 110px;
+    height: auto;    
+}
+.titolo{
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 110px;
+    color: white ;
+    display: inline;
 }
 b{
     color: #e6851e;
+    font-weight: 550;
 }
 h1 {
     font-size: 1.5rem; 
     font-family: Poppins, sans-serif;
-    font-weight: bold;
-    margin: 0 auto; 
+    font-weight: 400;
     margin-top: 5px;
     margin-bottom: -20px;
     justify-content: center;
     display: flex;
-    max-width: 100%;
     color: white ;
-    
+    width: 40px;
+    text-align: left;
 }
 .container {
     display: flex;
@@ -60,24 +65,23 @@ h1 {
     align-items: center; /* Centra il contenuto verticalmente */ 
     margin-right: 14rem;
     margin-left: 6rem;
-
-    
 }
 .button {
-    background-color: black;
+    background-color: #e6851e;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     color: white;
-    padding: 10px 40px;
+    font-weight: 550;
+    letter-spacing: 0.5px;
     text-align: center;
     display: inline-block;
     font-size: 40px;
     margin: 4px 2px;
     cursor: pointer;
+    padding: 10px 80px;
     transition: 0.3s;
-    
 }
 .button:hover {
-    background-color: #e6851e;
-    
+    background-color: #1b1b1b;
+    color: #e6851e;
 }

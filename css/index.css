@@ -26,20 +26,23 @@ h2 {
     color: #1b1b1b;
 }
 .button {
-    background-color: #1b1b1b;
+    background-color: #e6851e;
     border: none;
-    border-radius: 8px;
-    color: rgb(255, 255, 255);
-    padding: 10px 24px;
+    border-radius: 20px;
+    color: white;
+    padding: 15px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     margin: 4px 2px;
     cursor: pointer;
     transition: 0.2s;
 }
 .button:hover {
-    background-color: #e6851e;
-    color: white;
+    background-color: #1b1b1b;
+    color: #e6851e;
+    transition: 0.2s;
 }

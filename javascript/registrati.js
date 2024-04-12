@@ -22,10 +22,10 @@ function validaForm(){
         alert("Inserire data di nascita valida");
         return false;
     }
-    // if(password.length < 8){
-    //     alert("La password deve essere di almeno 8 caratteri");
-    //     return false;
-    // }
+    if(password.length < 8){
+        alert("La password deve essere di almeno 8 caratteri");
+        return false;
+    }
     if(password!=cpassword){
         alert("Le password non coincidono");
         return false;

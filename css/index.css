@@ -7,42 +7,77 @@
     display: flex; /* allineare contenuti */
     justify-content: center ; /* spaziare contenuti */
     align-items: center; /* centra verticalmente contenuti */
-    height: 500px;
+    height: 400px;
+    flex-direction: column;
     background-repeat: no-repeat no-repeat;
-    max-width: 100%;
+  
 }
-
+.logo{
+    max-width: 100%;
+    margin-bottom: 30px;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+}
 b{
     color: #e6851e;
 }
 h1 {
-    font-family: Poppins;
-    font-weight: 500;
-    color: #FFFFFF;
+    font-size: 1.5rem; 
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    margin: 0 auto; 
+    margin-top: 5px;
+    margin-bottom: -20px;
+    justify-content: center;
+    display: flex;
+    max-width: 100%;
+    color: white ;
+    
 }
-h2 {
-    font-family: Poppins;
-    font-weight: 600;
-    color: #1b1b1b;
+.container {
+    display: flex;
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */ 
+    
+}
+
+.centered-text {
+    text-align: center; /* Allinea il testo al centro */
+}
+
+.centered-text h2 {
+    display: inline-block; /* Mostra i paragrafi come blocchi inline */
+    text-align: left; /* Allinea il testo a sinistra */
+    margin: 10px 0; /* Spazio verticale tra i paragrafi */
+    font-family: Poppins ,sans-serif;
+    font-size: 2rem;
+    
+}
+.container-botton {
+    display: flex;
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */ 
+    margin-right: 14rem;
+    margin-left: 6rem;
+
+    
 }
 .button {
-    background-color: #e6851e;
+    background-color: black;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     color: white;
-    padding: 15px 24px;
+    padding: 10px 40px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 32px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    font-size: 40px;
     margin: 4px 2px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
+    
 }
 .button:hover {
-    background-color: #1b1b1b;
-    color: #e6851e;
-    transition: 0.2s;
+    background-color: #e6851e;
+    
 }

@@ -1,10 +1,22 @@
 <?php
+    //connessione al database
     if ($_SERVER["REQUEST_METHOD"] != "POST") {
         header("Location: ../html/index.html");
         exit;
     } else {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
             die("Connessione fallita: " . pg_last_error());
+    }
+
+    //se la connessione è andata a buon fine, inizio una sessione
+    if($dbconn){
+        //verifico se è già attiva una sessione
+        if (session_status() !== PHP_SESSION_ACTIVE){
+            if(!session_start()){
+                echo "Errore nell'inizializzazione della sessione";
+                exit;
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -28,8 +40,10 @@
                 $stored_password = $tuple["password"];
                 $password = $_POST["password"];
 
-                if(password_verify($password, $stored_password))
-                    echo "Login avvenuto con successo";
+                if(password_verify($password, $stored_password)){
+                    echo "Login avvenuto con successo, benvenuto " . $_SESSION['username'];
+                    $_SESSION['username'] = $username;
+                }
                 else
                     echo "Password errata";
             }

@@ -15,16 +15,11 @@
 .barrasup a {
     text-decoration: none; /* rimuove sottolineatura */
     margin: 0 10px;
-    margin-left: 20px; 
+    margin-left: -20px;
+    margin-right: -100px;
+    transform: scale(0.3);
     transition: color 0.3s; /* transizione colore al passaggio del mouse */
 }
-
-.barrasup a:hover {
-    background-image: url(../img/orangehome.png.png);
-    color: #2572be; /* cambia colore al passaggio del mouse */
-    /* da fare la transizione */
-}
-
 .header {
     background-color: black;
     display: flex;
@@ -38,7 +33,6 @@ img {
     max-width: 100%; /* Larghezza massima dell'immagine è il 100% del contenitore */
     height: auto; /* L'altezza viene calcolata automaticamente per mantenere le proporzioni */
     display: block; /* Assicura che l'immagine sia un blocco, per gestire il layout correttamente */
-    transform: translateX(-22px);
 }
 .logo {
     max-width: 100%; /* Larghezza massima dell'immagine è il 100% del contenitore */
@@ -46,8 +40,6 @@ img {
     display: flex; 
     margin : 0 auto; 
 }
-
-
 label {
     font-family: Poppins, sans-serif;
     font-weight: bold;

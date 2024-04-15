@@ -23,27 +23,27 @@
     <h2>ed inizia a migliorare te stesso </h2>
 
     <div class="container">
-        <form action="" method="post" name="registr" onsubmit="return validaForm();">
+        <form action="../php/registrati.php" method="post" name="registr" onsubmit="return validaForm();">
             <!-- vedere differenza for e class -->
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome">
+            <input type="text" name="nome" id="nome">
             <label for="cognome">Cognome</label>
-            <input type="text" id="cognome" name="cognome">
+            <input type="text" name="cognome" id="cognome">
             <label for="email"> Email </label>
-            <input type="text" id="email" name="email">
-            <label for="data"> Data di Nascita </label>
-            <input type="date" id="data" name="data" required>
+            <input type="text" name="email" id="email">
+            <!-- <label for="data_nascita"> Data di Nascita </label>
+            <input type="date" nome="data_nascita" required> -->
             <label for="sesso">Sesso</label>
             <br>
-            <input type="radio" id="sesso" name="sesso" value="M" required>Maschio
-            <input type="radio" id="sesso" name="sesso" value="F">Femmina
+            <input type="radio" name="sesso" id="sesso" value="M" required>Maschio
+            <input type="radio" name="sesso" id="sesso" value="F">Femmina
             <br>
             <label for="username">Username</label>
-            <input type="text" id="username" name="username">
+            <input type="text" name="username" id="username">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <input type="password" name="password" id="password">
             <label for="cpassword">Conferma Password</label>
-            <input type="password" id="cpassword" name="cpassword">
+            <input type="password" name="cpassword" id="cpassword">
             <input type="submit" value="Registrati">
             <div class="registrati">Sei già un membro? <a href="../html/accedi.html">Accedi</a></div>
         </form>

@@ -41,8 +41,8 @@
                 $password = $_POST["password"];
 
                 if(password_verify($password, $stored_password)){
-                    echo "Login avvenuto con successo, benvenuto " . $_SESSION['username'];
                     $_SESSION['username'] = $username;
+                    echo "Login avvenuto con successo, benvenuto " . $_SESSION['username'];
                 }
                 else
                     echo "Password errata";

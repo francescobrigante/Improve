@@ -36,6 +36,42 @@
             <input type="submit" value="Accedi">
             <div class="accedi">Non sei ancora registrato? <a href="../html/registrati.html">Registrati</a></div>
         </form>
-    </div>    
+    </div>
+
+    <div id="overlay"></div>
+    <div id="popup">
+        <p id="testo_popup"></p>
+    </div>
+    
+    <!-- codice php per controllare se ci sono errori, e quindi quale popup far visualizzare -->
+    <?php
+    // Controlla se è presente un errore nella query string
+    if(isset($_GET['error'])) {
+        $error = $_GET['error'];
+        if($error === "not_registered") {
+            echo "<script>
+                    document.getElementById('overlay').style.display = 'block';
+                    document.getElementById('popup').style.display = 'block';
+                    document.getElementById('testo_popup').innerText = 'Non sei ancora registrato';
+                    setTimeout(function(){ 
+                        document.getElementById('overlay').style.display = 'none'; 
+                        document.getElementById('popup').style.display = 'none'; 
+                    }, 1500);
+                  </script>";
+
+        } elseif($error === "wrong_password") {
+            echo "<script>
+                    document.getElementById('overlay').style.display = 'block';
+                    document.getElementById('popup').style.display = 'block';
+                    document.getElementById('testo_popup').innerText = 'Password errata';
+                    setTimeout(function(){ 
+                        document.getElementById('overlay').style.display = 'none'; 
+                        document.getElementById('popup').style.display = 'none'; 
+                    }, 1500);
+                  </script>";
+        }
+    }
+    ?>
+    
 </body>
 </html>

@@ -32,8 +32,10 @@
             $result = pg_query_params($dbconn, $query, array($username));            
 
             //check username
-            if(!($tuple = pg_fetch_assoc($result)))
-                echo "<script>alert('Non sei ancora registrato');</script>";
+            if(!($tuple = pg_fetch_assoc($result))){
+                header("Location: ../html/accedi.php?error=not_registered");
+                exit();
+            }
 
             //allora sei registrato
             else{
@@ -46,8 +48,10 @@
                     header("Location: ../html/main.php");
                     exit();
                 }
-                else
-                    echo "<script>alert('Password errata');</script>";
+                else{
+                    header("Location: ../html/accedi.php?error=wrong_password");
+                    exit();
+                }
             }
         }
 ?>

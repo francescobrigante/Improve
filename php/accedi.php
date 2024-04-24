@@ -33,7 +33,7 @@
 
             //check username
             if(!($tuple = pg_fetch_assoc($result)))
-                echo "Non sei ancora registrato";
+                echo "<script>alert('Non sei ancora registrato');</script>";
 
             //allora sei registrato
             else{
@@ -42,10 +42,12 @@
 
                 if(password_verify($password, $stored_password)){
                     $_SESSION['username'] = $username;
-                    echo "Login avvenuto con successo, benvenuto " . $_SESSION['username'];
+                    //echo "Login avvenuto con successo, benvenuto " . $_SESSION['username'];
+                    header("Location: ../html/main.php");
+                    exit();
                 }
                 else
-                    echo "Password errata";
+                    echo "<script>alert('Password errata');</script>";
             }
         }
 ?>

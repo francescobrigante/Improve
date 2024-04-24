@@ -1,3 +1,15 @@
+    <!-- php -->
+    <?php
+        session_start();
+
+        //se non hai username, allora non sei loggato
+        if (!isset($_SESSION['username'])) {
+            header("Location: ../html/index.html");
+            exit();
+        }
+        $username = $_SESSION['username'];
+    ?>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,10 +17,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Improve</title>
         <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <script src="//code.jquery.com/jquery-3.7.1.js"></script>
         <script src="../javascript/main.js"></script>
     </head>
 <body>
 
+    <p>Benvenuto 
+        <?php echo $username; ?>!</p>
+        
     <!-- barra superiore -->
     <div class="barrasup">
         <!-- home -->
@@ -23,9 +39,9 @@
         </div>
 
         <!-- account -->
-        <div class="account" id="account" onclick="showDropdown()">
-            <img src="../img/account.png" alt="Account" id="icon_acocunt">
-            <img src="../img/orangeaccount.png" alt="Account" id="orange_acocunt" style="display: none;">
+        <div class="account" id="account">
+            <img src="../img/account.png" alt="Account" id="icon_account">
+            <img src="../img/orangeaccount.png" alt="Account" id="orange_account" style="display: none;">
             <div class="dropdown" id="dropdown">
                 <ul>
                     <li><a href="">Nuova scheda</a></li>

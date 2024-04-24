@@ -24,7 +24,7 @@
 
     <p>Benvenuto 
         <?php echo $username; ?>!</p>
-        
+
     <!-- barra superiore -->
     <div class="barrasup">
         <!-- home -->
@@ -46,7 +46,7 @@
                 <ul>
                     <li><a href="">Nuova scheda</a></li>
                     <li><a href="">Le mie schede</a></li>
-                    <li><a href="">Log out</a></li>
+                    <li><a href="../php/logout.php">Log out</a></li>
                 </ul>
             </div>
         </div>        

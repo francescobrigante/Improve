@@ -1,0 +1,67 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+.barrasup {
+    background-image: url("../img/sfondobarrasup.jpg");
+    padding: 10px 20px; /* spaziatura interna */
+    display: flex; /* allineare contenuti */
+    background-position: center;
+    justify-content: space-between; /* spaziare contenuti */
+    align-items: center; /* centra verticalmente contenuti */
+    background-size: cover;
+    height: 100px;
+}
+
+#home_container{
+    text-decoration: none; /* rimuove sottolineatura */
+    margin: 0;
+    margin-left: -20px;
+    transform: scale(0.3);
+    transition: color 0.3s;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    transform: scale(0.8); 
+    display: flex; 
+    margin : 0 auto; 
+}
+
+#account{
+    margin-right: 20px;
+    transform: scale(0.3);
+    transition: color 0.3s;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 140px;
+    right: 0;
+    border-radius: 20px;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    width: 500px;
+    height: auto;
+  }
+  
+.dropdown ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+.dropdown ul li {
+    padding: 10px;
+    font-family: Poppins;
+    font-size: 50px;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 40px;
+}
+  
+.dropdown ul li a {
+    text-decoration: none;
+    color: #e6851e;
+}

@@ -40,7 +40,3 @@ $(document).ready(function(){
     });
 
 });
-
-// Recupera lo username dalla sessione (esempio)
-var username = $_SESSION["username"];
-alert(username);

@@ -45,7 +45,7 @@
             <div class="dropdown" id="dropdown">
                 <ul>
                     <li><a href="">Nuova scheda</a></li>
-                    <li><a href="">Le mie schede</a></li>
+                    <li><a href="./mieschede.php">Le mie schede</a></li>
                     <li><a href="../php/logout.php">Log out</a></li>
                 </ul>
             </div>

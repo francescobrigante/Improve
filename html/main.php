@@ -8,6 +8,32 @@
             exit();
         }
         $username = $_SESSION['username'];
+
+        //connessione al database
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
+            die("Connessione fallita: " . pg_last_error());
+
+        //se la connessione è andata a buon fine, inizio una sessione
+        if($dbconn){
+            //verifico se è già attiva una sessione
+            if (session_status() !== PHP_SESSION_ACTIVE){
+                if(!session_start()){
+                    echo "Errore nell'inizializzazione della sessione";
+                    exit;
+                }
+            }
+
+            $query = "SELECT * FROM esercizi";
+            $result = pg_query($dbconn, $query);
+            $esercizi = array();
+
+            if ($result) {
+                while ($row = pg_fetch_assoc($result)) {
+                    $esercizi[] = $row;
+                }
+            }
+            pg_close($dbconn);
+        }
     ?>
     
 <!DOCTYPE html>
@@ -104,31 +130,27 @@
         </ul>
     </div>
 
-    <div class="scrollbox" >
-        <button class ="box-exercise" onclick="openPopup()" >
-            <h1>Panca piana</h1>
-            <h2>Petto</h2>
-            <img src="../fotoesercizi/Pettorali/pancapiana.png" id="petto">
-        </button>
-        <button class ="box-exercise">
-            <h1>Chest Press</h1>
-            <h2>Petto</h2>
-            <img src="../fotoesercizi/Pettorali/Screenshot_2024.03.30_16.56.31.822.png" id="petto">
-        </button>
+    <div class="scrollbox">
+        <?php foreach ($esercizi as $esercizio): ?>
+            <button class="box-exercise" onclick="openPopup('popup_<?php echo $esercizio['nome']; ?>', 'overlay_<?php echo $esercizio['nome']; ?>')">  
+                <h1><?php echo $esercizio['nome']; ?></h1>
+                <h2><?php echo $esercizio['muscolo']; ?></h2>
+                <img src="<?php echo $esercizio['immagine']; ?>" alt="<?php echo $esercizio['nome']; ?>">
+            </button>
+        <?php endforeach; ?>
     </div>
 
-    <div class="popup" id="popup">
-       <h1> Panca Piana </h1>
-       <h2> Petto </h2>
-       <img src="../fotoesercizi/Pettorali/pancapiana.png" >
-       <h3>Descrizione</h3>
-       <div class="description"> Posizione iniziale: sdraiarsi sul tappetino con la schiena a terra. Piegare le gambe, tenendo i piedi appogiati a terra ed intrecciare le mani dietro la nuca.
-        Movimento: flettere il busto in avanti, sollevando dal tappetino a parte superiore del busto.
-        Scopo esercizio: esercizio a corpo libero molto comune che concentra il lavoro sulla sezione centrale dell’addome (retto dell’addome) ed in parte anche a livello dei fianchi (obliqui). Viene solitamente effettuato con un alto numero di ripetizioni.
-        Respirazione: inspirare abbassando il busto sul tappetino ed espirare flettendolo.
-        Errori: sollevare dal tappetino anche la parte bassa della schiena, far forza con le braccia per aiutarsi a flettere il busto e sollevare i piedi da terra. </div>
-    </div>
+    <?php foreach ($esercizi as $esercizio): ?>
+        <div class="popup" id="popup_<?php echo $esercizio['nome']; ?>">
+            <h1><?php echo $esercizio['nome']; ?></h1>
+            <h2><?php echo $esercizio['muscolo']; ?></h2>
+            <img src="<?php echo $esercizio['immagine']; ?>" alt="<?php echo $esercizio['nome']; ?>">
+            <h3>Descrizione</h3>
+            <div class="description"><?php echo $esercizio['descrizione']; ?></div>
+        </div>
 
-    <div id="overlay" class="overlay" onclick="closePopup()"> </div>
+        <div id="overlay_<?php echo $esercizio['nome']; ?>" class="overlay" onclick="closePopup('popup_<?php echo $esercizio['nome']; ?>', 'overlay_<?php echo $esercizio['nome']; ?>')"> </div>
+    <?php endforeach; ?>
+    
 </body>
 </html>

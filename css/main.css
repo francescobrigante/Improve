@@ -173,6 +173,10 @@ input{
     border: 0;
 }
 
+.scrollbox img {
+    width: 100%;
+}
+
 .box-exercise{
     width: 100%;
     padding: 10px 20px;

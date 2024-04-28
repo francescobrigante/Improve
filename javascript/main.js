@@ -53,14 +53,14 @@ function changeToPlus() {
     button.textContent = '+';
 }
 
-function openPopup(){
-    document.getElementById("popup").classList.add("popupactive")
-    document.getElementById("overlay").classList.add("overlayactive");
+function openPopup(popup, overlay){
+    document.getElementById(popup).classList.add("popupactive")
+    document.getElementById(overlay).classList.add("overlayactive");
 }
 
-function closePopup(){
-    document.getElementById("popup").classList.remove("popupactive")
-    document.getElementById("overlay").classList.remove("overlayactive");
+function closePopup(popup, overlay){
+    document.getElementById(popup).classList.remove("popupactive")
+    document.getElementById(overlay).classList.remove("overlayactive");
 }
 
 let clickcount = 0 ; 

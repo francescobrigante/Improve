@@ -269,14 +269,15 @@ p{
 }
 
 .popup h3{
-    font-family: sans-serif;
+    font-family: Poppins;
     margin-left: 10px;
     font-weight: bold;
     margin-top: 10px ;
+    color: #e6851e;
 }
 
 .description{
-    font-family: sans-serif;
+    font-family: Poppins;
     width: 90%;
     height: 200px ;
     margin-left: 10px;
@@ -365,5 +366,5 @@ p{
 .item-text{
     font-size: 16px;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: Poppins;
 }

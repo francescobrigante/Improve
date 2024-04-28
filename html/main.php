@@ -108,7 +108,7 @@
         <button class ="box-exercise" onclick="openPopup()" >
             <h1>Panca piana</h1>
             <h2>Petto</h2>
-            <img src="../fotoesercizi/Pettorali/Screenshot_2024.03.30_16.55.31.055.png" id="petto">
+            <img src="../fotoesercizi/Pettorali/pancapiana.png" id="petto">
         </button>
         <button class ="box-exercise">
             <h1>Chest Press</h1>
@@ -120,7 +120,7 @@
     <div class="popup" id="popup">
        <h1> Panca Piana </h1>
        <h2> Petto </h2>
-       <img src="../fotoesercizi/Pettorali/Screenshot_2024.03.30_16.55.31.055.png" >
+       <img src="../fotoesercizi/Pettorali/pancapiana.png" >
        <h3>Descrizione</h3>
        <div class="description"> Posizione iniziale: sdraiarsi sul tappetino con la schiena a terra. Piegare le gambe, tenendo i piedi appogiati a terra ed intrecciare le mani dietro la nuca.
         Movimento: flettere il busto in avanti, sollevando dal tappetino a parte superiore del busto.

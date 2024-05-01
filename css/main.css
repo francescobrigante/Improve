@@ -383,3 +383,8 @@ p{
     font-weight: bold;
     font-family: Poppins;
 }
+
+/* classe utlilizzata per nascondere i box che non contengono gli esercizi cercati nella search bar */
+.hidden{
+    display: none;
+}

@@ -84,8 +84,8 @@
     <div class="barra2">
             <button class="nuovascheda" onmouseover="changeToNuovaScheda()" onmouseout="changeToPlus()">+</button>
             <div class="search-bar">
-                <input type="text" placeholder="Cerca un esercizio..." > 
-                <button> <i class="fas fa-search" ></i></button>
+                <input type="text" placeholder="Cerca un esercizio..." oninput="search()"> 
+                <button onclick="search()"> <i class="fas fa-search" ></i></button>
             </div>
             <button class="filter" onclick="FilterAnimation()"> <i id ="bars" class="fa-solid fa-bars" ></i></button>
         </div>

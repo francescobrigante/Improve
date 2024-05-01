@@ -83,12 +83,28 @@ function FilterAnimation(){
 
 let counterPetto = 0 ;
 function CheckBoxPetto(){
-
+    var results = document.querySelectorAll('.scrollbox .box-exercise');
     if (counterPetto % 2 === 0 ){
-        document.getElementById("Petto").classList.add("check-icon-checked");
+        document.getElementById("Petto").classList.add("check-icon-checked"); 
+
+        results.forEach(function(result) {
+            var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
+            if (testo_h2 == "petto")
+                result.classList.remove('hidden');
+            else
+                result.classList.add('hidden');
+        });
     }
     else{ 
         document.getElementById("Petto").classList.remove("check-icon-checked");
+
+        results.forEach(function(result) {
+            var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
+            if (testo_h2 == "petto")
+                result.classList.add('hidden');
+            else
+                result.classList.remove('hidden');
+        });
     }
     counterPetto++;
 }
@@ -151,4 +167,22 @@ function CheckBoxGambe(){
         document.getElementById("Gambe").classList.remove("check-icon-checked");
     }
     counterGambe++;
+}
+
+// per la searchbar
+document.querySelector('.search-bar input').addEventListener('input', search);
+
+// Funzione di ricerca
+function search() {
+    var input = document.querySelector('.search-bar input').value.toLowerCase();
+    var results = document.querySelectorAll('.scrollbox .box-exercise'); 
+    results.forEach(function(result) {
+        var testo_h1 = result.querySelector('h1').textContent.toLowerCase();
+        var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
+
+        if (testo_h1.includes(input) || testo_h2.includes(input))
+            result.classList.remove('hidden');
+        else
+            result.classList.add('hidden');
+    });
 }

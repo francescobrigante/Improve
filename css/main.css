@@ -77,13 +77,13 @@ p{
 }
 
 .barra2{
-    width: 100%;
-    /* margin: 0 auto;  */
+    margin: 0 auto;
     padding: 20px 10px ;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Ombra leggera */
     border-radius: 8px;
     display: flex;
+    justify-content: center;
 }
 
 .nuovascheda{
@@ -162,10 +162,10 @@ input{
 
 .scrollbox{
     width: 400px;
-    margin: 0 auto; /* Centrare il contenitore */
+    margin: 0 auto;
     padding: 0px 30px;
     background-color: transparent;
-    margin-top: 20px; /* Spazio sopra il contenitore */
+    margin-top: 20px;
     display: flex;
     overflow-y: scroll;
     overflow-x: hidden; 
@@ -224,6 +224,8 @@ input{
 
 ::-webkit-scrollbar{
     width: 8px;
+    background-color: #5e0a0a;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -266,7 +268,9 @@ p{
     font-family: Poppins;
     font-weight: 600;
     margin-left: 10px;
+    margin-top: 0;
     color: #e6851e;
+    margin-bottom: -20px;
 }
 
 .popup h2{
@@ -274,6 +278,7 @@ p{
     margin-left: 10px;
     font-weight: 450;
     color: #cc7417;
+    margin-bottom: 5px;
 }
 
 .popup img{
@@ -286,18 +291,19 @@ p{
 .popup h3{
     font-family: Poppins;
     margin-left: 10px;
-    font-weight: bold;
-    margin-top: 10px ;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 0;
     color: #e6851e;
 }
 
 .description{
     font-family: Poppins;
-    width: 90%;
-    height: 200px ;
     margin-left: 10px;
     overflow: auto;
-    color : white
+    color : white;
+    padding-right: 10px;
+    height: 40%;
 }
 
 .overlay{

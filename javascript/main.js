@@ -54,119 +54,59 @@ function changeToPlus() {
 }
 
 function openPopup(popup, overlay){
-    document.getElementById(popup).classList.add("popupactive")
+    document.getElementById(popup).classList.add("popupactive");
     document.getElementById(overlay).classList.add("overlayactive");
 }
 
 function closePopup(popup, overlay){
-    document.getElementById(popup).classList.remove("popupactive")
+    document.getElementById(popup).classList.remove("popupactive");
     document.getElementById(overlay).classList.remove("overlayactive");
 }
 
 let clickcount = 0 ; 
 function FilterAnimation(){
-
-        if ( clickcount % 2 === 0 ){
-        // Primo click: Esegui animazione 1
+    if ( clickcount % 2 === 0 ){
+    // Primo click: Esegui animazione 1
         document.getElementById("bars").classList.add("rotatebars");
         document.getElementById("list").classList.add("list-items-open");
-        }
-        // Secondo click: Esegui animazione 2
-        else{ 
+    }
+    // Secondo click: Esegui animazione 2
+    else{ 
         document.getElementById("bars").classList.remove("rotatebars");
-        document.getElementById("list").classList.remove("list-items-open");
-
-            
-        }
-        clickcount++;
+        document.getElementById("list").classList.remove("list-items-open");     
+    }
+    clickcount++;
 }
 
-let counterPetto = 0 ;
-function CheckBoxPetto(){
+function CheckBox(muscolo){
     var results = document.querySelectorAll('.scrollbox .box-exercise');
-    if (counterPetto % 2 === 0 ){
-        document.getElementById("Petto").classList.add("check-icon-checked"); 
+    if (!document.getElementById(muscolo).classList.contains("check-icon-checked")){
+        document.getElementById(muscolo).classList.remove("check-icon"); 
+        document.getElementById(muscolo).classList.add("check-icon-checked"); 
 
         results.forEach(function(result) {
             var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
-            if (testo_h2 == "petto")
+            var muscolo_lower = muscolo.toLowerCase();
+            if (testo_h2 == muscolo_lower)
                 result.classList.remove('hidden');
-            else
-                result.classList.add('hidden');
         });
     }
-    else{ 
-        document.getElementById("Petto").classList.remove("check-icon-checked");
+    else{
+        //ci deve essere almeno un elemento selezionato nel filtro 
+        var num_caselle_checked = document.querySelectorAll(".check-icon-checked").length;
+        if(num_caselle_checked <= 1)
+            return;
+
+        document.getElementById(muscolo).classList.remove("check-icon-checked");
+        document.getElementById(muscolo).classList.add("check-icon"); 
 
         results.forEach(function(result) {
             var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
-            if (testo_h2 == "petto")
+            var muscolo_lower = muscolo.toLowerCase();
+            if (testo_h2 == muscolo_lower)
                 result.classList.add('hidden');
-            else
-                result.classList.remove('hidden');
         });
     }
-    counterPetto++;
-}
-
-let counterSpalle = 0 ;
-function CheckBoxSpalle(){
-
-    if (counterSpalle % 2 === 0 ){
-        document.getElementById("Spalle").classList.add("check-icon-checked");
-    }
-    else{ 
-        document.getElementById("Spalle").classList.remove("check-icon-checked");
-    }
-    counterSpalle++;
-}
-
-let counterTricipiti = 0 ;
-function CheckBoxTricipiti(){
-
-    if (counterTricipiti % 2 === 0 ){
-        document.getElementById("Tricipiti").classList.add("check-icon-checked");
-    }
-    else{ 
-        document.getElementById("Tricipiti").classList.remove("check-icon-checked");
-    }
-    counterTricipiti++;
-}
-
-let counterAddominali = 0 ;
-function CheckBoxAddominali(){
-
-    if (counterAddominali % 2 === 0 ){
-        document.getElementById("Addominali").classList.add("check-icon-checked");
-    }
-    else{ 
-        document.getElementById("Addominali").classList.remove("check-icon-checked");
-    }
-    counterAddominali++;
-}
-
-let counterBicipiti = 0 ;
-function CheckBoxBicipiti(){
-
-    if (counterBicipiti % 2 === 0 ){
-        document.getElementById("Bicipiti").classList.add("check-icon-checked");
-    }
-    else{ 
-        document.getElementById("Bicipiti").classList.remove("check-icon-checked");
-    }
-    counterBicipiti++;
-}
-
-let counterGambe = 0 ;
-function CheckBoxGambe(){
-
-    if (counterGambe % 2 === 0 ){
-        document.getElementById("Gambe").classList.add("check-icon-checked");
-    }
-    else{ 
-        document.getElementById("Gambe").classList.remove("check-icon-checked");
-    }
-    counterGambe++;
 }
 
 // per la searchbar
@@ -178,10 +118,15 @@ function search() {
     var results = document.querySelectorAll('.scrollbox .box-exercise'); 
     results.forEach(function(result) {
         var testo_h1 = result.querySelector('h1').textContent.toLowerCase();
-        var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
+        var testo_h2 = result.querySelector('h2').textContent;
+        var testo_h2_lower = testo_h2.toLowerCase();
 
-        if (testo_h1.includes(input) || testo_h2.includes(input))
-            result.classList.remove('hidden');
+        //controllo aggiuntivo per fare in modo che se un muscolo NON è selezionato
+        //nel filtro, allora se si prova a cercarlo, esso non appare
+        if (testo_h1.includes(input) || testo_h2_lower.includes(input)){
+            if(document.getElementById(testo_h2).classList.contains("check-icon-checked"))
+                result.classList.remove('hidden');
+        }
         else
             result.classList.add('hidden');
     });

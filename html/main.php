@@ -87,45 +87,63 @@
                 <input type="text" placeholder="Cerca un esercizio..." oninput="search()"> 
                 <button onclick="search()"> <i class="fas fa-search" ></i></button>
             </div>
-            <button class="filter" onclick="FilterAnimation()"> <i id ="bars" class="fa-solid fa-bars" ></i></button>
+            <button id="filter" class="filter" onclick="FilterAnimation()"> <i id ="bars" class="fa-solid fa-bars" ></i></button>
         </div>
-        <div class="contenitore" >
+        <div class="contenitore" id="contenitore_filtro">
         <ul class="list-items" id="list">
-            <li class="item" onclick="CheckBoxPetto()">
+            <li class="item" onclick="CheckBox('Petto')">
                 <span class="checkbox">
-                    <i class="fa-solid fa-check check-icon"  id="Petto"></i>
+                    <i class="fa-solid fa-check check-icon-checked"  id="Petto"></i>
                 </span>
                 <span class="item-text">Petto</span>
             </li>
-            <li class="item" onclick="CheckBoxSpalle()">
+            <li class="item" onclick="CheckBox('Spalle')">
                 <span class="checkbox">
-                    <i class="fa-solid fa-check check-icon" id="Spalle"></i>
+                    <i class="fa-solid fa-check check-icon-checked" id="Spalle"></i>
                 </span>
                 <span class="item-text">Spalle</span>
             </li>
-            <li class="item" onclick="CheckBoxTricipiti()">
+            <li class="item" onclick="CheckBox('Tricipiti')">
                 <span class="checkbox" >
-                    <i class="fa-solid fa-check check-icon" id="Tricipiti"></i>
+                    <i class="fa-solid fa-check check-icon-checked" id="Tricipiti"></i>
                 </span>
                 <span class="item-text">Tricipiti</span>
             </li>
-            <li class="item" onclick="CheckBoxAddominali()" >
-                <span class="checkbox" >
-                    <i class="fa-solid fa-check check-icon" id="Addominali"></i>
+            <li class="item" onclick="CheckBox('Dorso')">
+                <span class="checkbox" > 
+                    <i class="fa-solid fa-check check-icon-checked" id="Dorso"></i>
                 </span>
-                <span class="item-text">Addominali</span>
+                <span class="item-text">Dorso</span>
             </li>
-            <li class="item" onclick="CheckBoxBicipiti()">
+            <li class="item" onclick="CheckBox('Bicipiti')">
                 <span class="checkbox" >
-                    <i class="fa-solid fa-check check-icon" id="Bicipiti"></i>
+                    <i class="fa-solid fa-check check-icon-checked" id="Bicipiti"></i>
                 </span>
                 <span class="item-text">Bicipiti</span>
             </li>
-            <li class="item" onclick="CheckBoxGambe()">
+            <li class="item" onclick="CheckBox('Quadricipiti')">
                 <span class="checkbox" > 
-                    <i class="fa-solid fa-check check-icon" id="Gambe"></i>
+                    <i class="fa-solid fa-check check-icon-checked" id="Quadricipiti"></i>
                 </span>
-                <span class="item-text">Gambe</span>
+                <span class="item-text">Quadricipiti</span>
+            </li>
+            <li class="item" onclick="CheckBox('Femorali')">
+                <span class="checkbox" > 
+                    <i class="fa-solid fa-check check-icon-checked" id="Femorali"></i>
+                </span>
+                <span class="item-text">Femorali</span>
+            </li>
+            <li class="item" onclick="CheckBox('Polpacci')">
+                <span class="checkbox" > 
+                    <i class="fa-solid fa-check check-icon-checked" id="Polpacci"></i>
+                </span>
+                <span class="item-text">Polpacci</span>
+            </li>
+            <li class="item" onclick="CheckBox('Addominali')">
+                <span class="checkbox" >
+                    <i class="fa-solid fa-check check-icon-checked" id="Addominali"></i>
+                </span>
+                <span class="item-text">Addominali</span>
             </li>
         </ul>
     </div>

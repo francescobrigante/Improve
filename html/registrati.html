@@ -5,24 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrazione</title>
         <link rel="stylesheet" type="text/css" href="../css/registrati.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="//code.jquery.com/jquery-3.7.1.js"></script>
         <script src="../javascript/registrati.js"></script>
     </head>
 <body>
+
+    <!-- barra superiore -->
     <div class="barrasup">
-        <a href="./index.html" id="home_container" onmouseover="showOrangeHome()" onmouseout="showOriginalHome()">
-            <img src="../img/home.png" alt="Home" name="home" id="home">
-            <img src="../img/orangehome.png" alt="Home" id="orange_home" style="display: none;">
-        </a>
-        <div class="logo">
-            <img src="../img/logo.png" width=500px >
-        </div>
-        <!-- Spazio vuoto per spaziare i contenuti -->
-        <div></div>
+            <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+            <img src="/img/logo.png">
+            <div></div>
     </div>
+
 
     <!-- corpo -->
     <h1>Registrati</h1>
     <h2>ed inizia a migliorare te stesso </h2>
+
 
     <div class="container">
         <form action="../php/registrati.php" method="post" name="registr" onsubmit="return validaForm();">
@@ -35,8 +35,11 @@
             <input type="text" name="email" id="email">
             <label for="sesso">Sesso</label>
             <br>
-            <input type="radio" name="sesso" id="sesso" value="M" required>Maschio
-            <input type="radio" name="sesso" id="sesso" value="F">Femmina
+                <input type="radio" name="sesso" value="M">
+                <label id="sesso" for="maschio">Maschio</label>
+            <br id="space">
+                <input type="radio" name="sesso" value="F">
+                <label id="sesso" for="femmina">Femmina</label>
             <br>
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
@@ -45,7 +48,7 @@
             <label for="cpassword">Conferma Password</label>
             <input type="password" name="cpassword" id="cpassword">
             <input type="submit" value="Registrati">
-            <div class="registrati">Sei già un membro? <a href="../html/accedi">Accedi</a></div>
+            <div class="registrati">Sei già un membro? <a href="../html/accedi.php">Accedi</a></div>
         </form>
     </div>  
 </body>

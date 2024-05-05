@@ -54,42 +54,37 @@
 
     <!-- barra superiore -->
     <div class="barrasup">
-        <!-- home -->
-        <a href="./index.html" id="home_container" onmouseover="showOrangeHome()" onmouseout="showOriginalHome()">
-            <img src="../img/home.png" alt="Home" name="home" id="home">
-            <img src="../img/orangehome.png" alt="Home" id="orange_home" style="display: none;">
-        </a>
 
-        <!-- logo -->
-        <div class="logo">
-            <img src="../img/logo.png" width=500px >
-        </div>
+        <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+        <img src="/img/logo.png">
 
         <!-- account -->
-        <div class="account" id="account">
-            <img src="../img/account.png" alt="Account" id="icon_account">
-            <img src="../img/orangeaccount.png" alt="Account" id="orange_account" style="display: none;">
-            <div class="dropdown" id="dropdown">
-                <ul>
-                    <li><a href="">Nuova scheda</a></li>
-                    <li><a href="./mieschede.php">Le mie schede</a></li>
-                    <li><a href="../php/logout.php">Log out</a></li>
-                </ul>
-            </div>
-        </div>        
+        <i id="account"class="fa-solid fa-user"></i>            
+        <div class="dropdown" id="dropdown">
+            <ul>
+                <li><a href=""><i class="fa-solid fa-plus"></i> Nuova scheda</a></li>
+                <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
+                <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            </ul>
+        </div>       
     </div> 
 
 
     <!-- barra secondaria -->
-    <div class="barra2">
-            <button class="nuovascheda" onmouseover="changeToNuovaScheda()" onmouseout="changeToPlus()">+</button>
+    <div class="rettangolo">
+        <div class="barra2">
+            <button class="nuovascheda">+ Nuova scheda</button>
+
             <div class="search-bar">
                 <input type="text" placeholder="Cerca un esercizio..." oninput="search()"> 
                 <button onclick="search()"> <i class="fas fa-search" ></i></button>
             </div>
+            
             <button id="filter" class="filter" onclick="FilterAnimation()"> <i id ="bars" class="fa-solid fa-bars" ></i></button>
         </div>
-        <div class="contenitore" id="contenitore_filtro">
+    </div>
+
+    <div class="contenitore" id="contenitore_filtro">
         <ul class="list-items" id="list">
             <li class="item" onclick="CheckBox('Petto')">
                 <span class="checkbox">

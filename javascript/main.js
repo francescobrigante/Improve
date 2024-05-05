@@ -1,13 +1,3 @@
-function showOrangeHome() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("orange_home").style.display = "inline-block";
-}
-
-function showOriginalHome() {
-    document.getElementById("home").style.display = "inline-block";
-    document.getElementById("orange_home").style.display = "none";
-}
-
 //gestione click al di fuori del menu dropdown di account
 document.addEventListener('click', function(event) {
     var dropdown = document.getElementById('dropdown');
@@ -15,7 +5,7 @@ document.addEventListener('click', function(event) {
     
     if (!dropdown.contains(event.target) && !account.contains(event.target)) {
         if ($("#dropdown").css("display") == "block") {
-            $("#dropdown").fadeOut();
+            $("#dropdown").hide();
             $("#icon_account").show();
             $("#orange_account").hide();
         }
@@ -24,49 +14,16 @@ document.addEventListener('click', function(event) {
 
 //gestione animazione account e click
 $(document).ready(function(){
-    $("#account").on({
-        click: function(){
-            //se il menu non è visibile
-            if($("#dropdown").css("display") == "none"){
-                $("#dropdown").css("display", "block");
-                $("#icon_account").hide();
-                $("#orange_account").show();
-            }
-            //se il menu è visibile
-            else{
-                $("#dropdown").fadeOut();
-                $("#icon_account").show();
-                $("#orange_account").hide();                       
-            }
-        },
-
-        mouseenter: function(){
-            $("#icon_account").hide();
-            $("#orange_account").show();                        
-        },
-
-        mouseleave: function(){
-            //per impedire che ritorni bianco quando il menu è aperto e il mouse esce dall'icona
-            if($("#dropdown").css("display") == "none"){
-                $("#icon_account").show();
-                $("#orange_account").hide(); 
-            }
+    $("#account").click(function(){
+        // Se il menu non è visibile
+        if ($("#dropdown").css("display") == "none") {
+            $("#dropdown").css("display", "block");
+        } else { 
+            // Se il menu è visibile
+            $("#dropdown").hide();
         }
     });
-
 });
-
-// Funzione per cambiare il testo del bottone a "Nuova Scheda"
-function changeToNuovaScheda() {
-    const button = document.querySelector('.nuovascheda');
-    button.textContent = 'Nuova scheda';
-}
-
-// Funzione per cambiare il testo del bottone a "+"
-function changeToPlus() {
-    const button = document.querySelector('.nuovascheda');
-    button.textContent = '+';
-}
 
 function openPopup(popup, overlay){
     document.getElementById(popup).classList.add("popupactive");

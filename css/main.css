@@ -3,66 +3,81 @@ html, body{
     padding: 0;
 }
 .barrasup {
-    background-image: url("../img/sfondobarrasup.jpg");
-    padding: 10px 20px; /* spaziatura interna */
-    display: flex; /* allineare contenuti */
-    background-position: center;
-    justify-content: space-between; /* spaziare contenuti */
-    align-items: center; /* centra verticalmente contenuti */
+    background-image: url("../img/sfondobarrasup.jpg"); 
     background-size: cover;
+    display: flex;
     height: 100px;
+    width: 100%;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.barrasup img{
+    width: 400px;
+    max-width: 100%;
 }
 
 #home_container{
-    text-decoration: none; /* rimuove sottolineatura */
-    margin: 0;
-    margin-left: -20px;
-    transform: scale(0.3);
+    color: white;
     transition: color 0.3s;
+    margin-left: 30px;
+    transform: scale(2);
+    cursor: pointer;
 }
 
-.logo {
-    max-width: 100%;
-    height: auto;
-    transform: scale(0.8); 
-    display: flex; 
-    margin : 0 auto; 
+#home_container:hover{
+    color: #e6851e;
 }
 
 #account{
-    margin-right: 20px;
-    transform: scale(0.3);
+    color: white;
+    transform: scale(2);
     transition: color 0.3s;
+    cursor: pointer;
+    margin-right: 30px;
 }
+
+#account:hover{
+    color:#e6851e
+}
+
 .dropdown {
     display: none;
     position: absolute;
-    top: 140px;
-    right: 0;
+    top: 120px;
+    right: 43px;
     border-radius: 20px;
-    background-color: white;
+    background-color: #242424;  /*rgb(59, 55, 55);*/
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    width: 500px;
+    width: 200px;
     height: auto;
+    outline: 2px solid #b76812;
   }
   
 .dropdown ul {
     list-style-type: none;
     padding: 0;
+    margin-top: 5px;
 }
   
 .dropdown ul li {
     padding: 10px;
     font-family: Poppins;
-    font-size: 50px;
+    font-size: 15px;
     font-weight: 400;
     text-align: left;
-    padding-left: 40px;
+    padding-left: 20px;
+    margin-bottom: -10px;
 }
   
 .dropdown ul li a {
     text-decoration: none;
+    color: #ffffff;
+    transition: color 0.2s;
+}
+
+.dropdown ul li a:hover{
     color: #e6851e;
 }
 
@@ -76,35 +91,53 @@ p{
     padding-left: 10px;
 }
 
-.barra2{
+/* .barra2{
     margin: 0 auto;
     padding: 20px 10px ;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+} */
+
+.rettangolo{
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Ombra leggera */
     border-radius: 8px;
     display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+.barra2{
+    width: 80%;
+    padding: 0px 0px 20px;
+    border-radius: 8px; 
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nuovascheda{
-   max-width: 100%;
-   background-color: #1b1b1b;
-   border: none;
-   border-radius: 20px;
-   color: #e6851e;;
-   font-weight: bold;
-   font-size: 30px;
-   cursor: pointer;
-   padding: 3px 17px;
-   margin-right: 20px ;
+    max-width: 100%;
+    background-color: #1b1b1b;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 20px;
+    color: #e6851e;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: color 0.3s;
 }
 
-
 .nuovascheda:hover{
-    border-radius: 20px;
-    font-size: 15px;
-    transition:0.3s;
-    padding: 1px 2px;
+    color: white;
 }
 
 input{
@@ -141,13 +174,12 @@ input{
     }
 
 .filter {
-    padding: 10px 20px;
+    padding: 16px 20px;
     background-color: #1b1b1b;
     font-weight: bold;
     color: #e6851e;
     border-radius: 20px;
     margin-left: 2%;
-    margin-right: 2%;
     border: none;
     cursor: pointer;
     font-size: 20px;
@@ -161,17 +193,18 @@ input{
 
 
 .scrollbox{
-    width: 400px;
+    width: 80%;
     margin: 0 auto;
-    padding: 0px 30px;
+    padding: 0px 20px;
     background-color: transparent;
     margin-top: 20px;
-    display: flex;
     overflow-y: scroll;
     overflow-x: hidden; 
-    height: 500px;
+    height: 69vh;
     border: 0;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
 }
 
 /* per la barra di scorrimento */
@@ -184,10 +217,12 @@ input{
 /* per la barra interna più piccola */
 .scrollbox::-webkit-scrollbar-thumb {
     background-color: #cfcfcf;
+    border-radius: 5px;
 }
 
 .scrollbox img {
     width: 100%;
+    border-radius: 10px;
 }
 
 .box-exercise{
@@ -199,7 +234,6 @@ input{
     cursor: pointer;
     font-size: 30px;
     text-align: left;
-    margin-bottom: 20px;
     border: none;
     background: linear-gradient(to bottom, #232323, #1b1b1b);
 }
@@ -222,13 +256,13 @@ input{
     color: #cc7417;
 }
 
-::-webkit-scrollbar{
+.description::-webkit-scrollbar{
     width: 8px;
     background-color: #5e0a0a;
     border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb{
+.description::-webkit-scrollbar-thumb{
     background-color: #e6851e;
     border-radius: 10px;
 }
@@ -325,8 +359,8 @@ p{
 
 .contenitore{
     position: fixed;
-    top: 30%;
-    left:70%;
+    top: 200px;
+    left:54%;
 }
 
 /* FILTER LIST */
@@ -343,7 +377,6 @@ p{
 }
 .list-items-open{
     display: block;
-
 }
 
 .item{
@@ -393,4 +426,67 @@ p{
 /* classe utlilizzata per nascondere i box che non contengono gli esercizi cercati nella search bar */
 .hidden{
     display: none;
+}
+
+@media(max-width:754px){
+    .scrollbox{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .scrollbox{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .dropdown ul li {
+        font-size: 15px;
+    }
+}
+
+@media(min-width:900px){
+    .scrollbox{
+        width: 710px;
+    }
+    .barra2{
+        width: 710px;
+    }
+}
+
+@media(max-width:571px){
+    .barra2{
+        flex-direction: column;
+    }
+    .nuovascheda{
+        margin-bottom: 15px;
+        width:100%;
+        padding:15px;
+    }
+    .search-bar{
+        margin-bottom: 15px;
+        width: 96.6%;
+    }
+    .filter{
+        width:100%;
+        margin: 0 auto;
+    }
+    .contenitore{
+        position: absolute;
+        top:350px; 
+        margin-left:-140px;
+    }
+    .rettangolo{
+        height: 250px;
+    }
+}
+
+@media(max-width:542px) {
+    .barrasup img{
+        width:60%
+    }
+    #home_container{
+        font-size: 3vw;
+    }
+    #account{
+        font-size: 3vw;
+    }
 }

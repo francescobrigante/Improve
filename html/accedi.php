@@ -4,21 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accedi</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="../css/accedi.css">
         <script src="../javascript/accedi.js"></script>
     </head>
 <body>
     <!-- Barra superiore -->
+    <!-- barra superiore -->
     <div class="barrasup">
-        <a href="./index.html" id="home_container" onmouseover="showOrangeHome()" onmouseout="showOriginalHome()">
-            <img src="../img/home.png" alt="Home" name="home" id="home">
-            <img src="../img/orangehome.png" alt="Home" id="orange_home" style="display: none;">
-        </a>
-        <div class="logo">
-            <img src="../img/logo.png" width=500px >
-        </div>
-        <!-- Spazio vuoto per spaziare i contenuti -->
-        <div></div>
+            <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+            <img src="/img/logo.png">
+            <i> </i><!--serve solo per fare in mod che il logo sia centrale e la casa
+                      a sinistra-->
     </div>
 
     <!-- corpo -->

@@ -8,6 +8,21 @@ function showOriginalHome() {
     document.getElementById("orange_home").style.display = "none";
 }
 
+//gestione click al di fuori del menu dropdown di account
+document.addEventListener('click', function(event) {
+    var dropdown = document.getElementById('dropdown');
+    var account = document.getElementById('account');
+    
+    if (!dropdown.contains(event.target) && !account.contains(event.target)) {
+        if ($("#dropdown").css("display") == "block") {
+            $("#dropdown").fadeOut();
+            $("#icon_account").show();
+            $("#orange_account").hide();
+        }
+    }
+});
+
+//gestione animazione account e click
 $(document).ready(function(){
     $("#account").on({
         click: function(){
@@ -63,20 +78,35 @@ function closePopup(popup, overlay){
     document.getElementById(overlay).classList.remove("overlayactive");
 }
 
-let clickcount = 0 ; 
 function FilterAnimation(){
-    if ( clickcount % 2 === 0 ){
-    // Primo click: Esegui animazione 1
-        document.getElementById("bars").classList.add("rotatebars");
-        document.getElementById("list").classList.add("list-items-open");
+    var bars = document.getElementById("bars");
+    var list = document.getElementById("list");
+
+    if (!bars.classList.contains("rotatebars")){
+        bars.classList.add("rotatebars");
+        list.classList.add("list-items-open");
     }
-    // Secondo click: Esegui animazione 2
     else{ 
-        document.getElementById("bars").classList.remove("rotatebars");
-        document.getElementById("list").classList.remove("list-items-open");     
+        bars.classList.remove("rotatebars");
+        list.classList.remove("list-items-open");     
     }
-    clickcount++;
 }
+
+// gestione click fuori da filtro che implica chiusura filtro
+document.addEventListener('click', function(event) {
+    var contenitore = document.getElementById('contenitore_filtro');
+    var filter = document.getElementById('filter');
+    
+    //se il clic è avvenuto al di fuori del menu a tendina e del pulsante di apertura
+    if (!contenitore.contains(event.target) && !filter.contains(event.target)) {
+       
+        //nascondi il menu se è visibile
+        if (document.getElementById("list").classList.contains("list-items-open")) {
+            document.getElementById("bars").classList.remove("rotatebars");
+            document.getElementById("list").classList.remove("list-items-open");
+        }
+    }
+});
 
 function CheckBox(muscolo){
     var results = document.querySelectorAll('.scrollbox .box-exercise');

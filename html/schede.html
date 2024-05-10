@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Le mie schede</title>
+        <link rel="stylesheet" type="text/css" href="../css/mieschede.css">
+        <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="../javascript/mieschede.js"></script>
+    </head>
+<body>
+
+    <!-- barra superiore -->
+    <div class="barrasup">
+        <!-- home -->
+        <a href="./index.html" id="home_container" onmouseover="showOrangeHome()" onmouseout="showOriginalHome()">
+            <img src="../img/home.png" alt="Home" name="home" id="home">
+            <img src="../img/orangehome.png" alt="Home" id="orange_home" style="display: none;">
+        </a>
+
+        <!-- logo -->
+        <div class="logo">
+            <img src="../img/logo.png" width=500px >
+        </div>
+
+        <!-- account -->
+        <div class="account" id="account">
+            <img src="../img/account.png" alt="Account" id="icon_account">
+            <img src="../img/orangeaccount.png" alt="Account" id="orange_account" style="display: none;">
+            <div class="dropdown" id="dropdown">
+                <ul>
+                    <li><a href="">Nuova scheda</a></li>
+                    <li><a href="./mieschede.html">Le mie schede</a></li>
+                    <li><a href="../php/logout.php">Log out</a></li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+
+    <div class="barra2"> 
+        <button class="nuovascheda" onclick="openPopup()">+ Nuova scheda</button>
+        <h1> Le tue schede </h1>
+    </div>
+    <div class = "container">
+        <div class ="scrollbox" id="scrollbox">
+
+        </div>
+    </div> 
+    
+    <div class="boxaperto"> 
+        <div class ="top">
+        <h4>Nome scheda</h4>
+        <button class="button" id="salva">Salva</button>
+        </div>
+        <button class="button" id="newex" >+ Nuovo Esercizio</button>
+        <div class="contenitoreesercizi"> 
+            <div class="box-exercise">
+                <h2>Panca Piana</h2>
+                <img src="../fotoesercizi/Pettorali/Screenshot_2024.03.30_16.55.31.055.png">
+                <h1> Serie:4 </h1>
+                <h1> Ripetizioni:10</h1>
+                <h1> Recupero:</h1>
+                <h1> 1 m e 30s</h1>
+            </div>
+            <div class="box-exercise">
+                <img src="../fotoesercizi/Pettorali/Screenshot_2024.03.30_16.55.31.055.png">
+                <h1> Serie: </h1>
+            </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="nuovaschedapopup" id="nuovaschedapopup"> 
+        <h1> Nuova scheda</h1>
+            <div class = "input-field" >
+                <div>
+                    <input type="text" name="" required="" id="nomescheda"> 
+                    <label> Inserisci il nome della scheda</label>
+                    <span></span>
+                </div>
+            </div>
+            <button class="button" id="aggiungi" onclick="closePopup()">Aggiungi</button>
+            <button class="button" id="annulla" onclick="closePopup()">Annulla</button>
+    </div>
+    <div id="overlay" class="overlay" onclick="closePopup()"> </div>
+
+    
+
+</body>
+</html>

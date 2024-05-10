@@ -9,6 +9,10 @@
         }
         $username = $_SESSION['username'];
 
+        if (!isset($_SESSION['sesso'])) {
+            $_SESSION['sesso'] = null;
+        }
+
         //connessione al database
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
             die("Connessione fallita: " . pg_last_error());
@@ -25,6 +29,16 @@
                     $esercizi[] = $row;
                 }
             }
+
+            //query per salvare il sesso
+            $query = "SELECT sesso FROM utenti where username='$username'";
+            $result = pg_query($dbconn, $query);
+            
+            if($result){
+                $row = pg_fetch_assoc($result);
+                $_SESSION['sesso'] = $row['sesso']; 
+            }
+                
             pg_close($dbconn);
         }
     ?>
@@ -43,8 +57,20 @@
     </head>
 <body>
 
-    <p>Benvenuto 
-        <?php echo $username; ?>!</p>
+    <!-- benvenuto/a -->
+    <?php
+        if($_SESSION['sesso']=='M'){
+    ?>
+             <p>Benvenuto 
+    <?php
+        }
+        else{
+    ?>
+            <p>Benvenuta 
+   <?php        
+        }
+        echo $username; 
+    ?>!</p>
 
     <!-- barra superiore -->
     <div class="barrasup">

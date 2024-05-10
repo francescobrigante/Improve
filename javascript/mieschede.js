@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
         //fare che non puoi salvare due schede con stesso nome, eliminare eventlistener e sostituirli con altro
         //implementare l'inserimento nel DB della scheda vuota, dopo che un utente preme aggiungi
         //aggiungere overflow y nelle box di esercizi
-        //aggiungere benvenutO o benvenutA in base al sesso
 
 
 

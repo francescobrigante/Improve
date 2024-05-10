@@ -15,14 +15,7 @@
 
         //se la connessione è andata a buon fine, inizio una sessione
         if($dbconn){
-            //verifico se è già attiva una sessione
-            if (session_status() !== PHP_SESSION_ACTIVE){
-                if(!session_start()){
-                    echo "Errore nell'inizializzazione della sessione";
-                    exit;
-                }
-            }
-
+            // query per far visualizzare tutti gli esercizi nel database
             $query = "SELECT * FROM esercizi";
             $result = pg_query($dbconn, $query);
             $esercizi = array();
@@ -42,6 +35,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Improve</title>
+        <link rel="stylesheet" type="text/css" href="../css/barrasup.css">
         <link rel="stylesheet" type="text/css" href="../css/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <script src="//code.jquery.com/jquery-3.7.1.js"></script>

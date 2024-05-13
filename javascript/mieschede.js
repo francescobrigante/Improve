@@ -41,32 +41,39 @@ function closePopupNuovaScheda(){
 function creaBox(){
     closePopupNuovaScheda();
 
-        var nomescheda = document.getElementById("nomescheda").value;
-        //non puoi salvare una scheda senza nome
-        if(nomescheda == ''){
-            alert("Non puoi salvare una scheda senza nome");
-            return;
+    var nomescheda = document.getElementById("nomescheda").value;
+    //non puoi salvare una scheda senza nome
+    if(nomescheda == ''){
+        alert("Non puoi salvare una scheda senza nome");
+        return;
+    }
+    var boxschede = document.querySelectorAll('.box-scheda');
+    var flag = 0; 
+    boxschede.forEach(function(box) {
+        var nome = box.querySelector('h1').textContent;
+        if (nomescheda == nome){
+            flag=1;
         }
-        var boxschede = document.querySelectorAll('.box-scheda');
-        var flag = 0; 
-        boxschede.forEach(function(box) {
-            var nome = box.querySelector('h1').textContent;
-            if (nomescheda == nome){
-                alert("Non puoi salvare due schede con lo stesso nome");
-                return;
-            }
-        });
-        
-        var nuovoElemento = document.createElement("div");
-        nuovoElemento.classList.add("box-scheda");
-        var titolo = document.createElement("h1");
-        titolo.textContent=nomescheda;
-        nuovoElemento.appendChild(titolo);
-        var contenitore = document.getElementById("scrollbox");
-        contenitore.appendChild(nuovoElemento);
-        nuovoElemento.addEventListener("click",function(){
-            document.getElementById("overlay").classList.add("overlayactive");
     });
+
+    if(flag){
+        alert("Non puoi salvare due schede con lo stesso nome");
+        document.getElementById("nomescheda").value = "";
+        return;
+    }
+        
+    var nuovoElemento = document.createElement("div");
+    nuovoElemento.classList.add("box-scheda");
+    var titolo = document.createElement("h1");
+    titolo.textContent=nomescheda;
+    nuovoElemento.appendChild(titolo);
+    var contenitore = document.getElementById("scrollbox");
+    //serve per cancellare il contenuto dell input field
+    document.getElementById("nomescheda").value = "";
+    contenitore.appendChild(nuovoElemento);
+    nuovoElemento.addEventListener("click",function(){
+        document.getElementById("overlay").classList.add("overlayactive");
+});
 
 }
 

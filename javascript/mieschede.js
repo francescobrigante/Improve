@@ -35,65 +35,80 @@ function closePopupNuovaScheda(){
     document.getElementById("overlay").classList.remove("overlayactive");
 }
 
+//fare che non puoi salvare due schede con stesso nome, eliminare eventlistener e sostituirli con altro
+//implementare l'inserimento nel DB della scheda vuota, dopo che un utente preme aggiungi
+//aggiungere overflow y nelle box di esercizi
 function creaBox(){
     closePopupNuovaScheda();
-}
 
-document.addEventListener("DOMContentLoaded", function() {
-    var button = document.getElementById("aggiungi");
-    var contenitore = document.getElementById("scrollbox");
-    var annulla = document.getElementById("annulla");
-    var nomescheda = document.getElementById("nomescheda").value;
-
-    button.addEventListener("click", function() {
         var nomescheda = document.getElementById("nomescheda").value;
         //non puoi salvare una scheda senza nome
-        if( nomescheda == '')
+        if(nomescheda == ''){
+            alert("Non puoi salvare una scheda senza nome");
             return;
-
-
-
-
-
-
-
-
-        //fare che non puoi salvare due schede con stesso nome, eliminare eventlistener e sostituirli con altro
-        //implementare l'inserimento nel DB della scheda vuota, dopo che un utente preme aggiungi
-        //aggiungere overflow y nelle box di esercizi
-
-
-
-
-
-
-        //non puoi salvare una scheda con un determinato nome se ne esiste una con tale nome
+        }
         var boxschede = document.querySelectorAll('.box-scheda');
         var flag = 0; 
         boxschede.forEach(function(box) {
             var nome = box.querySelector('h1').textContent;
-            if (nomescheda == nome)
-                flag=1;
+            if (nomescheda == nome){
+                alert("Non puoi salvare due schede con lo stesso nome");
+                return;
+            }
         });
         
-        if(flag){
-            alert("suca");
-            return;
-        }
-
         var nuovoElemento = document.createElement("div");
         nuovoElemento.classList.add("box-scheda");
-        var titolo = document.createElement("h3")
-        titolo.textContent=document.getElementById("nomescheda").value
+        var titolo = document.createElement("h1");
+        titolo.textContent=nomescheda;
         nuovoElemento.appendChild(titolo);
+        var contenitore = document.getElementById("scrollbox");
         contenitore.appendChild(nuovoElemento);
-        nomescheda = document.getElementById("nomescheda").value="";
         nuovoElemento.addEventListener("click",function(){
             document.getElementById("overlay").classList.add("overlayactive");
     });
-});
 
-    annulla.addEventListener("click",function(){
-        nomescheda = document.getElementById("nomescheda").value="";
-        });
-});
+}
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var button = document.getElementById("aggiungi");
+//     var contenitore = document.getElementById("scrollbox");
+//     var annulla = document.getElementById("annulla");
+//     var nomescheda = document.getElementById("nomescheda").value;
+
+//     button.addEventListener("click", function() {
+//         var nomescheda = document.getElementById("nomescheda").value;
+//         //non puoi salvare una scheda senza nome
+//         if( nomescheda == '')
+//             return;
+
+//         //non puoi salvare una scheda con un determinato nome se ne esiste una con tale nome
+//         var boxschede = document.querySelectorAll('.box-scheda');
+//         var flag = 0; 
+//         boxschede.forEach(function(box) {
+//             var nome = box.querySelector('h1').textContent;
+//             if (nomescheda == nome)
+//                 flag=1;
+//         });
+        
+//         if(flag){
+//             alert("suca");
+//             return;
+//         }
+
+//         var nuovoElemento = document.createElement("div");
+//         nuovoElemento.classList.add("box-scheda");
+//         var titolo = document.createElement("h3")
+//         titolo.textContent=document.getElementById("nomescheda").value
+//         nuovoElemento.appendChild(titolo);
+//         contenitore.appendChild(nuovoElemento);
+//         nomescheda = document.getElementById("nomescheda").value="";
+//         nuovoElemento.addEventListener("click",function(){
+//             document.getElementById("overlay").classList.add("overlayactive");
+//     });
+// });
+
+//     annulla.addEventListener("click",function(){
+//         nomescheda = document.getElementById("nomescheda").value="";
+//         });
+// });

@@ -104,6 +104,7 @@ function search() {
     var input = document.querySelector('.search-bar input').value.toLowerCase();
     var results = document.querySelectorAll('.scrollbox .box-exercise'); 
     results.forEach(function(result) {
+        //displayfew();
         var testo_h1 = result.querySelector('h1').textContent.toLowerCase();
         var testo_h2 = result.querySelector('h2').textContent;
         var testo_h2_lower = testo_h2.toLowerCase();
@@ -117,4 +118,29 @@ function search() {
         else
             result.classList.add('hidden');
     });
+}
+
+function displayfew() {
+    var container = document.getElementById("scrollbox");
+    var items = document.querySelectorAll('.box-exercise');
+    
+    // Conta il numero di elementi visibili
+    var visibleItemCount = 0;
+    items.forEach(function(item) {
+        if (item.offsetHeight > 0) {
+            visibleItemCount++;
+        }
+    });
+    
+    // Se la maggior parte degli elementi è nascosta, applica una classe per cambiare la disposizione
+    if (visibleItemCount <= 3) {
+        container.classList.add('minor3');
+    }
+    else{
+        container.classList.remove('minor3');
+    }
+};
+
+function GoToMieSchede(){
+    window.location.href= './mieschede.php';
 }

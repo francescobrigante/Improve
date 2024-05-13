@@ -19,7 +19,14 @@
 
         //se la connessione è andata a buon fine, inizio una sessione
         if($dbconn){
-            // query per far visualizzare tutti gli esercizi nel database
+            //verifico se è già attiva una sessione
+            if (session_status() !== PHP_SESSION_ACTIVE){
+                if(!session_start()){
+                    echo "Errore nell'inizializzazione della sessione";
+                    exit;
+                }
+            }
+
             $query = "SELECT * FROM esercizi";
             $result = pg_query($dbconn, $query);
             $esercizi = array();
@@ -29,39 +36,25 @@
                     $esercizi[] = $row;
                 }
             }
-
+            
             //query per salvare il sesso
             $query = "SELECT sesso FROM utenti where username='$username'";
             $result = pg_query($dbconn, $query);
-            
+
             if($result){
                 $row = pg_fetch_assoc($result);
                 $_SESSION['sesso'] = $row['sesso']; 
             }
-                
+
             pg_close($dbconn);
         }
     ?>
-    
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Improve</title>
-        <link rel="stylesheet" type="text/css" href="../css/barrasup.css">
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <script src="//code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="../javascript/main.js"></script>
-    </head>
-<body>
 
     <!-- benvenuto/a -->
     <?php
         if($_SESSION['sesso']=='M'){
     ?>
-             <p>Benvenuto 
+            <p>Benvenuto 
     <?php
         }
         else{
@@ -72,17 +65,30 @@
         echo $username; 
     ?>!</p>
 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Improve</title>
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="../javascript/main.js"></script>
+    </head>
+<body>
+
     <!-- barra superiore -->
     <div class="barrasup">
 
         <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
-        <img src="/img/logo.png">
+        <img src="../img/logo.png">
 
         <!-- account -->
         <i id="account"class="fa-solid fa-user"></i>            
         <div class="dropdown" id="dropdown">
             <ul>
-                <li><a href=""><i class="fa-solid fa-plus"></i> Nuova scheda</a></li>
                 <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
                 <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
             </ul>
@@ -93,7 +99,7 @@
     <!-- barra secondaria -->
     <div class="rettangolo">
         <div class="barra2">
-            <button class="nuovascheda">+ Nuova scheda</button>
+        <button class="nuovascheda" onclick="GoToMieSchede()">+ Nuova scheda </button>
 
             <div class="search-bar">
                 <input type="text" placeholder="Cerca un esercizio..." oninput="search()"> 
@@ -104,8 +110,9 @@
         </div>
     </div>
 
+
     <div class="contenitore" id="contenitore_filtro">
-        <ul class="list-items" id="list">
+         <ul class="list-items" id="list">
             <li class="item" onclick="CheckBox('Petto')">
                 <span class="checkbox">
                     <i class="fa-solid fa-check check-icon-checked"  id="Petto"></i>
@@ -163,7 +170,7 @@
         </ul>
     </div>
 
-    <div class="scrollbox">
+    <div class="scrollbox" id="scrollbox">
         <?php foreach ($esercizi as $esercizio): ?>
             <button class="box-exercise" onclick="openPopup('popup_<?php echo $esercizio['nome']; ?>', 'overlay_<?php echo $esercizio['nome']; ?>')">  
                 <h1><?php echo $esercizio['nome']; ?></h1>

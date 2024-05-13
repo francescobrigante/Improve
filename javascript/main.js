@@ -104,7 +104,7 @@ function search() {
     var input = document.querySelector('.search-bar input').value.toLowerCase();
     var results = document.querySelectorAll('.scrollbox .box-exercise'); 
     results.forEach(function(result) {
-        //displayfew();
+        displayfew();
         var testo_h1 = result.querySelector('h1').textContent.toLowerCase();
         var testo_h2 = result.querySelector('h2').textContent;
         var testo_h2_lower = testo_h2.toLowerCase();

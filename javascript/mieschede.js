@@ -119,3 +119,16 @@ function creaBox(){
 //         nomescheda = document.getElementById("nomescheda").value="";
 //         });
 // });
+
+
+
+function Open3Dots(id){
+        document.getElementById(id + "overlay").classList.add("overlay3dotsactive"); 
+        document.getElementById(id).classList.add("DD3Dactive");
+}
+
+function Close3Dots(id){
+    document.getElementById(id + "overlay").classList.remove("overlay3dotsactive"); 
+    document.getElementById(id).classList.remove("DD3Dactive");
+}
+

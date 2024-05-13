@@ -1,4 +1,6 @@
-  .barra_secondaria{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.barra_secondaria{
     margin: 0 auto; /* Centrare il contenitore */
     padding: 20px 20px ;
     display: flex;
@@ -35,7 +37,7 @@ h1{
 }
 
 .scrollbox{
-    width: 40%; /* Larghezza del contenitore */
+    width: 50%; /* Larghezza del contenitore */
     margin: 0 auto; /* Centrare il contenitore */
     padding: 20px 10px ;
     background-color: transparent;
@@ -59,13 +61,16 @@ h1{
 }
 
 .box-scheda{
-    width: 80%;
+    width: 60%;
     padding: 10px 20px;
     font-weight: bold;
     color: #e6851e;
     border-radius: 25px;
     cursor: pointer;
     font-size: 30px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     text-align: left;
     margin-top: 10px;
     margin-left: 5px;
@@ -73,6 +78,87 @@ h1{
     background-color: #1b1b1b;
     border: none;
 }
+
+.box-scheda h2{
+    font-size: 20px;
+    font-family: Poppins, sans-serif;
+    margin-top: -45px;
+}
+
+.first3{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 65%;
+}
+
+#ThreeDots{
+    position: absolute;
+    top: 5%;
+    left:87%;
+    cursor: pointer;
+}
+
+.DropDown3Dots{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 15%; 
+        left :85%;
+        border-radius: 20px;
+        background-color: #242424;  /*rgb(59, 55, 55);*/
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        height: 80px;
+        width: 132px;
+        outline: 4px solid #b76812;
+        transform:  scale(0) ;
+        z-index: 10;
+      }
+
+.DD3Dactive{
+    transform:  scale(1) ;
+}
+
+.overlay3dots{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: transparent;
+    transition: 200ms ease-in-out;
+    pointer-events: none;
+}
+.overlay3dotsactive{
+    opacity: 1 ; 
+    pointer-events: all;
+}
+
+.DropDown3Dots ul {
+        
+    list-style-type: none;
+    padding: 0;
+    margin-top: 2px;
+    }
+      
+.DropDown3Dots ul li {
+    padding: 10px;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: -10px;
+    color: #ffffff;
+    transition: color 0.2s;
+}
+
+.DropDown3Dots ul li:hover{
+    color: #e6851e;
+}
+    
+      
 
 
 .nuovaschedapopup{
@@ -196,6 +282,7 @@ h3{
     width: 330px;
     border-radius: 30px;
 }
+
 
 .top {
     display: flex;

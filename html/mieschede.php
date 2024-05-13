@@ -10,7 +10,7 @@
         $username = $_SESSION['username'];
 
         //connessione al database
-        $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
+        $dbconn = pg_connect("host=localhost port=3000 dbname=Improve user=postgres password=admin") or 
             die("Connessione fallita: " . pg_last_error());
 
         //se la connessione è andata a buon fine, inizio una sessione
@@ -46,7 +46,7 @@
     <div class="barrasup">
 
     <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
-    <img src="/img/logo.png">
+    <img src="../img/logo.png">
 
     <!-- account -->
     <i id="account"class="fa-solid fa-user"></i>            
@@ -69,6 +69,14 @@
     <?php foreach ($nomischede as $scheda): ?>
         <div class="box-scheda">
             <h1><?php echo $scheda['nomescheda'];?></h1>
+            <i class="fa-solid fa-ellipsis" id="ThreeDots" onclick="Open3Dots('<?php echo $scheda['nomescheda'] . '3Dots'; ?>')"></i>
+            <div class = "DropDown3Dots" id="<?php echo $scheda['nomescheda'] . '3Dots'; ?>" >
+                 <ul>
+                    <li><i class="fa-solid fa-pen" ></i>  Rinomina</li>
+                    <li><i class="fa-solid fa-trash"></i>  Elimina</li>
+                </ul>
+            </div>
+            <div class="first3">
             <?php 
             // query per selezionare i primi 3 esercizi di ogni scheda e farli visualizzare nel box
             $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' order by posizione LIMIT 3";
@@ -77,16 +85,20 @@
             if ($result) {
                 while ($tupla = pg_fetch_assoc($result)) {
                     if($tupla['numeroesercizi'] != 0) {  //cioè se ci sono elementi nella query, quindi la scheda non è vuota
-            ?>
-                <h2><?php echo $tupla['nomeesercizio']; ?>: <?php echo $tupla['serie']; ?>x<?php echo $tupla['ripetizioni']; ?></h2>
+            ?>  
+                <h2><?php echo $tupla['nomeesercizio']; ?>: <?php echo $tupla['serie']; ?>x<?php echo $tupla['ripetizioni']; ?></h2><br>
             <?php
                     }
                 }
             }
             ?>
+            </div>
         </div>
+        <div class="overlay3dots" id="<?php echo $scheda['nomescheda'] . '3Dots' . 'overlay'; ?>" onclick="Close3Dots('<?php echo $scheda['nomescheda'] . '3Dots'; ?>')"></div>
     <?php endforeach;?>
 </div>
+
+
 
 
     <!-- popup scheda aperta con esercizi -->

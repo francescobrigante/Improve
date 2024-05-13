@@ -52,8 +52,7 @@
     <i id="account"class="fa-solid fa-user"></i>            
     <div class="dropdown" id="dropdown">
         <ul>
-            <li><a href=""><i class="fa-solid fa-plus"></i> Nuova scheda</a></li>
-            <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
+            <li><a href="./main.php"><i class="fa-solid fa-folder"></i> Archivio Esercizi</a></li>
             <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
         </ul>
     </div>       

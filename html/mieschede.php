@@ -10,7 +10,7 @@
         $username = $_SESSION['username'];
 
         //connessione al database
-        $dbconn = pg_connect("host=localhost port=3000 dbname=Improve user=postgres password=admin") or 
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
             die("Connessione fallita: " . pg_last_error());
 
         //se la connessione è andata a buon fine, inizio una sessione

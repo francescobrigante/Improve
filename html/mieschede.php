@@ -8,6 +8,7 @@
             exit();
         }
         $username = $_SESSION['username'];
+        //ciao
 
         //connessione al database
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
@@ -68,12 +69,12 @@
     <div class="scrollbox" id="scrollbox">
     <?php foreach ($nomischede as $scheda): ?>
         <div class="box-scheda">
-            <h1><?php echo $scheda['nomescheda'];?></h1>
+            <h1 onclick="openScheda()"><?php echo $scheda['nomescheda'];?></h1>
             <i class="fa-solid fa-ellipsis" id="ThreeDots" onclick="Open3Dots('<?php echo $scheda['nomescheda'] . '3Dots'; ?>')"></i>
             <div class = "DropDown3Dots" id="<?php echo $scheda['nomescheda'] . '3Dots'; ?>" >
                  <ul>
-                    <li><i class="fa-solid fa-pen" ></i>  Rinomina</li>
-                    <li><i class="fa-solid fa-trash"></i>  Elimina</li>
+                    <li onclick="openPopupRinominaScheda('<?php echo $scheda['nomescheda']?>')"><i class="fa-solid fa-pen" ></i>  Rinomina</li>
+                    <li onclick="openPopupEliminaScheda('<?php echo $scheda['nomescheda'] ?>3Dots','<?php echo $scheda['nomescheda'] ?>')" ><i class="fa-solid fa-trash" ></i>  Elimina </li>
                 </ul>
             </div>
             <div class="first3">
@@ -95,11 +96,33 @@
             </div>
         </div>
         <div class="overlay3dots" id="<?php echo $scheda['nomescheda'] . '3Dots' . 'overlay'; ?>" onclick="Close3Dots('<?php echo $scheda['nomescheda'] . '3Dots'; ?>')"></div>
+
+        <!--POPUP ELIMINA SCHEDA-->
+        <div class ="eliminaschedapopup" id="eliminaschedapopup<?php echo $scheda['nomescheda']?>">
+            <h1> Elimina scheda </h1>
+            <h2> Sei sicuro di voler eliminare la scheda: <?php echo $scheda['nomescheda']; ?>?</h2>
+            <button class="button" onclick="eliminaScheda('<?php echo $scheda['nomescheda'];?>')">Sì</button> <!--ELIMINA SCHEDA DA IMPLEMENTARE -->
+            <button class="button" id="noelimina" onclick="closePopupEliminaScheda('<?php echo $scheda['nomescheda'];?>')">No</button>
+        </div>
     <?php endforeach;?>
+        <div id="overlayelimina" class="overlayelimina" onclick="closePopupEliminaScheda()"> </div>
+
+        <!-- popup rinomina -->
+        <div class="rinominaschedapopup" id="rinominaschedapopup"> 
+        <h1> Rinomina scheda</h1>
+            <div class = "input-field" >
+                <div>
+                    <input type="text" name="" required="" id="rinomina"> 
+                    <label>Rinomina la scheda</label>
+                    <span></span>
+                </div>
+            </div>
+            <button class="button" id="Rinomina" onclick="rinominaScheda()">Rinomina</button>
+            <button class="button" onclick="closePopupRinominaScheda()">Annulla</button>
+        </div>
+
+    <div id="overlayrinomina" class="overlayrinomina" onclick="closePopupRinominaScheda()"> </div>
 </div>
-
-
-
 
     <!-- popup scheda aperta con esercizi -->
     <div class="boxaperto" id="boxaperto" style="display: none;"> 
@@ -135,9 +158,10 @@
                     <span></span>
                 </div>
             </div>
+
             <button class="button" id="aggiungi" onclick="creaBox()">Aggiungi</button>
             <button class="button" id="annulla" onclick="closePopupNuovaScheda()">Annulla</button>
-    </div>
+        </div>
 
     <div id="overlay" class="overlay" onclick="closePopupNuovaScheda()"> </div>
 </body>

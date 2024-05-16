@@ -42,7 +42,7 @@
                 $result_inserimento = pg_query_params($dbconn, $query_inserimento, array($nome, $cognome, $email, $sesso, $username, $password));
 
                 if($result_inserimento)
-                    echo "Registrazione avvenuta";
+                    header("Location: ../html/registrasucc.html");
                 else
                     die ("Errore");
             }

@@ -11,7 +11,7 @@
         //ciao
 
         //connessione al database
-        $dbconn = pg_connect("host=localhost port=3000 dbname=Improve user=postgres password=admin") or 
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
             die("Connessione fallita: " . pg_last_error());
 
         //se la connessione è andata a buon fine, inizio una sessione
@@ -69,7 +69,7 @@
     <div class="scrollbox" id="scrollbox">
     <?php foreach ($nomischede as $scheda): ?>
         <div class="box-scheda">
-            <h1 onclick="openScheda('<?php echo $scheda['nomescheda'];?>')"><?php echo $scheda['nomescheda'];?></h1>
+            <h1 onclick="openScheda('<?php echo $scheda['nomescheda']?>')"><?php echo $scheda['nomescheda'];?></h1>
             <i class="fa-solid fa-ellipsis" id="ThreeDots" onclick="Open3Dots('<?php echo $scheda['nomescheda'] . '3Dots'; ?>')"></i>
             <div class = "DropDown3Dots" id="<?php echo $scheda['nomescheda'] . '3Dots'; ?>" >
                  <ul>
@@ -104,35 +104,50 @@
             <button class="button" onclick="eliminaScheda('<?php echo $scheda['nomescheda'];?>')">Sì</button> <!--ELIMINA SCHEDA DA IMPLEMENTARE -->
             <button class="button" id="noelimina" onclick="closePopupEliminaScheda('<?php echo $scheda['nomescheda'];?>')">No</button>
         </div>
-    <!--Interno Scheda -->
 
-      <!-- popup scheda aperta con esercizi -->
-      <div class="boxaperto" id="<?php echo $scheda['nomescheda'];?>" style="display: none;"> 
+        <!-- popup scheda aperta con esercizi -->
+        <div class="boxaperto" id="<?php echo $scheda['nomescheda'];?>" style="display: none;"> 
         <div class ="top">
             <h4><?php echo $scheda['nomescheda'];?></h4>
         </div>
         <button class="button" id="newex" >+ Nuovo Esercizio</button>
-        <div class="contenitoreesercizi"> 
+        <div class="contenitoreesercizi">
+            
+            <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
+
+
+
+
+
+
+            
             <div class="box-exercise">
                 <h1>Panca Piana </h1>
                 <h2>Petto</h2>
                 <h3>3 x 10 - 90s</h3> 
                 <button class ="button" id="rimuovies"><i class="fa-solid fa-xmark"></i></button>
             </div> 
-            <div class="box-exercise">
-            </div> 
-            </div>
+            <div class="box-exercise"></div> 
+
+
+
+
+
+
+
+
+        </div>
+
         <button class="button" id="salva" >Salva</button>
-        <button class="button" id="annulla" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')">Annulla</button>
+        <button class="button" id="annulla_popupscheda" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')">Annulla</button>
     </div>
 
     <!--overlay per le schede--> 
     <div id="<?php echo $scheda['nomescheda'].'overlay';?>" class= "overlay" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')"> </div>
 
-
-
-
     <?php endforeach;?>
+
+    
         <div id="overlayelimina" class="overlayelimina" onclick="closePopupEliminaScheda()"> </div>
 
         <!-- popup rinomina -->
@@ -152,7 +167,6 @@
     <div id="overlayrinomina" class="overlayrinomina" onclick="closePopupRinominaScheda()"> </div>
 </div>
 
-  
 
     <!-- popup creazione scheda -->
     <div class="nuovaschedapopup" id="nuovaschedapopup"> 

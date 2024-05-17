@@ -15,7 +15,7 @@
             echo "Errore durante l'inserimento della scheda.";
         }
 
-        header("Location:../html/mieschede.php");
+        // header("Location:../html/mieschede.php");
 
         // Chiudi la connessione al database
         pg_close($dbconn);

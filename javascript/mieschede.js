@@ -221,3 +221,13 @@ function CloseScheda(id){
     document.getElementById(id+"overlay").classList.remove("overlayactive");
     document.getElementById(id).style.display="none";
 }
+
+// database esercizi
+function closePopupDB() {
+    document.getElementById("dbesercizi").style.display = "none";
+}
+
+function openDB(nomescheda) {
+    document.getElementById("dbesercizi").style.display = "block";
+    CloseScheda(nomescheda);
+}

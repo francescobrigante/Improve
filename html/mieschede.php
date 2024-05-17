@@ -37,6 +37,7 @@
         <title>Le mie schede</title>
         <link rel="stylesheet" type="text/css" href="../css/barrasup.css">
         <link rel="stylesheet" type="text/css" href="../css/mieschede.css">
+        <link rel="stylesheet" type="text/css" href="../css/mieschede_dbesercizi.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <script src="//code.jquery.com/jquery-3.7.1.js"></script>
         <script src="../javascript/mieschede.js"></script>
@@ -95,6 +96,7 @@
             ?>
             </div>
         </div>
+
         <div class="overlay3dots" id="<?php echo $scheda['nomescheda'] . '3Dots' . 'overlay'; ?>" onclick="Close3Dots('<?php echo $scheda['nomescheda'] . '3Dots'; ?>')"></div>
 
         <!--POPUP ELIMINA SCHEDA-->
@@ -107,15 +109,15 @@
 
         <!-- popup scheda aperta con esercizi -->
         <div class="boxaperto" id="<?php echo $scheda['nomescheda'];?>" style="display: none;"> 
-        <div class ="top">
-            <h4><?php echo $scheda['nomescheda'];?></h4>
-        </div>
-        <button class="button" id="newex" >+ Nuovo Esercizio</button>
-        <div class="contenitoreesercizi">
+            <div class ="top">
+                <h4><?php echo $scheda['nomescheda'];?></h4>
+            </div>
+            <button class="button" id="newex" onclick="openDB('<?php echo $scheda['nomescheda'];?>')">+ Nuovo Esercizio</button>
+            <div class="contenitoreesercizi">
             
             <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
             <?php
-                $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "'";
+                $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "' ORDER BY posizione";
                 $result = pg_query($dbconn, $query);
 
                 if (!$result) {
@@ -126,36 +128,27 @@
                 $schedeUtente = pg_fetch_all($result);
             ?>
 
-            <?php foreach($schedeUtente as $scheda): ?>
-                
-            <?php endforeach;?>
+            <?php if ($schedeUtente): ?>
+                <?php foreach($schedeUtente as $scheda): ?>
+                    <!-- non aggiungiamo gli esercizi per una scheda che ha 0 esercizi -->
+                    <?php if ($scheda['numeroesercizi'] > 0): ?>
+                        <div class="box-exercise">
+                            <h1><?php echo htmlspecialchars($scheda['nomeesercizio']); ?></h1>
+                            <h2><?php echo htmlspecialchars($scheda['nomeesercizio']); ?></h2>
+                            <h3><?php echo htmlspecialchars($scheda['serie']); ?> x <?php echo htmlspecialchars($scheda['ripetizioni']); ?> - <?php echo htmlspecialchars($scheda['recupero']); ?>s</h3>
+                            <button class="button" id="rimuovies"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
-
-
-            
-            <div class="box-exercise">
-                <h1>Panca Piana </h1>
-                <h2>Petto</h2>
-                <h3>3 x 10 - 90s</h3> 
-                <button class ="button" id="rimuovies"><i class="fa-solid fa-xmark"></i></button>
-            </div> 
-            <div class="box-exercise"></div> 
-
-
-
-
-
-
-
-
+            </div>
+            <button class="button" id="salva" >Salva</button>
+            <button class="button" id="annulla_popupscheda" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')">Annulla</button>
         </div>
 
-        <button class="button" id="salva" >Salva</button>
-        <button class="button" id="annulla_popupscheda" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')">Annulla</button>
-    </div>
-
-    <!--overlay per le schede--> 
-    <div id="<?php echo $scheda['nomescheda'].'overlay';?>" class= "overlay" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')"> </div>
+        <!--overlay per le schede--> 
+        <div id="<?php echo $scheda['nomescheda'].'overlay';?>" class= "overlay" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')"> </div>
 
     <?php endforeach;?>
 
@@ -164,7 +157,7 @@
 
         <!-- popup rinomina -->
         <div class="rinominaschedapopup" id="rinominaschedapopup"> 
-        <h1> Rinomina scheda</h1>
+            <h1> Rinomina scheda</h1>
             <div class = "input-field" >
                 <div>
                     <input type="text" name="" required="" id="rinomina"> 
@@ -177,7 +170,6 @@
         </div>
 
     <div id="overlayrinomina" class="overlayrinomina" onclick="closePopupRinominaScheda()"> </div>
-</div>
 
 
     <!-- popup creazione scheda -->
@@ -196,6 +188,37 @@
         </div>
 
     <div id="overlay" class="overlay" onclick="closePopupNuovaScheda()"> </div>
+
+    <!-- popup database esercizi -->
+    <div class="dbesercizi" id="dbesercizi" style="display: none">
+        <button class="" id="chiudidb" onclick="closePopupDB()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contenitoredb">
+        <?php
+            $query = "SELECT * FROM esercizi";
+            $result = pg_query($dbconn, $query);
+
+            if (!$result) {
+                echo "Errore nella query: " . pg_last_error();
+                exit;
+            }
+
+            $esercizi = pg_fetch_all($result);
+        ?>
+
+        <?php if ($esercizi): ?>
+            <?php foreach($esercizi as $esercizio): ?>
+                <div class="box-db">
+                    <h1><?php echo htmlspecialchars($esercizio['nome']); ?></h1>
+                    <img src="<?php echo htmlspecialchars($esercizio['immagine']); ?>" alt="">
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="closePopupDB()"> </div>
+
+
 </body>
 </html>
 

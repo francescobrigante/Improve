@@ -33,6 +33,7 @@ function openPopupNuovaScheda(){
 function closePopupNuovaScheda(){
     document.getElementById("nuovaschedapopup").classList.remove("nuovaschedapopupactive")
     document.getElementById("overlay").classList.remove("overlayactive");
+    document.getElementById("boxaperto").style.display="none";
 }
 
 
@@ -220,6 +221,12 @@ function rinominaScheda(){
     xhr.send(params); 
 }
 
-function openScheda(){
-    document.getElementById("overlay").classList.add("overlayactive");
+function openScheda(id){
+    document.getElementById(id+"overlay").classList.add("overlayactive");
+    document.getElementById(id).style.display="block";
+}
+
+function CloseScheda(id){
+    document.getElementById(id+"overlay").classList.remove("overlayactive");
+    document.getElementById(id).style.display="none";
 }

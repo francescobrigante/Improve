@@ -114,9 +114,21 @@
         <div class="contenitoreesercizi">
             
             <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
+            <?php
+                $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "'";
+                $result = pg_query($dbconn, $query);
 
+                if (!$result) {
+                    echo "Errore nella query: " . pg_last_error();
+                    exit;
+                }
 
+                $schedeUtente = pg_fetch_all($result);
+            ?>
 
+            <?php foreach($schedeUtente as $scheda): ?>
+                
+            <?php endforeach;?>
 
 
 

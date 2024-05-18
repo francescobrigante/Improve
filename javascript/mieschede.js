@@ -33,6 +33,7 @@ function openPopupNuovaScheda(){
 function closePopupNuovaScheda(){
     document.getElementById("nuovaschedapopup").classList.remove("nuovaschedapopupactive")
     document.getElementById("overlay").classList.remove("overlayactive");
+    document.getElementById("boxaperto").style.display="none";
 }
 
 
@@ -192,6 +193,17 @@ function rinominaScheda(){
         return;
     }
 
+    closePopupRinominaScheda();
+
+    //parte per rinominare l'elemento del DOM
+    var boxes = document.querySelectorAll('.box-scheda');
+    boxes.forEach(function(box) {
+        var testo_h1 = box.querySelector('h1').textContent;
+        if(testo_h1 == nomescheda){
+            box.querySelector('h1').textContent = nuovonome;
+        }
+    });
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/nuovascheda.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -199,7 +211,6 @@ function rinominaScheda(){
         if (xhr.readyState === 4 && xhr.status === 200) {
             // Gestisci la risposta del server se necessario
             console.log('Richiesta inviata con successo.');
-            location.reload();
         } else if (xhr.readyState === 4 && xhr.status !== 200) {
             // Gestisci gli errori se la richiesta non è stata inviata
             console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
@@ -207,9 +218,7 @@ function rinominaScheda(){
     };
 
     var params = "rinominascheda1=" + encodeURIComponent(nomescheda) + "&rinominascheda2=" + encodeURIComponent(nuovonome);
-    xhr.send(params);
-
-    closePopupRinominaScheda();
+    xhr.send(params); 
 }
 
 function openScheda(id){
@@ -220,14 +229,4 @@ function openScheda(id){
 function CloseScheda(id){
     document.getElementById(id+"overlay").classList.remove("overlayactive");
     document.getElementById(id).style.display="none";
-}
-
-// database esercizi
-function closePopupDB() {
-    document.getElementById("dbesercizi").style.display = "none";
-}
-
-function openDB(nomescheda) {
-    document.getElementById("dbesercizi").style.display = "block";
-    CloseScheda(nomescheda);
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 .barrasup {
     background-image: url("../img/sfondobarrasup.jpg");
     padding: 10px 20px; /* spaziatura interna */
@@ -137,15 +139,16 @@ input[type="radio"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to bottom, white, #eeeeee);
-    padding: 15px 40px ;
+    background-color: black;
+    border: 7px solid #e6851e;
     border-radius: 20px;
+    padding: 15px 40px ;
     z-index: 1000; /* Assicura che il popup sia sopra l'overlay */
     display: none; /* Inizialmente nascosto */
 }
 
 #testo_popup{
-    color: #1b1b1b;
+    color: #e6851e;
     font-family: Poppins;
     font-weight: 600;
     font-size: 25px;
@@ -159,5 +162,52 @@ input[type="radio"] {
     h2{
         font-size: 5vw; 
         margin-top: 40px;
+    }
+}
+
+@media(max-width:570px){
+    .barrasup img{
+        width:70%;
+        padding: 10px 20px; /* spaziatura interna */
+        display: flex; /* allineare contenuti */
+        background-position: center;
+        justify-content: center; /* posiziona al centro */
+        align-items: center; /* centra verticalmente contenuti */
+        background-size: cover;
+    }
+    h1{
+        font-size:14vw
+    }
+    h2{
+        font-size: 5vw; 
+        margin-top: 40px;
+    }
+    #home_container{
+        font-size: 3vw;
+        margin-left: 10px; /* aggiunto margine sinistro */
+    }
+}
+
+@media(max-width:420px){
+    .barrasup img{
+        width:67%;
+        padding: 10px 20px; /* spaziatura interna */
+        display: flex; /* allineare contenuti */
+        background-position: center;
+        justify-content: center; /* posiziona al centro */
+        align-items: center; /* centra verticalmente contenuti */
+        background-size: cover;
+        margin-left: -20px;        
+    }
+    h1{
+        font-size:14vw
+    }
+    h2{
+        font-size: 5vw; 
+        margin-top: 40px;
+    }
+    #home_container{
+        font-size: 3vw;
+        margin-left: 5px; /* aggiunto margine sinistro */
     }
 }

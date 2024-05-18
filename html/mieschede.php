@@ -207,9 +207,22 @@
 
         <?php if ($esercizi): ?>
             <?php foreach($esercizi as $esercizio): ?>
-                <div class="box-db">
+                <div class="box-db" onclick="OpenEsercizio('<?php echo $esercizio['nome'] . 'popup'; ?>')">
                     <h1><?php echo htmlspecialchars($esercizio['nome']); ?></h1>
                     <img src="<?php echo htmlspecialchars($esercizio['immagine']); ?>" alt="">
+                </div>
+                <div class="esercizioscelto" id="<?php echo $esercizio['nome'] . 'popup'; ?>" style="display: none;">
+                    <h1><?php echo $esercizio['nome']; ?></h1>
+                    <h2><?php echo $esercizio['muscolo']; ?></h2>
+                    <img src="<?php echo $esercizio['immagine']; ?>" alt="<?php echo $esercizio['nome']; ?>">
+                    <label>Serie:</label>
+                    <input id="serie-input" type="number" min="1" max="10" oninput="limitInput(this)" onkeypress="validateInput(event)"><br>
+                    <label>Ripetizioni:</label>
+                    <input id="ripetizioni-input" type="number" name="" required="" min="1" max="10" oninput="limitInput(this)"  onkeypress="validateInput(event)"><br>
+                    <label>Recupero:
+                    <input id="recupero-input" type="number" name="" required=""min="5" max="90" step="5" oninput="limitInput(this)"  onkeypress="validateInput(event)">s</label><br>
+                    <button class="aggiungies" >Aggiungi</button>
+                    <button class="annullaes" >Annulla</button>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>

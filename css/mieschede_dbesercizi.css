@@ -93,3 +93,20 @@
 .dbpopupactive{
     transform: translate(-50%,-50%) scale(1) ;
 }
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    font-size: 26px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    background-color: #1b1b1b;
+    font-family: Poppins,sans-serif;
+    color:  #e6851e;
+    border-bottom: 2px solid #e6851e;
+    height: 15px;
+}
+input[type="number"]:hover{
+    border-bottom: none
+}

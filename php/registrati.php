@@ -25,12 +25,16 @@
             $result2 = pg_query_params($dbconn, $query2, array($username));            
 
             //check email
-            if($tuple = pg_fetch_assoc($result))
-                echo "Indirizzo email già registrato";
+            if($tuple = pg_fetch_assoc($result)){
+                header("Location: ../html/registrati.php?error=registered_email");
+                exit();
+            }
 
             //check username
-            elseif($tuple = pg_fetch_assoc($result2))
-                echo "username già registrato";
+            elseif($tuple = pg_fetch_assoc($result2)){
+                header("Location: ../html/registrati.php?error=registered_username");
+                exit();
+            }
 
             //allora inseriamo i dati nel db
             else{

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 .barra_secondaria{
     margin: 0 auto; /* Centrare il contenitore */
     padding: 20px 20px ;
@@ -216,6 +218,7 @@ h1{
     color: white;
     width: 98%;
     margin-top: -15px;
+    outline: none;
     
 }
 
@@ -236,7 +239,7 @@ h1{
     transform: scale(0);
 }
 
-.input-field span { /*Qyesta è la barra sotto il testo  */
+.input-field span { /*Questa è la barra sotto il testo  */
     position: absolute; 
     bottom: 0 ;
     left: 0 ; 
@@ -304,7 +307,7 @@ h3{
     height: 500px;
     width: 330px;
     border-radius: 30px;
-    z-index: 30;
+    z-index: 10;
 }
 
 #newex{
@@ -425,7 +428,7 @@ h4:hover{
     font-family: Poppins;
     font-size:20px ;
     color: #af6d03;
-    width: 40%;
+    width: 50%;
     margin-left: 15px;
     margin-top: -30px;
     margin-bottom: 23px;
@@ -562,3 +565,75 @@ h4:hover{
 
 
 /*//////////////////////////////////////*/
+
+
+/* POPUP ESERCIZIO SCELTO                  */
+
+.esercizioscelto{
+    background-color: #1b1b1b;
+    position: absolute;
+    top : 50% ; 
+    left : 50%;
+    transform: translate(-50%, -50%); 
+    height: 500px;
+    width: 330px;
+    border-radius: 35px;
+    z-index: 30;
+}
+
+
+.esercizioscelto h1{
+    font-family: Poppins,sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 20px;
+    color: #e6851e;
+    margin-bottom: -20px;
+}
+
+.esercizioscelto h2{
+    font-family: Poppins,sans-serif;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: 450;
+    color: #cc7417;
+    margin-bottom: 5px;
+}
+
+.esercizioscelto img{
+    width: 90%;
+    border-radius: 20px;
+    margin-top: 0px ;
+    margin-left: 15px;
+}
+
+.esercizioscelto label{
+    font-family: Poppins,sans-serif;
+    font-size: 25px;
+    margin: 0;
+    margin-left: 20px;
+    color: #e6851e;
+    width: 30%;
+}
+
+.esercizioscelto label:nth-of-type(1){
+    margin-top: 20px;
+}
+
+.aggiungies,.annullaes{
+   width:40%;
+   height: 8%;
+   background-color: #e6851e;
+   border: none;
+   border-radius: 30px;
+   color: #1b1b1b;
+   font-weight: bold;
+   font-size:20px;
+   cursor: pointer;
+   font-family: Poppins;
+}
+.aggiungies{
+    margin-top: 10px;
+    margin-left: 20px;
+}

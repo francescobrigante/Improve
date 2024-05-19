@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 html, body{
     margin: 0;
     padding: 0;
@@ -263,6 +264,9 @@ input{
     font-weight: 400;
     color: #cc7417;
 }
+.box-exercise.single-item {
+    height: 70%;
+}
 
 .description::-webkit-scrollbar{
     width: 8px;
@@ -453,7 +457,10 @@ input{
         width:200px;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-}
+    }
+    .box-exercise.single-item {
+        height: 270px;
+    }
 }
 
 @media(max-width:500px){
@@ -524,5 +531,11 @@ input{
     }
     #account{
         font-size: 3vw;
+    }
+}
+
+@media (min-width: 754px) and (min-height: 754px) {
+    .box-exercise.single-item {
+        height: 300px;
     }
 }

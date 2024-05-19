@@ -126,18 +126,30 @@ function displayfew() {
     
     // Conta il numero di elementi visibili
     var visibleItemCount = 0;
+    var lastVisibleItem = null;
     items.forEach(function(item) {
         if (item.offsetHeight > 0) {
             visibleItemCount++;
+            lastVisibleItem = item;
         }
     });
     
+    // Rimuove la classe da tutti gli elementi
+    items.forEach(function(item) {
+        item.classList.remove('single-item');
+    });
+    
     // Se la maggior parte degli elementi è nascosta, applica una classe per cambiare la disposizione
-    if (visibleItemCount <= 3) {
+    if (visibleItemCount <= 3 && visibleItemCount > 1 ) {
         container.classList.add('minor3');
-    }
-    else{
+    } else {
         container.classList.remove('minor3');
+    }
+
+    // Se c'è un solo elemento visibile, applica una classe per cambiarne la dimensione
+    if (visibleItemCount == 1) {
+        container.classList.add('minor3');
+        lastVisibleItem.classList.add('single-item');
     }
 };
 

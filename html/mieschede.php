@@ -112,7 +112,7 @@
             <div class ="top">
                 <h4><?php echo $scheda['nomescheda'];?></h4>
             </div>
-            <button class="button" id="newex" onclick="openDB('<?php echo $scheda['nomescheda'];?>')">+ Nuovo Esercizio</button>
+            <button class="button" id="newex" onclick="openDB()">+ Nuovo Esercizio</button>
             <div class="contenitoreesercizi">
             
             <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
@@ -120,12 +120,16 @@
                 $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "' ORDER BY posizione";
                 $result = pg_query($dbconn, $query);
 
+                //QUERY PER ASSOCIARE ESERCIZO AL MUSCOLO
+                //$query2 = "SELECT schede.nomeesercizio, muscolo FROM schede, esercizi WHERE schede.nomeesercizio = nome";
+
                 if (!$result) {
                     echo "Errore nella query: " . pg_last_error();
                     exit;
                 }
 
                 $schedeUtente = pg_fetch_all($result);
+                
             ?>
 
             <?php if ($schedeUtente): ?>
@@ -143,8 +147,7 @@
             <?php endif; ?>
 
             </div>
-            <button class="button" id="salva" >Salva</button>
-            <button class="button" id="annulla_popupscheda" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')">Annulla</button>
+            <button class="button" id="chiudi_popupscheda" onclick="CloseScheda('<?php echo $scheda['nomescheda'];?>')">Chiudi</button>
         </div>
 
         <!--overlay per le schede--> 
@@ -152,7 +155,6 @@
 
     <?php endforeach;?>
 
-    
         <div id="overlayelimina" class="overlayelimina" onclick="closePopupEliminaScheda()"> </div>
 
         <!-- popup rinomina -->
@@ -220,17 +222,16 @@
                     <label>Ripetizioni:</label>
                     <input id="ripetizioni-input" type="number" name="" required="" min="1" max="10" oninput="limitInput(this)"  onkeypress="validateInput(event)"><br>
                     <label>Recupero:
-                    <input id="recupero-input" type="number" name="" required=""min="5" max="90" step="5" oninput="limitInput(this)"  onkeypress="validateInput(event)">s</label><br>
+                    <input id="recupero-input" type="number" name="" required=""min="5" max="90" step="5" oninput="limitInputRecupero(this)"  onkeypress="validateInput(event)">s</label><br>
                     <button class="aggiungies" >Aggiungi</button>
-                    <button class="annullaes" >Annulla</button>
+                    <button class="annullaes" onclick="CloseEsercizio('<?php echo $esercizio['nome'] . 'popup'; ?>')">Annulla</button>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
         </div>
     </div>
 
-    <div id="overlay" class="overlay" onclick="closePopupDB()"> </div>
-
+    <div class="overlayinvisible" id="overlayinvisible"> </div> 
 
 </body>
 </html>

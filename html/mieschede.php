@@ -17,7 +17,7 @@
         //se la connessione è andata a buon fine, inizio una sessione
         if($dbconn){
             // query per salvare tutte le schede realizzate da un utente
-            $query = "SELECT distinct nomescheda FROM schede where username='$username'";
+            $query = "SELECT distinct nomescheda FROM schede where username='$username' order by nomescheda";
             $result = pg_query($dbconn, $query);
             $nomischede = array();
 
@@ -81,7 +81,7 @@
             <div class="first3">
             <?php 
             // query per selezionare i primi 3 esercizi di ogni scheda e farli visualizzare nel box
-            $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' order by posizione LIMIT 3";
+            $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' AND numeroesercizi > 0 order by posizione LIMIT 3";
             $result = pg_query($dbconn, $query_new);
             
             if ($result) {
@@ -120,8 +120,6 @@
                 $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "' ORDER BY posizione";
                 $result = pg_query($dbconn, $query);
 
-                //QUERY PER ASSOCIARE ESERCIZO AL MUSCOLO
-                //$query2 = "SELECT schede.nomeesercizio, muscolo FROM schede, esercizi WHERE schede.nomeesercizio = nome";
 
                 if (!$result) {
                     echo "Errore nella query: " . pg_last_error();
@@ -138,10 +136,24 @@
                     <?php if ($scheda['numeroesercizi'] > 0): ?>
                         <div class="box-exercise">
                             <h1><?php echo htmlspecialchars($scheda['nomeesercizio']); ?></h1>
-                            <h2><?php echo htmlspecialchars($scheda['nomeesercizio']); ?></h2>
+
+                            <!-- query per cercare muscolo dato nome esercizio -->
+                            <?php
+                                $query = "SELECT muscolo FROM esercizi WHERE nome = $1";
+                                $result = pg_query_params($dbconn, $query, array($scheda['nomeesercizio']));
+                                if($result && pg_num_rows($result) > 0){
+                                    $row = pg_fetch_assoc($result);
+                                    $nomeMuscolo = $row['muscolo'];
+                                }
+                            ?>
+                            <h2>
+                                <?php if(isset($nomeMuscolo))
+                                        echo htmlspecialchars($nomeMuscolo); 
+                                    else echo "Errore caricamento muscolo"
+                                ?>
+                            </h2>
                             <h3><?php echo htmlspecialchars($scheda['serie']); ?> x <?php echo htmlspecialchars($scheda['ripetizioni']); ?> - <?php echo htmlspecialchars($scheda['recupero']); ?>s</h3>
-                            <button class="button" id="rimuovies"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
+                            <button class="button"  id="rimuovies" onclick="removeExerciseBox('<?php echo htmlspecialchars($scheda['nomescheda']); ?>', '<?php echo htmlspecialchars($scheda['nomeesercizio']); ?>')"><i class="fa-solid fa-xmark"></i></button>                        </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>

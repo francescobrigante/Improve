@@ -266,3 +266,35 @@ function limitInputRecupero(element){
         element.value = 90;
     }
 }
+
+function removeExerciseBox(nomescheda, nomeesercizio) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../php/nuovascheda.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Gestisci la risposta del server se necessario
+            console.log('Richiesta inviata con successo.');
+            localStorage.setItem('esercizioEliminato', 'true');
+            localStorage.setItem('nomescheda', nomescheda);
+            location.reload();
+        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+            // Gestisci gli errori se la richiesta non è stata inviata
+            console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
+        }
+    };
+
+    var params = "eliminaes_nomescheda=" + encodeURIComponent(nomescheda) + "&eliminaes_nomeesercizio=" + encodeURIComponent(nomeesercizio);
+    xhr.send(params);
+
+}
+
+//riapre il popup della scheda se si ricarica la pagina dopo aver eliminato un esercizio
+window.onload = function() {
+    if (localStorage.getItem('esercizioEliminato') === 'true') {
+        var nomescheda = localStorage.getItem('nomescheda');
+        openScheda(nomescheda);
+        localStorage.removeItem('esercizioEliminato');
+        localStorage.removeItem('nomescheda');
+    }
+}

@@ -274,6 +274,7 @@ h1{
     background-color: rgba(0, 0, 0, .5);
     transition: 200ms ease-in-out;
     pointer-events: none;
+    z-index: 5;
 }
 
 .overlayactive{
@@ -341,7 +342,7 @@ h4:hover{
     margin-left: 10px;
 }
 
-#salva{
+#chiudi_popupscheda{
     width: 32%;
     font-size: 20px;
     height: 8%;
@@ -354,7 +355,7 @@ h4:hover{
     margin-top: 10px; 
     font-family: Poppins;
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 110px;
 }
 
 #annulla_popupscheda{
@@ -578,7 +579,7 @@ h4:hover{
     height: 500px;
     width: 330px;
     border-radius: 35px;
-    z-index: 30;
+    z-index: 130;
 }
 
 
@@ -590,6 +591,20 @@ h4:hover{
     margin-top: 20px;
     color: #e6851e;
     margin-bottom: -20px;
+    white-space: nowrap; 
+    overflow-x: auto;
+    width: 280px;
+}
+
+.esercizioscelto h1::-webkit-scrollbar{
+    height: 5px;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+}
+
+.esercizioscelto h1::-webkit-scrollbar-thumb{
+    background-color: #e6851e;
+    border-radius: 5px;
 }
 
 .esercizioscelto h2{
@@ -637,3 +652,22 @@ h4:hover{
     margin-top: 10px;
     margin-left: 20px;
 }
+
+/*/////////////////////////////*/
+
+.overlayinvisible{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -10;
+}
+
+.active{
+    pointer-events: all;
+    z-index: 50;
+}
+

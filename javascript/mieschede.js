@@ -225,25 +225,44 @@ function CloseScheda(id){
 // database esercizi
 function closePopupDB() {
     document.getElementById("dbesercizi").style.display = "none";
+    document.getElementById("overlayinvisible").classList.remove("active")
+
 }
 
-function openDB(nomescheda) {
+function openDB() {
     document.getElementById("dbesercizi").style.display = "block";
-    document.getElementById(nomescheda).style.display="none";
+    document.getElementById("overlayinvisible").classList.add("active")
+
 }
 
 function OpenEsercizio(id){
     document.getElementById(id).style.display="block";
 }
 
+function CloseEsercizio(id){
+    document.getElementById(id).style.display="none";
+}
+
 function limitInput(element) {
     if (element.value.length > 2) {
         element.value = element.value.slice(0, 2);
+    }
+    if (element.value > 10) {
+        element.value = 10;
     }
 }
 function validateInput(event) {
     const charCode = event.charCode ? event.charCode : event.keyCode;
     if (charCode < 48 || charCode > 57) {
         event.preventDefault();
+    }    
+}
+
+function limitInputRecupero(element){
+    if (element.value.length > 2) {
+        element.value = element.value.slice(0, 2);
+    }
+    if (element.value > 90) {
+        element.value = 90;
     }
 }

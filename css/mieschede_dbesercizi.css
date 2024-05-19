@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 .dbesercizi{
     background-color: #1b1b1b;
     position: absolute;
@@ -7,7 +8,7 @@
     height: 500px;
     width: 330px;
     border-radius: 35px;
-    z-index: 30;
+    z-index: 110;
 }
 
 .contenitoreesercizi{
@@ -41,6 +42,7 @@
     height: 120px;
     width: 96%;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 
@@ -55,6 +57,7 @@
     border-radius: 15px;
     /* position:relative;  */
     margin-top: -15px;
+    margin-left: 15px;
 }
 
 .box-db h1{
@@ -65,6 +68,10 @@
     margin-left: 15px;
     padding-top: 10px;
     padding-left: 5px;
+    white-space: nowrap; /* serve per non mandare il testo a capo */
+    overflow: hidden; /* fa sparire il testo se supera il limite */
+    text-overflow: ellipsis; /* mette i 3 punti */ 
+    
 }
 
 #chiudidb{
@@ -94,6 +101,8 @@
     transform: translate(-50%,-50%) scale(1) ;
 }
 
+
+
 input[type="number"] {
     width: 50px;
     padding: 5px;
@@ -109,4 +118,8 @@ input[type="number"] {
 }
 input[type="number"]:hover{
     border-bottom: none
+}
+
+.fa-xmark{
+    cursor: pointer;
 }

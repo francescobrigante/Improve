@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 body {
    margin: 0;
    padding: 0;
  }
 
-.barrasup {
+ .barrasup {
    height: 50vh; /* altezza della metà superiore della pagina */
+   min-height: 250px;
    background-image: url("../img/sfondoindex.jpg");
    background-size: cover;
    background-position: center;
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
    text-align: center;
    color: white;
    font-size: 2rem;
@@ -18,26 +22,22 @@ body {
    margin: 0 auto;
  }
 
- .logo {
-   width: 15vw; 
+.barrasup img{
+   width: 70vw; 
+   max-width: 100%;
    height: auto;
-   margin-bottom: 20px; /* spazio tra logo e testo */
- }
+   margin-top: 20px;
+}
 
- .titolo {
-   font-size: 15vw;
-   font-family: Poppins;
-   font-weight: bold;
- }
-
-.subtitle{
+.barrasup .subtitle{
    font-size: 3vw;
    font-family: Poppins;
    font-weight: 500;
-   margin-left: 30px;
    color: white;
    text-align: center;
-   margin-top: -15vh;
+   margin-top: 20px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 b{
    color: #e6851e;
@@ -46,8 +46,10 @@ b{
 .container{
    font-family: Poppins;
    text-align: center;
-   margin-top: 70px;
+   margin-top: 5vh;
    margin-bottom: 30px;
+   margin-left: 15px;
+   margin-right: 15px;
 }
 p{
    font-family: Poppins;
@@ -63,76 +65,55 @@ p{
 }
 .button {
    max-width: 100%;
+   min-width: 210px;
    background-color: #e6851e;
    border: none;
    border-radius: 20px;
    color: white;
    font-weight: 550;
-   text-align: center;
-   display: flex;
    font-size: 6vw;
    cursor: pointer;
    padding: 10px 80px;
    transition: 0.3s;
    margin-right: 2vw;
    margin-left: 2vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .button:hover {
    background-color: #1b1b1b;
    color: #e6851e;
 }
 #accessbutton{
+   max-width: 100%;
    padding : 10px 104px;
+   min-width: 200px;
 }
+
 .credits{
    font-size: 20px;
    font-family: Poppins;
    font-weight: 400;
    text-align: center;
    margin-top: 40px;
+   margin-left: 30px;
+   margin-right: 30px;
 }
 .credits b{
    font-weight: 500;  
    color: #1b1b1b;
 }
 
-
-@media (min-width: 736px){
-   .titolo{
-      font-size: 113px;
-   }
-   .logo{
-      width: 113px;
-   }
-   .subtitle{
-      font-size: 23px;
-   }
-}
-@media(max-width: 375px){
-   .titolo{
-      font-size: 56px;
-   }
-   .logo{
-      width: 56px;
-   }
+@media(max-width: 400px){
    .subtitle{
       font-size: 12px;
-      transform: translateX(-20px);
    }
-
-}
-@media(min-width:674px){
-.subtitle{
-   font-size: 23px;
-}
 }
 
 @media(min-height:800px){
    .barrasup{
       height: 400px;
-   }
-   .subtitle{
-      margin-top: -100px;
    }
 }
 
@@ -142,7 +123,7 @@ p{
    }
 }
 
-@media(max-width:700px){
+@media(max-width:770px){
    .container2-button{
       flex-direction: column;
    }
@@ -154,14 +135,27 @@ p{
    }
 }
 
-@media(min-width:674px){
+@media(max-width: 600px){
+   .subtitle{
+      margin-top: -100px;
+   }
+   .barrasup{
+      height: 270px;
+   }
    .button{
-      font-size: 40px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: auto;
+   }
+      
+}
+@media(max-heigth: 650px){
+   .container{
+      margin-top: 50px;
    }
 }
 
-@media(min-width:552px){
-   .container{
-      margin-top: 70px;
-   }
-}
+

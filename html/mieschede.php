@@ -81,7 +81,7 @@
             <div class="first3">
             <?php 
             // query per selezionare i primi 3 esercizi di ogni scheda e farli visualizzare nel box
-            $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' AND numeroesercizi > 0 order by posizione LIMIT 3";
+            $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' AND numeroesercizi > 0 AND posizione > 0 order by posizione LIMIT 3";
             $result = pg_query($dbconn, $query_new);
             
             if ($result) {
@@ -103,7 +103,7 @@
         <div class ="eliminaschedapopup" id="eliminaschedapopup<?php echo $scheda['nomescheda']?>">
             <h1> Elimina scheda </h1>
             <h2> Sei sicuro di voler eliminare la scheda: <?php echo $scheda['nomescheda']; ?>?</h2>
-            <button class="button" onclick="eliminaScheda('<?php echo $scheda['nomescheda'];?>')">Sì</button> <!--ELIMINA SCHEDA DA IMPLEMENTARE -->
+            <button class="button" id="sielimina" onclick="eliminaScheda('<?php echo $scheda['nomescheda'];?>')">Sì</button>
             <button class="button" id="noelimina" onclick="closePopupEliminaScheda('<?php echo $scheda['nomescheda'];?>')">No</button>
         </div>
 

@@ -321,7 +321,7 @@ function aggiungiEsercizio(nomeesercizio, button){
     var ripetizioni = parentElement.querySelector('.ripetizioni-input').value;
     var recupero = parentElement.querySelector('.recupero-input').value;
         
-    if(serie == "" || ripetizioni == "" || recupero==""){
+    if(serie == "" || ripetizioni == "" || recupero=="" || serie == 0 || ripetizioni == 0){
         alert("Inserire tutti i campi");
         return;
     }
@@ -350,3 +350,5 @@ function aggiungiEsercizio(nomeesercizio, button){
     // CloseEsercizio(nomeesercizio + 'popup');
     // closePopupDB();
 }
+
+//event listener per tradurre enter in click

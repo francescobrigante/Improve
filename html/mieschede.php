@@ -86,7 +86,7 @@
             
             if ($result) {
                 while ($tupla = pg_fetch_assoc($result)) {
-                    if($tupla['numeroesercizi'] != 0) {  //cioè se ci sono elementi nella query, quindi la scheda non è vuota
+                    if($tupla['numeroesercizi'] > 0 && $tupla['posizione'] > 0) {  //cioè se ci sono elementi nella query, quindi la scheda non è vuota
             ?>  
                 <h2><?php echo $tupla['nomeesercizio']; ?>: <?php echo $tupla['serie']; ?>x<?php echo $tupla['ripetizioni']; ?></h2><br>
             <?php
@@ -112,7 +112,7 @@
             <div class ="top">
                 <h4><?php echo $scheda['nomescheda'];?></h4>
             </div>
-            <button class="button" id="newex" onclick="openDB()">+ Nuovo Esercizio</button>
+            <button class="button" id="newex" onclick="openDB('<?php echo $scheda['nomescheda'];?>')">+ Nuovo Esercizio</button>
             <div class="contenitoreesercizi">
             
             <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
@@ -133,7 +133,7 @@
             <?php if ($schedeUtente): ?>
                 <?php foreach($schedeUtente as $scheda): ?>
                     <!-- non aggiungiamo gli esercizi per una scheda che ha 0 esercizi -->
-                    <?php if ($scheda['numeroesercizi'] > 0): ?>
+                    <?php if ($scheda['numeroesercizi'] > 0 && $scheda['posizione'] > 0): ?>
                         <div class="box-exercise">
                             <h1><?php echo htmlspecialchars($scheda['nomeesercizio']); ?></h1>
 
@@ -153,7 +153,7 @@
                                 ?>
                             </h2>
                             <h3><?php echo htmlspecialchars($scheda['serie']); ?> x <?php echo htmlspecialchars($scheda['ripetizioni']); ?> - <?php echo htmlspecialchars($scheda['recupero']); ?>s</h3>
-                            <button class="button"  id="rimuovies" onclick="removeExerciseBox('<?php echo htmlspecialchars($scheda['nomescheda']); ?>', '<?php echo htmlspecialchars($scheda['nomeesercizio']); ?>')"><i class="fa-solid fa-xmark"></i></button>                        </div>
+                            <button class="button"  id="rimuovies" onclick="removeExerciseBox('<?php echo htmlspecialchars($scheda['nomescheda']); ?>', '<?php echo htmlspecialchars($scheda['nomeesercizio']); ?>', '<?php echo htmlspecialchars($scheda['posizione']); ?>')"><i class="fa-solid fa-xmark"></i></button>                        </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -230,12 +230,14 @@
                     <h2><?php echo $esercizio['muscolo']; ?></h2>
                     <img src="<?php echo $esercizio['immagine']; ?>" alt="<?php echo $esercizio['nome']; ?>">
                     <label>Serie:</label>
-                    <input id="serie-input" type="number" min="1" max="10" oninput="limitInput(this)" onkeypress="validateInput(event)"><br>
+                    <input class="serie-input" type="number" min="1" max="10" oninput="limitInput(this)" onkeypress="validateInput(event)"><br>
                     <label>Ripetizioni:</label>
-                    <input id="ripetizioni-input" type="number" name="" required="" min="1" max="10" oninput="limitInput(this)"  onkeypress="validateInput(event)"><br>
+                    <input class="ripetizioni-input" type="number" name="" required="" min="1" max="10" oninput="limitInput(this)"  onkeypress="validateInput(event)"><br>
                     <label>Recupero:
-                    <input id="recupero-input" type="number" name="" required=""min="5" max="90" step="5" oninput="limitInputRecupero(this)"  onkeypress="validateInput(event)">s</label><br>
-                    <button class="aggiungies" >Aggiungi</button>
+                    <input class="recupero-input" type="number" name="" required=""min="5" max="90" step="5" oninput="limitInputRecupero(this)"  onkeypress="validateInput(event)">s</label><br>
+                    <button class="aggiungies" onclick="aggiungiEsercizio('<?php echo htmlspecialchars($esercizio['nome']); ?>', this)">
+                        Aggiungi
+                    </button>
                     <button class="annullaes" onclick="CloseEsercizio('<?php echo $esercizio['nome'] . 'popup'; ?>')">Annulla</button>
                 </div>
             <?php endforeach; ?>

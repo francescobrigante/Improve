@@ -229,10 +229,10 @@ function closePopupDB() {
 
 }
 
-function openDB() {
+function openDB(nomescheda) {
     document.getElementById("dbesercizi").style.display = "block";
     document.getElementById("overlayinvisible").classList.add("active")
-
+    document.cookie = "DBnomescheda="+nomescheda;
 }
 
 function OpenEsercizio(id){
@@ -267,7 +267,7 @@ function limitInputRecupero(element){
     }
 }
 
-function removeExerciseBox(nomescheda, nomeesercizio) {
+function removeExerciseBox(nomescheda, nomeesercizio, posizione) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/nuovascheda.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -284,7 +284,8 @@ function removeExerciseBox(nomescheda, nomeesercizio) {
         }
     };
 
-    var params = "eliminaes_nomescheda=" + encodeURIComponent(nomescheda) + "&eliminaes_nomeesercizio=" + encodeURIComponent(nomeesercizio);
+    var params = "eliminaes_nomescheda=" + encodeURIComponent(nomescheda) + "&eliminaes_nomeesercizio=" + encodeURIComponent(nomeesercizio) + 
+                    "&eliminaes_posizione=" + encodeURIComponent(posizione);
     xhr.send(params);
 
 }
@@ -297,4 +298,55 @@ window.onload = function() {
         localStorage.removeItem('esercizioEliminato');
         localStorage.removeItem('nomescheda');
     }
+}
+
+function aggiungiEsercizio(nomeesercizio, button){
+
+    //riprendiamo il nome della scheda dal cookie
+    var cookies = document.cookie.split(';');
+    var nomescheda = "";
+    var chiaveCookie="DBnomescheda=";
+
+    cookies.forEach(function(cookie) {
+        var cookieTrimmed = cookie.trim(); //per togliere spazi bianchi
+        if (cookieTrimmed.indexOf(chiaveCookie) === 0) {
+            nomescheda = cookieTrimmed.substring(chiaveCookie.length);
+        }
+    });
+
+    //prendo il parent del bottone
+    var parentElement = button.parentElement;
+        
+    var serie = parentElement.querySelector('.serie-input').value;
+    var ripetizioni = parentElement.querySelector('.ripetizioni-input').value;
+    var recupero = parentElement.querySelector('.recupero-input').value;
+        
+    if(serie == "" || ripetizioni == "" || recupero==""){
+        alert("Inserire tutti i campi");
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../php/nuovascheda.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Gestisci la risposta del server se necessario
+            console.log('Richiesta inviata con successo.');
+            localStorage.setItem('esercizioEliminato', 'true');
+            localStorage.setItem('nomescheda', nomescheda);
+            location.reload();
+
+        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+            // Gestisci gli errori se la richiesta non è stata inviata
+            console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
+        }
+    };
+
+    var params = "aggiungies_nomescheda=" + encodeURIComponent(nomescheda) + "&aggiungies_nomeesercizio=" + encodeURIComponent(nomeesercizio)
+                    + "&serie=" + encodeURIComponent(serie) + "&ripetizioni=" + encodeURIComponent(ripetizioni) + "&recupero=" + encodeURIComponent(recupero);
+    xhr.send(params);
+
+    // CloseEsercizio(nomeesercizio + 'popup');
+    // closePopupDB();
 }

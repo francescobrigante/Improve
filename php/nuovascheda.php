@@ -7,18 +7,14 @@
         $nomescheda = $_POST["nomescheda"];
         $username = $_SESSION['username'];
 
-        $query = "INSERT INTO schede(username, nomescheda) VALUES ('$username', '$nomescheda')";
+        $query = "INSERT INTO schede(username, nomescheda, posizione) VALUES ('$username', '$nomescheda', 0)";
         $result = pg_query($dbconn, $query);
 
 
         if (!$result) {
-            echo "Errore durante l'inserimento della scheda.";
+            header("Location:../html/mieschede.php");
         }
 
-        // header("Location:../html/mieschede.php");
-
-        // Chiudi la connessione al database
-        pg_close($dbconn);
     }
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminascheda"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
@@ -33,8 +29,6 @@
         if (!$result) {
             echo "Errore durante l'operazione di eliminazione";
         }
-        // Chiudi la connessione al database
-        pg_close($dbconn);
     }
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["rinominascheda1"]) && isset($_POST["rinominascheda2"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
@@ -52,17 +46,16 @@
             echo "Errore durante l'operazione di rinomina";
         }
 
-        // Chiudi la connessione al database
-        pg_close($dbconn);
     }
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminaes_nomescheda"]) && isset($_POST["eliminaes_nomeesercizio"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
                 die("Connessione fallita: " . pg_last_error());
         $nomescheda = $_POST["eliminaes_nomescheda"];
         $nomeesercizio = $_POST["eliminaes_nomeesercizio"];
+        $posizione = $_POST["eliminaes_posizione"];
         $username = $_SESSION['username'];
 
-        $query = "DELETE FROM schede WHERE username = '$username' AND nomescheda = '$nomescheda' AND nomeesercizio='$nomeesercizio'  AND numeroesercizi>1";
+        $query = "DELETE FROM schede WHERE username = '$username' AND nomescheda = '$nomescheda' AND nomeesercizio='$nomeesercizio' AND posizione='$posizione' AND numeroesercizi>1";
         // POSSIBILE BUG: se io utente fra ho la scheda day 1 che ha 2 volte lo stesso esercizio,
         // se premo la x rossa, allora mi vengono eliminati entrambi gli es invece di solo 1
         $result = pg_query($dbconn, $query);
@@ -83,7 +76,7 @@
                     posizione = 
                     CASE 
                         WHEN numeroesercizi > 1 THEN posizione
-                        ELSE 0
+                        ELSE null
                     END,
 
                     nomeesercizio =  
@@ -120,7 +113,76 @@
         //BISOGNA FARE UNA QUERY CHE ELIMINA TUTTE LE SCHEDE VUOTE TRANNE UNA
         //QUESTO SSE ESISTONO PIU DI 1 SCHEDA VUOTA
 
-        // Chiudi la connessione al database
-        pg_close($dbconn);
     }
+    elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["aggiungies_nomescheda"]) && isset($_POST["aggiungies_nomeesercizio"]) 
+            && isset($_POST["serie"]) && isset($_POST["ripetizioni"]) && isset($_POST["recupero"])) {
+
+        $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
+                die("Connessione fallita: " . pg_last_error());
+        $nomescheda = $_POST["aggiungies_nomescheda"];
+        $nomeesercizio = $_POST["aggiungies_nomeesercizio"];
+        $username = $_SESSION['username'];
+        $serie = $_POST["serie"];
+        $ripetizioni = $_POST["ripetizioni"];
+        $recupero = $_POST["recupero"];
+
+        //calcolo posizione esercizio e numero di esercizi
+        //query al db per ottenere la posizione più alta attualmente ed incrementarla di 1
+        //OPZIONALE: per evitare incrementi infiniti, fare un limite dopo il quale si resettano tutti
+
+        $query = "SELECT MAX(posizione) as posizione FROM schede WHERE username=$1 AND nomescheda=$2";
+        $result = pg_query_params($dbconn, $query, array($username, $nomescheda));
+
+        if($result){
+            $row = pg_fetch_assoc($result);
+            $posizioneattuale = $row['posizione'];
+        }
+        else{
+            echo "Errore calcolo posizione e numero di esercizi";
+        }
+
+        $query = "SELECT MAX(numeroesercizi) as numeroesercizi FROM schede WHERE username=$1 AND nomescheda=$2";
+        $result = pg_query_params($dbconn, $query, array($username, $nomescheda));
+
+        if($result){
+            $row = pg_fetch_assoc($result);
+            $numeroesercizi = $row['numeroesercizi'];
+        }
+        else{
+            echo "Errore calcolo posizione e numero di esercizi";
+        }
+
+        $posizioneattuale++;
+
+        //query che elimina tutte le schede vuote, cioè con 0 esercizi
+        $query = "DELETE FROM schede WHERE username = $1 AND nomescheda = $2 AND numeroesercizi = 0 AND posizione IS NULL";
+        $result = pg_query_params($dbconn, $query, array($username, $nomescheda));
+        
+        if (!$result) {
+            echo "Errore durante l'operazione di eliminazione.";
+        }
+
+
+        //inserimento nel db
+
+        $query = "INSERT INTO schede (username, nomescheda, nomeesercizio, serie, ripetizioni, recupero, numeroesercizi, posizione)
+                     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
+        $result = pg_query_params($dbconn, $query, array($username, $nomescheda, $nomeesercizio, $serie, $ripetizioni, $recupero, 
+                                    $numeroesercizi, $posizioneattuale));
+
+        if (!$result) {
+            echo "Errore durante l'operazione di inserimento esercizio";
+        }
+
+        // //query che incrementa di 1 numeroesercizi di tutti gli esercizi di questa scheda
+        $query = "UPDATE schede SET numeroesercizi=numeroesercizi+1 WHERE username = '$username' AND nomescheda = '$nomescheda'";
+        $result = pg_query($dbconn, $query);
+
+        if (!$result) {
+            echo "Errore durante l'operazione di incremento di 1 numeroesercizi";
+        }
+
+    }
+
+    pg_close($dbconn);
 ?>

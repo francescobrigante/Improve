@@ -24,7 +24,7 @@ body {
 
 .barrasup img{
    width: 70vw; 
-   max-width: 100%;
+   max-width: 600px;
    height: auto;
    margin-top: 20px;
 }
@@ -38,6 +38,7 @@ body {
    margin-top: 20px;
    margin-left: 10px;
    margin-right: 10px;
+   margin-bottom: 20px;
 }
 b{
    color: #e6851e;
@@ -53,7 +54,7 @@ b{
 }
 p{
    font-family: Poppins;
-   font-size: 23px;
+   font-size: 3vw;
    font-weight: 510;
 }
 .container2-button {
@@ -64,14 +65,14 @@ p{
    margin-right: 60px;
 }
 .button {
-   max-width: 100%;
-   min-width: 210px;
+   max-width: 420px;
+   min-width: 200px;
    background-color: #e6851e;
    border: none;
    border-radius: 20px;
    color: white;
    font-weight: 550;
-   font-size: 6vw;
+   font-size: 5vw;
    cursor: pointer;
    padding: 10px 80px;
    transition: 0.3s;
@@ -86,13 +87,13 @@ p{
    color: #e6851e;
 }
 #accessbutton{
-   max-width: 100%;
+   max-width: 420px;
    padding : 10px 104px;
    min-width: 200px;
 }
 
 .credits{
-   font-size: 20px;
+   font-size: 2vw;
    font-family: Poppins;
    font-weight: 400;
    text-align: center;
@@ -105,21 +106,9 @@ p{
    color: #1b1b1b;
 }
 
-@media(max-width: 400px){
-   .subtitle{
-      font-size: 12px;
-   }
-}
-
 @media(min-height:800px){
    .barrasup{
       height: 400px;
-   }
-}
-
-@media(max-width:850px){
-   p{
-      font-size: 17px;
    }
 }
 
@@ -135,27 +124,62 @@ p{
    }
 }
 
-@media(max-width: 600px){
-   .subtitle{
-      margin-top: -100px;
+@media(max-width: 650px){
+   .button {
+      max-width: 100%;
    }
+   #accessbutton{
+      padding: 10px 100px;
+      max-width: 100%;
+   }
+}
+
+@media(max-width: 550px){
+   #accessbutton{
+      padding: 10px 95px;
+   }
+}
+
+@media(max-width: 450px){
+   #accessbutton{
+      padding: 10px 93px;
+   }
+}
+
+@media(max-width: 380px){
    .barrasup{
-      height: 270px;
-   }
-   .button{
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: auto;
-   }
-      
-}
-@media(max-heigth: 650px){
-   .container{
-      margin-top: 50px;
+      height: 250px;
    }
 }
 
+@media (max-aspect-ratio: 1/2) {
+   .barrasup {
+       height: 200px;
+   }
+}
 
+@media (min-aspect-ratio: 2/1) {
+   .barrasup {
+       height: 350px;
+       font-size: 1.5rem; /* riduce il font size per .barrasup */
+   }
+   .barrasup img {
+       width: 50vw; /* riduce la larghezza dell'immagine */
+   }
+   .barrasup .subtitle {
+       font-size: 2vw; /* riduce il font size del sottotitolo */
+   }
+   p {
+       font-size: 2vw; /* riduce il font size del testo nei paragrafi */
+   }
+   .button {
+       font-size: 3vw; /* riduce il font size dei bottoni */
+       max-width: 300px;
+   }
+   #accessbutton {
+      max-width: 300px;
+   }
+   .credits {
+       font-size: 1.5vw; /* riduce il font size dei credits */
+   }
+}

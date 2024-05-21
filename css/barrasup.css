@@ -44,7 +44,7 @@ html, body{
 .dropdown {
     display: none;
     position: absolute;
-    top: 120px;
+    top: 90px;
     right: 43px;
     border-radius: 20px;
     background-color: #242424;  /*rgb(59, 55, 55);*/

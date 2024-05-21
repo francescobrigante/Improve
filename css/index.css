@@ -157,11 +157,11 @@ p{
        height: 200px;
    }
 }
-
+/* rapporto tra la larghezza e l'altezza dello schermo almeno pari a 2 */
 @media (min-aspect-ratio: 2/1) {
    .barrasup {
        height: 350px;
-       font-size: 1.5rem; /* riduce il font size per .barrasup */
+       font-size: 1.5rem; /* riduce il font size per barrasup */
    }
    .barrasup img {
        width: 50vw; /* riduce la larghezza dell'immagine */
@@ -173,7 +173,7 @@ p{
        font-size: 2vw; /* riduce il font size del testo nei paragrafi */
    }
    .button {
-       font-size: 3vw; /* riduce il font size dei bottoni */
+       font-size: 3vw; /* riduce il font size dei buttons */
        max-width: 300px;
    }
    #accessbutton {

@@ -220,18 +220,17 @@ function openScheda(id){
 function CloseScheda(id){
     document.getElementById(id+"overlay").classList.remove("overlayactive");
     document.getElementById(id).style.display="none";
+    document.getElementById("dbesercizi").style.display = "none";
 }
 
 // database esercizi
 function closePopupDB() {
     document.getElementById("dbesercizi").style.display = "none";
-    document.getElementById("overlayinvisible").classList.remove("active")
 
 }
 
 function openDB(nomescheda) {
     document.getElementById("dbesercizi").style.display = "block";
-    document.getElementById("overlayinvisible").classList.add("active")
     document.cookie = "DBnomescheda="+nomescheda;
 }
 

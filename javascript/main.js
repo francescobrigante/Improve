@@ -73,6 +73,7 @@ function CheckBox(muscolo){
 
         results.forEach(function(result) {
             var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
+            displayfew(); 
             var muscolo_lower = muscolo.toLowerCase();
             if (testo_h2 == muscolo_lower)
                 result.classList.remove('hidden');
@@ -89,6 +90,7 @@ function CheckBox(muscolo){
 
         results.forEach(function(result) {
             var testo_h2 = result.querySelector('h2').textContent.toLowerCase();
+             displayfew(); 
             var muscolo_lower = muscolo.toLowerCase();
             if (testo_h2 == muscolo_lower)
                 result.classList.add('hidden');

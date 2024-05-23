@@ -11,10 +11,11 @@
     box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.5);
     padding-left: 0;
     padding-right: 0;
+    justify-content: space-between;
 }
 
 .nuovascheda{
-   width: 25%;
+   width: 20%;
    height: 70%;
    max-width: 100%;
    background-color: #1b1b1b;
@@ -25,8 +26,16 @@
    font-size: 22px;
    cursor: pointer;
    font-family: Poppins;
+   margin-left: 5%;
 }
 
+.buttonperspazio{
+    width: 20%;
+    height: 70%;
+    max-width: 100%;
+    background-color: transparent;
+    margin-right: 5%;
+ }
 
 h1{
     font-family: Poppins;
@@ -39,13 +48,14 @@ h1{
 
 .scrollbox{
     width: 30%; /* Larghezza del contenitore */
-    margin: 0 auto; /* Centrare il contenitore */
+    margin: 0 auto;
     background-color: transparent;
     height: 520px;
     border: 0;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 5;
+    
 }
 
 .scrollbox::-webkit-scrollbar {
@@ -90,30 +100,41 @@ h1{
     transition: font-size 0.3s ease;
     cursor: pointer;
     padding: 0 ; 
-    display: inline;
+    display: inline-block;
     height: 77px;
     margin: 0;
     margin-top: 20px;
     white-space: nowrap; 
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.animate{
+    animation: scroll-text 4s linear infinite;
+}
 
-    
+.scrolling-container {
+    cursor: pointer;
+    position: relative;
+    width: 75%; /* Larghezza desiderata del contenitore h1 */
+    height: 48%;
+    overflow: hidden;
+    white-space: nowrap; /* Evita il wrapping del testo */
+}
+
+@keyframes scroll-text {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-70%);
+    }
 }
 
 .box-scheda h1:hover{
     font-size: 55px;
-}
 
-.box-scheda h1::-webkit-scrollbar{
-    height: 7px;
-    background-color: #1b1b1b;
-    border-radius: 5px;
-}
-
-.box-scheda h1::-webkit-scrollbar-thumb{
-    background-color: #e6851e;
-    border-radius: 5px;
 }
 
 .box-scheda h2{
@@ -341,6 +362,7 @@ h3{
     display: flex;
 }
 
+
 h4{
     font-family: Poppins,sans-serif;
     font-size:35px ;
@@ -349,11 +371,27 @@ h4{
     margin-left: 22px;
     margin-bottom: 5px;
     transition: font-size 0.3s ease;
+    overflow: hidden;
+    width: 70%;
+    overflow-x: auto;
+    white-space: nowrap; /* Evita il wrapping del testo */
 }
+
+h4::-webkit-scrollbar{
+    height: 7px;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+}
+
+h4::-webkit-scrollbar-thumb{
+    background-color: #e6851e;
+    border-radius: 5px;
+}
+
+ 
 h4:hover{
     font-size: 40px;
 }
-
 .boxaperto button{
     height: 10%;
     width: 50%;
@@ -713,6 +751,7 @@ h4:hover{
         width: 70%;
         font-size: 30px;
         height: 30%;
+        margin-left: 0;
     }
     .barra_secondaria h1{
         margin-top:10px ;
@@ -780,10 +819,22 @@ h4:hover{
         font-size: 25px;
     }
 }
+@media(max-width:693px){
+    .buttonperspazio{
+        display: none;
+    }
+    .barra_secondaria{
+        justify-content: start;
+    }
+}
 
-@media (min-width:669px){
-    .nuovascheda{
-    margin-right: calc((50vw - 200px) / 3.8); /* DA RIFARE */ 
-    max-width: 250px;
+@media(min-width: 508px) and (max-width: 524px){
+    .nuovascheda {
+        font-size: 20px;
+    }
+}
+@media(min-width:1186px){
+    .scrollbox{
+        margin-left: 37%;
     }
 }

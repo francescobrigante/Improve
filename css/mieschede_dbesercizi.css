@@ -39,7 +39,7 @@
 
 .box-db{
     background-color: #2d2b2b;
-    height: 120px;
+    height: 220px;
     width: 96%;
     border-radius: 30px;
     cursor: pointer;
@@ -52,8 +52,8 @@
 }
 
 .box-db img{
-    width: 80px;
-    height: auto;
+    width: 90%;
+    height:  70%;
     border-radius: 15px;
     /* position:relative;  */
     margin-top: -15px;

@@ -242,27 +242,27 @@ function CloseEsercizio(id){
     document.getElementById(id).style.display="none";
 }
 
-function limitInput(element) {
+function limitInput(element, max) {
     if (element.value.length > 2) {
         element.value = element.value.slice(0, 2);
     }
-    if (element.value > 10) {
-        element.value = 10;
+    if (element.value > max) {
+        element.value = max;
     }
 }
 function validateInput(event) {
     const charCode = event.charCode ? event.charCode : event.keyCode;
     if (charCode < 48 || charCode > 57) {
         event.preventDefault();
-    }    
+    } 
 }
 
-function limitInputRecupero(element){
-    if (element.value.length > 2) {
-        element.value = element.value.slice(0, 2);
+function limitInputRecupero(element, max){
+    if (element.value.length > 3) {
+        element.value = element.value.slice(0, 3);
     }
-    if (element.value > 90) {
-        element.value = 90;
+    if (element.value > max) {
+        element.value = max;
     }
 }
 

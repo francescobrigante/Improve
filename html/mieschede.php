@@ -230,11 +230,11 @@
                     <h2><?php echo $esercizio['muscolo']; ?></h2>
                     <img src="<?php echo $esercizio['immagine']; ?>" alt="<?php echo $esercizio['nome']; ?>">
                     <label>Serie:</label>
-                    <input class="serie-input" type="number" min="1" max="10" oninput="limitInput(this)" onkeypress="validateInput(event)"><br>
+                    <input class="serie-input" type="number" min="1" max="20" oninput="limitInput(this, 20)" onkeypress="validateInput(event)"><br>
                     <label>Ripetizioni:</label>
-                    <input class="ripetizioni-input" type="number" name="" required="" min="1" max="10" oninput="limitInput(this)"  onkeypress="validateInput(event)"><br>
+                    <input class="ripetizioni-input" type="number" name="" required="" min="1" max="30" oninput="limitInput(this, 30)"  onkeypress="validateInput(event)"><br>
                     <label>Recupero:
-                    <input class="recupero-input" type="number" name="" required=""min="5" max="90" step="5" oninput="limitInputRecupero(this)"  onkeypress="validateInput(event)">s</label><br>
+                    <input class="recupero-input" type="number" name="" required=""min="5" max="300" step="5" oninput="limitInputRecupero(this, 300)"  onkeypress="validateInput(event)">s</label><br>
                     <button class="aggiungies" onclick="aggiungiEsercizio('<?php echo htmlspecialchars($esercizio['nome']); ?>', this)">
                         Aggiungi
                     </button>

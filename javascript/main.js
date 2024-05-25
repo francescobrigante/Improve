@@ -156,5 +156,5 @@ function displayfew() {
 };
 
 function GoToMieSchede(){
-    window.location.href= './mieschede.php';
+    window.location.href = './mieschede.php?nuovaScheda=true';
 }

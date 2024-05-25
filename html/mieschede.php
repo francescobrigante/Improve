@@ -40,6 +40,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <script src="//code.jquery.com/jquery-3.7.1.js"></script>
         <script src="../javascript/mieschede.js"></script>
+        <script>
+            function checkQueryParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('nuovaScheda') === 'true') {
+                    openPopupNuovaScheda();
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", checkQueryParams);
+        </script>
     </head>
 <body>
 

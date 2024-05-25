@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); */
 .dbesercizi{
     background-color: #1b1b1b;
     position: absolute;
@@ -101,10 +101,8 @@
     transform: translate(-50%,-50%) scale(1) ;
 }
 
-
-
 input[type="number"] {
-    width: 50px;
+    width: 80px;
     padding: 5px;
     font-size: 26px;
     text-align: center;
@@ -122,4 +120,10 @@ input[type="number"]:hover{
 
 .fa-xmark{
     cursor: pointer;
+}
+
+.search-bar {
+    border: 1px solid #1b1b1b;
+    border-radius: 50px;
+    margin-left: 100px;
 }

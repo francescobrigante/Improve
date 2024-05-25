@@ -8,7 +8,6 @@
             exit();
         }
         $username = $_SESSION['username'];
-        //ciao
 
         //connessione al database
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
@@ -206,6 +205,9 @@
     <!-- popup database esercizi -->
     <div class="dbesercizi" id="dbesercizi" style="display: none">
         <button class="" id="chiudidb" onclick="closePopupDB()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="search-bar">
+                <input type="text" placeholder="Cerca un esercizio..." oninput="search()"> 
+        </div>
         <div class="contenitoredb">
         <?php
             $query = "SELECT * FROM esercizi";

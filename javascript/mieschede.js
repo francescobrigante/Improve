@@ -350,4 +350,20 @@ function aggiungiEsercizio(nomeesercizio, button){
     // closePopupDB();
 }
 
-//event listener per tradurre enter in click
+// per la searchbar
+document.querySelector('.search-bar input').addEventListener('input', search);
+
+// Funzione di ricerca
+function search() {
+    var input = document.querySelector('.search-bar input').value.toLowerCase();
+    var results = document.querySelectorAll('.contenitoredb .box-db'); 
+    results.forEach(function(result) {
+        var testo_h1 = result.querySelector('h1').textContent.toLowerCase();
+
+        if (testo_h1.includes(input)){
+            result.classList.remove('hidden');
+        }
+        else
+            result.classList.add('hidden');
+    });
+}

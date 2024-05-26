@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image:url("../img/background.jpg");
+  background-size:cover ;
+  background-repeat: no-repeat;
+  min-height: 140vh; 
+  justify-content: center;
+  align-items: center;
+  
+}
+.barra_secondaria{
+  margin: 0 auto; /* Centrare il contenitore */
+  padding: 20px 20px ;
+  display: inline-block;
+  text-align: left;
+  align-items: center;
+  justify-content: left;
+  height: 170px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 0;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+}
+
+.barra_secondaria h1 {
+  color: #e6851e;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.barra_secondaria h2 {
+  color: #333;
+  margin-bottom: 0px;
+
+}
+
+
+
+.wrapper{
+
+  display: block;
+  max-width: 800px;
+  width: 90%;
+  margin: 50px auto;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  margin-top: 30px;
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+
+p {
+ background-color: transparent; 
+ color: #333;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendar{
+  padding: 20px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+
+
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+
+.days li.active::before{
+  background:#e6851e;
+}
+
+.calendar .days li.active{
+  color: #fff;
+}
+
+@media (max-width: 529px){
+  .barrasup img{
+      width: 60vw;
+  }
+}
+
+@media (max-width: 463px){
+  #home_container{
+     transform: scale(1.5);
+  }
+  #account{
+      transform: scale(1.5);
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 100%; /* Use full width for very small screens */
+
+  }
+
+  header .current-date {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  header .icons span {
+    font-size: 1.5rem; /* Adjust icon size for smaller screens */
+  }
+
+  .calendar li {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .days li::before {
+    height: 35px;
+    width: 35px; /* Adjust size for smaller screens */
+  }
+}
+@media(max-width:542px){
+  .barra_secondaria{
+    height: 220px;
+  }
+  .barra_secondaria h2{
+    font-size: 20px;
+  }
+  .barra_secondaria h1{
+    font-size: 25px;
+  }
+  
+
+}

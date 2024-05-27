@@ -25,6 +25,12 @@
    cursor: pointer;
    font-family: Poppins;
    margin-left: 5%;
+   transition: 0.2s;
+}
+
+.nuovascheda:hover{
+    color: white;
+    background-color: #e6851e;
 }
 
 .buttonperspazio{

@@ -56,23 +56,25 @@
     <!-- barra superiore -->
     <div class="barrasup">
 
-    <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
-    <img src="../img/logo.png">
+        <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+        <img src="../img/logo.png">
 
-    <!-- account -->
-    <i id="account"class="fa-solid fa-user"></i>            
-    <div class="dropdown" id="dropdown">
-        <ul>
-            <li><a href="./main.php"><i class="fa-solid fa-folder"></i> Archivio Esercizi</a></li>
-            <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
-        </ul>
-    </div>       
+        <!-- account -->
+        <i id="account"class="fa-solid fa-user"></i>            
+        <div class="dropdown" id="dropdown">
+            <ul>
+                <li><a href="./main.php"><i class="fa-solid fa-folder"></i> Archivio Esercizi</a></li>
+                <li><a href="../html/schedepronte.html"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
+                <li><a href="../html/diario.php"><i class="fa-solid fa-pen-to-square"></i> Diario di Allenamento</a></li>
+                <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            </ul>
+        </div>       
     </div> 
 
     <!-- Barra secondaria -->
     <div class="barra_secondaria"> 
         <button class="nuovascheda" onclick="openPopupNuovaScheda()">+ Nuova scheda</button>
-        <h1> Le tue schede </h1>
+        <h1> Le mie schede </h1>
     </div>
 
     <!-- scrollbox di visualizzazione schede -->

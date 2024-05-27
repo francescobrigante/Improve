@@ -33,6 +33,12 @@ function openPopupNuovaScheda(){
 function closePopupNuovaScheda(){
     document.getElementById("nuovaschedapopup").classList.remove("nuovaschedapopupactive")
     document.getElementById("overlay").classList.remove("overlayactive");
+
+        // Rimuovi il parametro "nuovaScheda" dall'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete('nuovaScheda');
+        const newUrl = window.location.pathname + '?' + urlParams.toString();
+        window.history.replaceState({}, '', newUrl);
 }
 
 

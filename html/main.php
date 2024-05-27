@@ -71,7 +71,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Improve</title>
+        <title>Archivio Esercizi</title>
         <link rel="stylesheet" type="text/css" href="../css/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <script src="//code.jquery.com/jquery-3.7.1.js"></script>
@@ -85,14 +85,16 @@
         <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
         <img src="../img/logo.png">
 
-        <!-- account -->
-        <i id="account"class="fa-solid fa-user"></i>            
-        <div class="dropdown" id="dropdown">
-            <ul>
-                <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
-                <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
-            </ul>
-        </div>       
+          <!-- account -->
+          <i id="account"class="fa-solid fa-user"></i>            
+          <div class="dropdown" id="dropdown">
+              <ul>
+                  <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
+                  <li><a href="../html/schedepronte.html"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
+                  <li><a href="../html/diario.php"><i class="fa-solid fa-pen-to-square"></i> Diario di Allenamento</a></li>
+                  <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+              </ul>
+          </div>       
     </div> 
 
 

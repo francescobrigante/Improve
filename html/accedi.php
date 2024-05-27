@@ -31,7 +31,7 @@
                 <input type="password" id="password" name="password">
             </div>
             <input type="submit" value="Accedi">
-            <div class="accedi">Non sei ancora registrato? <a href="../html/registrati.html">Registrati</a></div>
+            <div class="accedi">Non sei ancora registrato? <a href="../html/registrati.php">Registrati</a></div>
         </form>
     </div>
 

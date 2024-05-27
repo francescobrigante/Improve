@@ -1,16 +1,58 @@
+ <!-- php -->
+ <?php
+    session_start();
+
+    //se non hai username, allora non sei loggato
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../html/index.html");
+        exit();
+    }
+    $username = $_SESSION['username'];
+
+    //connessione al database
+    $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
+        die("Connessione fallita: " . pg_last_error());
+
+    if($dbconn){
+        //verifico se è già attiva una sessione
+        if (session_status() !== PHP_SESSION_ACTIVE){
+            if(!session_start()){
+                echo "Errore nell'inizializzazione della sessione";
+                exit;
+            }
+        }
+
+        $query = "SELECT giorno, mese, anno FROM allenamenti WHERE username = $1 ORDER BY anno, mese, giorno";
+        $result = pg_query_params($dbconn, $query, array($username));
+        $allenamenti = array();
+
+        if ($result) {
+            while ($row = pg_fetch_assoc($result)) {
+                $allenamenti[] = $row;
+            }
+        } else {
+            echo "Errore nel recupero dei dati di allenamento: " . pg_last_error($dbconn);
+        }
+
+        pg_close($dbconn);
+    }
+?>
 
 <!DOCTYPE html>
     <html lang="it">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Le mie schede</title>
+            <title>Diario</title>
             <link rel="stylesheet" type="text/css" href="../css/barrasup.css">
             <link rel="stylesheet" type="text/css" href="../css/diario.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
             <script src="//code.jquery.com/jquery-3.7.1.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script defer>
+                const allenamenti = <?php echo json_encode($allenamenti); ?>;
+            </script>
             <script src="../javascript/diario.js" defer></script>
         </head>
     <body>
@@ -35,7 +77,7 @@
         <div class="barra_secondaria"> 
           <h1> Diario di allenamento</h1>
           <h2> Tieni traccia dei tuoi progressi selezionando il giorno in cui ti sei allenato</h2>
-      </div>
+        </div>
 
         <div class="wrapper">
             <header>
@@ -58,6 +100,8 @@
               <ul class="days"></ul>
             </div>
           </div>
+
+          <button id="cancellaGiorniAllenamento">Cancella tutti i giorni di allenamento</button>
 
           <div class="wrapper">
             <canvas id="trainingChart" width="400px" height="300px"></canvas>

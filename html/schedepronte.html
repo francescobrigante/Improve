@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Schede pronte</title>
+        <link rel="stylesheet" type="text/css" href="../css/barrasup.css">
+        <link rel="stylesheet" type="text/css" href="../css/schedepronte.css">
+        <!-- <link rel="stylesheet" type="text/css" href="../css/mieschede_dbesercizi.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="../javascript/schedepronte.js"></script>
+    </head>
+<body>
+
+    <!-- barra superiore -->
+    <div class="barrasup">
+
+        <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+        <img src="../img/logo.png">
+
+        <!-- account -->
+        <i id="account"class="fa-solid fa-user"></i>            
+        <div class="dropdown" id="dropdown">
+            <ul>
+                <li><a href="./main.php"><i class="fa-solid fa-folder"></i> Archivio Esercizi</a></li>
+                <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
+                <li><a href="../php/logout.php"><i class="fa-solid fa-calendar-days"></i></i> Diario Allenamento</a></li>
+                <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            </ul>
+        </div>       
+    </div> 
+
+    <!-- Barra secondaria -->
+    <div class="barra_secondaria"> 
+        <h1> Schede Pronte </h1>
+        <h2> In questa sezione puoi trovare delle schede adatte per il tuo livello o per il tuo obiettivo </h2>
+    </div>
+
+    <div class="scrollbox">
+        <h1> Per Livello <h1>
+        <div class="box-scheda">
+            <h1 onclick="OpenScheda('Principiante')"> Principiante </h1>
+            <div class="first3">
+                <h2> Panca Piana 3x5</h2><br>
+                <h2> Squat 3x4</h2><br>
+                <h2> Lat Machine 3x4...</h2>  
+            </div>
+        </div>
+            <div class="box-scheda">
+                <h1 onclick="OpenScheda('Avanzato')"> Avanzato </h1>
+                <div class="first3">
+                    <h2> Panca Piana 3x5</h2><br>
+                    <h2> Squat 3x4</h2><br>
+                    <h2> Lat Machine 3x4...</h2>  
+                </div>
+            </div>
+        <h1> Per Obiettivo <h1>
+        <div class="box-scheda">
+            <h1 onclick="OpenScheda('Ipertrofia')"> Ipertrofia </h1>
+            <div class="first3">
+                <h2> Panca Piana 3x5</h2><br>
+                <h2> Squat 3x4</h2><br>
+                <h2> Lat Machine 3x4...</h2>  
+            </div>
+        </div>
+        <div class="box-scheda">
+            <h1 onclick="OpenScheda('Dimagrimento')"> Dimagrimento </h1>
+            <div class="first3">
+                <h2> Panca Piana 3x5</h2><br>
+                <h2> Squat 3x4</h2><br>
+                <h2> Lat Machine 3x4...</h2>  
+            </div>
+        </div>
+        <div class="box-scheda">
+            <h1 onclick="OpenScheda('Shredding')"> Shredding </h1>
+            <div class="first3">
+                <h2> Panca Piana 3x5</h2><br>
+                <h2> Squat 3x4</h2><br>
+                <h2> Lat Machine 3x4...</h2>  
+            </div>
+        </div>
+        <div class="box-scheda">
+            <h1 onclick="OpenScheda('Calisthenics')"> Calisthenics  </h1>
+            <div class="first3">
+                <h2> Panca Piana 3x5</h2><br>
+                <h2> Squat 3x4</h2><br>
+                <h2> Lat Machine 3x4...</h2>  
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="boxaperto" id="Ipertrofia" style="display:none;">
+        <div class ="top">
+            <h4>Ipertrofia</h4>
+        </div>
+            <div class="contenitoreesercizi">
+                <div class="box-exercise">
+                    <h1>Panca Piana </h1>
+                    <h2>Petto </h2>
+                    <h3>3 x 5 - 120s </h3>
+                </div>
+                <div class="box-exercise">
+                    <h1>Squat </h1>
+                    <h2>Gambe </h2>
+                    <h3>3 x 4 - 120s </h3>
+                </div>
+                <div class="box-exercise">
+                    <h1>Lat Machine </h1>
+                    <h2>Gambe </h2>
+                    <h3>3 x 4 - 120s </h3>
+                </div>
+            </div>  
+            <button class="button" id="chiudi_popupscheda" onclick="CloseScheda('Ipertrofia')">Chiudi</button>
+        </div> 
+    </div>
+
+    <div class="boxaperto" id="Dimagrimento" style="display:none;">
+        <div class ="top">
+            <h4>Dimagrimento</h4>
+        </div>
+        <div class="contenitoreesercizi">
+            <div class="box-exercise">
+                <h1>Panca Piana </h1>
+                <h2>Petto </h2>
+                <h3>3 x 5 - 120s </h3>
+            </div>
+            <div class="box-exercise">
+                <h1>Squat </h1>
+                <h2>Gambe </h2>
+                <h3>3 x 4 - 120s </h3>
+            </div>
+            <div class="box-exercise">
+                <h1>Lat Machine </h1>
+                <h2>Gambe </h2>
+                <h3>3 x 4 - 120s </h3>
+            </div>
+        </div>
+        <button class="button" id="chiudi_popupscheda" onclick="CloseScheda('Dimagrimento')">Chiudi</button>
+    </div> 
+
+    <div class="boxaperto" id="Shredding" style="display:none;">
+        <div class ="top">
+            <h4>Shredding</h4>
+        </div>
+        <div class="contenitoreesercizi">
+            <div class="box-exercise">
+                <h1>Panca Piana </h1>
+                <h2>Petto </h2>
+                <h3>3 x 5 - 120s </h3>
+            </div>
+            <div class="box-exercise">
+                <h1>Squat </h1>
+                <h2>Gambe </h2>
+                <h3>3 x 4 - 120s </h3>
+            </div>
+            <div class="box-exercise">
+                <h1>Lat Machine </h1>
+                <h2>Gambe </h2>
+                <h3>3 x 4 - 120s </h3>
+            </div>
+        </div>
+        <button class="button" id="chiudi_popupscheda" onclick="CloseScheda('Shredding')">Chiudi</button>
+    </div> 
+
+    <div class="boxaperto" id="Calisthenics" style="display:none;">
+        <div class ="top">
+            <h4>Calisthenics</h4>
+        </div>
+        <div class="contenitoreesercizi">
+            <div class="box-exercise">
+                <h1>Panca Piana </h1>
+                <h2>Petto </h2>
+                <h3>3 x 5 - 120s </h3>
+            </div>
+            <div class="box-exercise">
+                <h1>Squat </h1>
+                <h2>Gambe </h2>
+                <h3>3 x 4 - 120s </h3>
+            </div>
+            <div class="box-exercise">
+                <h1>Lat Machine </h1>
+                <h2>Gambe </h2>
+                <h3>3 x 4 - 120s </h3>
+            </div>
+        </div>
+        <button class="button" id="chiudi_popupscheda" onclick="CloseScheda('Calisthenics')">Chiudi</button>
+    </div> 
+
+    <div id="Ipertrofiaoverlay" class= "overlay" onclick="CloseScheda('Ipertrofia')"> </div>
+    <div id="Dimagrimentooverlay" class= "overlay" onclick="CloseScheda('Dimagrimento')"> </div>
+    <div id="Shreddingoverlay" class= "overlay" onclick="CloseScheda('Shredding')"> </div>
+    <div id="Calisthenicsoverlay" class= "overlay" onclick="CloseScheda('Calisthenics')"> </div>
+    <div id="Shreddingoverlay" class= "overlay" onclick="CloseScheda('Principiante')"> </div>
+    <div id="Calisthenicsoverlay" class= "overlay" onclick="CloseScheda('Avanzato')"> </div>
+
+</body>
+</html>
+
+

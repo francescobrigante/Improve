@@ -145,6 +145,8 @@ h1{
     font-size: 20px;
     font-family: Poppins, sans-serif;
     margin-top: -45px;
+    font-weight: 500;
+    color: white;
 }
 
 .first3{
@@ -310,6 +312,12 @@ h1{
    cursor: pointer;
    margin-top: 10px; 
    font-family: Poppins;
+   transition: 0.2s;
+   font-weight: 550;
+}
+
+.button:hover{
+    color: white;
 }
 
 .overlay{
@@ -330,14 +338,6 @@ h1{
     pointer-events: all;
 }
 
-
-
-
-h3{
-    font-family: Poppins,sans-serif;
-    font-size:30px ;
-    margin-top: 10px;
-}
 
 #newex{
     width: 60%;
@@ -415,12 +415,16 @@ h4:hover{
     border: none;
     border-radius: 30px;
     color: #1b1b1b;
-    font-weight: bold;
     cursor: pointer;
     margin-top: 10px; 
     font-family: Poppins;
     margin-top: 30px;
     margin-left: 110px;
+    font-weight: 550;
+}
+
+#chiudi_popupscheda:hover{
+    color: white;
 }
 
 #annulla_popupscheda{
@@ -488,6 +492,7 @@ h4:hover{
     width: 75%;
     margin-left: 15px;
     margin-bottom: 25px;
+    font-weight: 600;
 }
 
 .box-exercise h2 {
@@ -498,6 +503,17 @@ h4:hover{
     margin-left: 15px;
     margin-top: -30px;
     margin-bottom: 23px;
+    font-weight: 500;
+}
+
+.box-exercise h3{
+    font-family: Poppins,sans-serif;
+    font-size:20px ;
+    width: 50%;
+    margin-left: 15px;
+    color: white;
+    margin-top: -20px;
+    font-weight: 450;
 }
 
 #rimuovies{
@@ -509,15 +525,6 @@ h4:hover{
     position: relative;
     top:-100%;
     left:82%;
-}
-
-.box-exercise h3{
-    font-family: Poppins,sans-serif;
-    font-size:20px ;
-    width: 50%;
-    margin-left: 15px;
-    color: #e9e9e9;
-    margin-top: -20px;
 }
 
 .fa-xmark{

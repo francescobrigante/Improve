@@ -26,7 +26,6 @@ $(document).ready(function(){
 });
 
 function OpenScheda(id){
-    alert(id);
     document.getElementById(id+"overlay").classList.add("overlayactive");
     document.getElementById(id).style.display="block";
 }

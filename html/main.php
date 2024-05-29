@@ -90,7 +90,7 @@
           <div class="dropdown" id="dropdown">
               <ul>
                   <li><a href="./mieschede.php"><i class="fa-solid fa-dumbbell"></i> Le mie schede</a></li>
-                  <li><a href="../html/schedepronte.html"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
+                  <li><a href="../html/schedepronte.php"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
                   <li><a href="../html/diario.php"><i class="fa-solid fa-pen-to-square"></i> Diario di Allenamento</a></li>
                   <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
               </ul>

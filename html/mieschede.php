@@ -64,7 +64,7 @@
         <div class="dropdown" id="dropdown">
             <ul>
                 <li><a href="./main.php"><i class="fa-solid fa-folder"></i> Archivio Esercizi</a></li>
-                <li><a href="../html/schedepronte.html"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
+                <li><a href="../html/schedepronte.php"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
                 <li><a href="../html/diario.php"><i class="fa-solid fa-pen-to-square"></i> Diario di Allenamento</a></li>
                 <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
             </ul>
@@ -96,13 +96,27 @@
             $result = pg_query($dbconn, $query_new);
             
             if ($result) {
+                $count = 0;
+                $totalRows = pg_num_rows($result);
                 while ($tupla = pg_fetch_assoc($result)) {
+                    $count++;
                     if($tupla['numeroesercizi'] > 0 && $tupla['posizione'] > 0) {  //cioè se ci sono elementi nella query, quindi la scheda non è vuota
             ?>  
-                <h2><?php echo $tupla['nomeesercizio']; ?>: <?php echo $tupla['serie']; ?>x<?php echo $tupla['ripetizioni']; ?></h2><br>
+                <h2><?php echo $tupla['nomeesercizio']; ?>: <?php echo $tupla['serie']; ?>x<?php echo $tupla['ripetizioni'];?>
+                <!-- aggiunta tre puntini se la riga si riferisce all'ultimo esercizio visualizzato -->
+                <?php
+                    if ($count == $totalRows) {
+                ?>
+                . . .
+                <?php
+                    }
+                ?>
+                </h2>
+                <br>
             <?php
                     }
                 }
+
             }
             ?>
             </div>

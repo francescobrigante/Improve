@@ -33,10 +33,28 @@
     <div class="container">
         <form action="../php/accedi.php" method="post" name="accedi" onsubmit="return validaForm();">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" placeholder="Inserisci il tuo username">
             <div class="campo_password">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <div class="scriviPassword">                    
+                    <input type="password" id="password" name="password" placeholder="Inserisci la tua password">
+                    <i id="eyeIcon" class="fa-solid fa-eye"></i>
+                    <script>
+                        document.getElementById('eyeIcon').addEventListener('click', function() {
+                            var password = document.getElementById('password');
+                            var eyeIcon = document.getElementById('eyeIcon');
+                            if (password.type === 'password') {
+                                password.type = 'text';
+                                eyeIcon.classList.remove('fa-eye');
+                                eyeIcon.classList.add('fa-eye-slash');
+                            } else {
+                                password.type = 'password';
+                                eyeIcon.classList.remove('fa-eye-slash');
+                                eyeIcon.classList.add('fa-eye');
+                            }
+                        });
+                    </script>
+                </div>
             </div>
             <input type="submit" value="Accedi">
             <div class="accedi">Non sei ancora registrato? <a href="../html/registrati.php">Registrati</a></div>

@@ -94,6 +94,58 @@ body {
     margin-bottom: 100px;
 }
 
+.scriviPassword{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.scriviPassword input{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+}
+
+.scriviCPassword{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.scriviCPassword input{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+}
+
+#eyeIcon1{
+    color: black;
+    transition: color 0.3s;
+    cursor: pointer;
+    margin-left: -30px;
+}
+
+#eyeIcon1:hover{
+    color: #e6851e;
+}
+
+#eyeIcon2{
+    color: black;
+    transition: color 0.3s;
+    cursor: pointer;
+    margin-left: -30px;
+}
+
+#eyeIcon2:hover{
+    color: #e6851e;
+}
+
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;

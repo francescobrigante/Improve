@@ -77,6 +77,33 @@ body {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to bottom, white, #eeeeee);
 }
+
+.scriviPassword{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.scriviPassword input{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+}
+
+#eyeIcon{
+    color: black;
+    transition: color 0.3s;
+    cursor: pointer;
+    margin-left: -30px;
+}
+
+#eyeIcon:hover{
+    color: #e6851e;
+}
+
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -85,6 +112,7 @@ input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 10px;
 }
+
 input[type="submit"] {
     background-color: #e6851e;
     border: none;
@@ -101,26 +129,11 @@ input[type="submit"] {
     margin-bottom: 8px;
     width: 100%;
     transition: 0.2s;
+    
 }
 input[type="submit"]:hover {
     background-color: #1b1b1b;
     color: #e6851e;
-}
-input[type="date"] {
-    width: 100%; 
-    height: 38.5px;
-    font-size: 18px;
-    margin: 8px 0px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding: 10px; 
-}
-input[type="radio"] {
-        margin-top: 10px; 
-        margin-bottom: 20px;
-        margin-right: 10px;
-        margin-left: 10px;
 }
 
 #overlay {

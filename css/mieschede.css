@@ -1,15 +1,13 @@
 
 .barra_secondaria{
-    margin: 0 auto; /* Centrare il contenitore */
-    padding: 20px 20px ;
+    margin: 0 auto;
+    padding: 10px 10px ;
     display: flex;
     text-align: left;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
     height: 100px;
     box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.5);
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .nuovascheda{
@@ -26,6 +24,14 @@
    font-family: Poppins;
    margin-left: 5%;
    transition: 0.2s;
+}
+
+.spaziovuoto{
+    width: 20%;
+    height: 70%;
+    max-width: 100%;
+    background-color: transparent;
+    margin-right: 5%;
 }
 
 .nuovascheda:hover{

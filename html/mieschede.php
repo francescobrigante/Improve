@@ -75,6 +75,7 @@
     <div class="barra_secondaria"> 
         <button class="nuovascheda" onclick="openPopupNuovaScheda()">+ Nuova scheda</button>
         <h1> Le mie schede </h1>
+        <div class="spaziovuoto"></div>
     </div>
 
     <!-- scrollbox di visualizzazione schede -->
@@ -97,7 +98,8 @@
             
             if ($result) {
                 $count = 0;
-                $totalRows = pg_num_rows($result);
+                // $totalRows = pg_num_rows($result);
+                $maxRows = 3; //scelto da noi per default
                 while ($tupla = pg_fetch_assoc($result)) {
                     $count++;
                     if($tupla['numeroesercizi'] > 0 && $tupla['posizione'] > 0) {  //cioè se ci sono elementi nella query, quindi la scheda non è vuota
@@ -105,7 +107,7 @@
                 <h2><?php echo $tupla['nomeesercizio']; ?>: <?php echo $tupla['serie']; ?>x<?php echo $tupla['ripetizioni'];?>
                 <!-- aggiunta tre puntini se la riga si riferisce all'ultimo esercizio visualizzato -->
                 <?php
-                    if ($count == $totalRows) {
+                    if ($count == $maxRows) {
                 ?>
                 . . .
                 <?php

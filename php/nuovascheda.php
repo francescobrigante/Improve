@@ -110,9 +110,6 @@
             echo "Errore durante l'operazione di rinomina";
         }
 
-        //BISOGNA FARE UNA QUERY CHE ELIMINA TUTTE LE SCHEDE VUOTE TRANNE UNA
-        //QUESTO SSE ESISTONO PIU DI 1 SCHEDA VUOTA
-
     }
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["aggiungies_nomescheda"]) && isset($_POST["aggiungies_nomeesercizio"]) 
             && isset($_POST["serie"]) && isset($_POST["ripetizioni"]) && isset($_POST["recupero"])) {

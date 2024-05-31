@@ -13,7 +13,7 @@
 
     <!-- barra superiore -->
     <div class="barrasup">
-            <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+            <a href="./index.html"><i id="home_container" class="fa-solid fa-arrow-left"></i></a>
             <img src="/img/logo.png">
             <div></div>
     </div>

@@ -56,14 +56,13 @@
     <!-- barra superiore -->
     <div class="barrasup">
 
-        <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+        <a href="./main.php"><i id="home_container" class="fa-solid fa-house"></i></a>
         <img src="../img/logo.png">
 
         <!-- account -->
         <i id="account"class="fa-solid fa-user"></i>            
         <div class="dropdown" id="dropdown">
             <ul>
-                <li><a href="./main.php"><i class="fa-solid fa-folder"></i> Archivio Esercizi</a></li>
                 <li><a href="../html/schedepronte.php"><i class="fa-solid fa-file-lines"></i> Schede Pronte</a></li>
                 <li><a href="../html/diario.php"><i class="fa-solid fa-pen-to-square"></i> Diario di Allenamento</a></li>
                 <li><a href="../php/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>

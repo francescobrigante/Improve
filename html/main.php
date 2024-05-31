@@ -82,7 +82,7 @@
     <!-- barra superiore -->
     <div class="barrasup">
 
-        <a href="./index.html"><i id="home_container" class="fa-solid fa-house"></i></a>
+        <a><i></i></a> 
         <img src="../img/logo.png">
 
           <!-- account -->

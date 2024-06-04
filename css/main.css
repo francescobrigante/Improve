@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 html, body{
     margin: 0;
     padding: 0;
-    /* background-image: url("../img/wallpaper.jpg");
+    background-image: url("../img/wallpaper.jpg");
     background-size: cover;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
 }
 
 .barrasup {
@@ -542,3 +544,33 @@ input{
         height: 300px;
     }
 }
+
+@media( width:450px) and (height:450px){
+    .popupactive{
+        height: 400px;
+        width:  70%;
+    }
+    .popupactive img{
+        width: 90%;
+        height: 40%;
+    }
+    .popupactive h1{
+        font-size: 23px;
+        
+    }
+    .popupactive h2{
+        width: 70%;
+    }
+    .popupactive h3{
+        width: 70%;
+    }
+    
+    
+    .popupactive .description{
+        height: 25%;
+    }
+    .box-exercise img {
+        height: 50%;
+    }
+    
+} 

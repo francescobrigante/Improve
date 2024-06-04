@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image:url("../img/background.jpg");
+  background-image:url("../img/wallpaper.jpg");
   background-size:cover ;
   background-repeat: no-repeat;
   min-height: 140vh; 
@@ -217,12 +217,36 @@ header .current-date{
   .barra_secondaria{
     height: 220px;
   }
-  .barra_secondaria h2{
-    font-size: 20px;
-  }
   .barra_secondaria h1{
     font-size: 25px;
   }
-  
-
+}
+@media(max-width:930px){
+  .barra_secondaria{
+    height: 180px;
+  }
+}
+@media(max-width:571px){
+  .barra_secondaria h1{
+    font-size: 40px;
+  }
+}
+@media(max-width:459px){
+  .barra_secondaria h1{
+    font-size: 30px;
+  }
+  .barra_secondaria h2{
+    margin-top: 5px;
+    font-size: 22px;
+  }
+}
+@media(max-width:350px){
+  .barra_secondaria{
+    height: 250px;
+  }
+}
+@media(max-width:589px){
+  #cancellaGiorniAllenamento{
+    font-size: 20px;
+  }
 }

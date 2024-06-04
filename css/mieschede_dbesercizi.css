@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 .dbesercizi{
     background-color: #1b1b1b;
     position: absolute;
@@ -20,7 +20,7 @@
 }
 .contenitoredb{
     background-color: #1b1b1b;
-    height: 85%;
+    height: 70%;
     width: 90%;
     overflow-y: auto;
     margin-left: 19px;
@@ -142,3 +142,14 @@ input[type="number"]:hover{
     margin-left: 10px;
     width: 90%;
     }
+
+@media(width:450px) and (height:450px){
+    .dbesercizi{
+        height: 400px;
+    }
+    .contenitoredb{
+        height: 60%;
+    }
+    
+    
+}

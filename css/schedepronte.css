@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background-image:url("../img/wallpaper.jpg");
+    /* background-image:url("../img/wallpaper.jpg"); */
     background-size:cover ;
     background-repeat: no-repeat;
 }
@@ -85,6 +85,10 @@ body {
     border-radius: 5px;
 }
 
+.box-scheda h2::-webkit-scrollbar {
+    display: none;
+}
+
 .box-scheda{
     transition: all 0.2s;
     width: 80%;
@@ -120,10 +124,6 @@ body {
     height: 77px;
     margin: 0;
     margin-top: 20px;
-    white-space: nowrap; 
-    overflow-x: hidden;
-    overflow-y: hidden;
-    text-overflow: ellipsis;
     width: 100%;
 }
 .animate{
@@ -320,7 +320,7 @@ body {
    border: none;
    border-radius: 30px;
    color: #1b1b1b;
-   font-weight: bold;
+   font-weight: 550;
    font-size:20px;
    cursor: pointer;
    margin-top: 10px; 
@@ -464,7 +464,7 @@ h4:hover{
 
 .contenitoreesercizi{
     background-color: #1b1b1b;
-    height: 50%;
+    height: 62%;
     width: 90%;
     overflow-y: auto;
     margin-left: 19px;
@@ -500,12 +500,11 @@ h4:hover{
 
 .box-exercise h1{
     font-size: 30px;
-    width: 85%;
     margin-left: 15px;
     margin-bottom: 25px;
-    white-space: nowrap; /* Evita che il testo vada a capo */
-    overflow: hidden; /* Nasconde il testo che eccede il contenitore */
-    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow-x: auto;
+    width: 90%;
 }
 
 .box-exercise h2 {
@@ -734,6 +733,16 @@ h4:hover{
 .aggiungies{
     margin-top: 10px;
     margin-left: 20px;
+}
+
+.box-exercise h1{
+    font-weight: 600;
+}
+.box-exercise h2{
+    font-weight: 500;
+}
+.box-exercise h3{
+    font-weight: 450;
 }
 
 /*/////////////////////////////*/

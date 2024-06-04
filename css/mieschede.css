@@ -1,7 +1,7 @@
 html, body{
     margin: 0;
     padding: 0;
-    background-image: url("../img/wallpaper.jpg"); 
+    /* background-image: url("../img/wallpaper.jpg");  */
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 140vh; 
@@ -63,7 +63,9 @@ h1{
     color: #e6851e;       
 }
 
-
+.first3 h2::-webkit-scrollbar {
+    display: none;
+}
 
 .scrollbox{
     width: 30%; /* Larghezza del contenitore */
@@ -327,7 +329,6 @@ h1{
    border: none;
    border-radius: 30px;
    color: #1b1b1b;
-   font-weight: bold;
    font-size:20px;
    cursor: pointer;
    margin-top: 10px; 
@@ -513,9 +514,9 @@ h4:hover{
     margin-left: 15px;
     margin-bottom: 25px;
     font-weight: 600;
-    white-space: nowrap; /* Evita che il testo vada a capo */
-    overflow: hidden; /* Nasconde il testo che eccede il contenitore */
-    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow-x: auto;
+    width: 75%;
 }
 
 .box-exercise h2 {

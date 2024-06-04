@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 html, body{
     margin: 0;
     padding: 0;
-    background-image: url("../img/wallpaper.jpg");
+    /* background-image: url("../img/wallpaper.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
 }

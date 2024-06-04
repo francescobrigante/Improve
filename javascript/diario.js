@@ -52,7 +52,6 @@ const renderCalendar = () => {
     }
 
     for (let i = 1; i <= lastDateofMonth; i++) {
-        // let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear();
         //funzione some restituisce true se almeno un elemento dell'array allenamenti è stato salvato nel db
         let isWorkoutDay = allenamenti.some(all => all.giorno == i && all.mese - 1 == currMonth && all.anno == currYear);
         let activeClass = isWorkoutDay ? "active" : "";
@@ -95,11 +94,9 @@ const renderCalendar = () => {
                 url: "../php/gestionediario.php",
                 data: { giorno: clickedDay, mese: clickedMonth, anno: clickedYear },
                 success: function(response) {
-                    // Fai qualcosa dopo aver inserito il giorno nel database, se necessario
                     console.log(response);
                 },
                 error: function(xhr, status, error) {
-                    // Gestisci eventuali errori qui
                     console.error(xhr.responseText);
                 }
             });   
@@ -175,11 +172,9 @@ document.getElementById("cancellaGiorniAllenamento").addEventListener("click", f
             type: "POST",
             url: "../php/cancellaGiorniAllenamento.php",
             success: function(response) {
-                // Aggiorna il grafico o esegui altre azioni necessarie dopo aver cancellato i dati
                 console.log(response);
             },
             error: function(xhr, status, error) {
-                // Gestisci eventuali errori qui
                 console.error(xhr.responseText);
             }
         });

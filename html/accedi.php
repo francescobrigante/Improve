@@ -18,7 +18,6 @@
         </script>
     </head>
 <body>
-    <!-- Barra superiore -->
     <!-- barra superiore -->
     <div class="barrasup">
             <a href="./index.html"><i id="home_container" class="fa-solid fa-arrow-left"></i></a>

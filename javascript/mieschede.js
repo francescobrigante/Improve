@@ -74,18 +74,15 @@ function creaBox(){
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Gestisci la risposta del server se necessario
             console.log('Richiesta inviata con successo.');
             location.reload();
         
         } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            // Gestisci gli errori se la richiesta non è stata inviata
             console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
         }
     };
     xhr.send("nomescheda=" + encodeURIComponent(nomescheda));
 }
-
 
 
 function eliminaScheda(nomescheda){
@@ -95,10 +92,8 @@ function eliminaScheda(nomescheda){
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Gestisci la risposta del server se necessario
             console.log('Richiesta inviata con successo.');
         } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            // Gestisci gli errori se la richiesta non è stata inviata
             console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
         }
     };
@@ -122,18 +117,14 @@ function eliminaScheda(nomescheda){
 function Open3Dots(id){
     document.getElementById(id + "overlay").classList.add("overlay3dotsactive"); 
     document.getElementById(id).classList.add("DD3Dactive");
-
 }
 
 function Close3Dots(id){
     document.getElementById(id + "overlay").classList.remove("overlay3dotsactive"); 
     document.getElementById(id).classList.remove("DD3Dactive");
-    
-
 }
 
 function openPopupEliminaScheda(id1,id2){
-    // alert("eliminaschedapopup"+id2);
     document.getElementById(id1 + "overlay").classList.remove("overlay3dotsactive"); 
     document.getElementById(id1).classList.remove("DD3Dactive");
     document.getElementById("eliminaschedapopup"+id2).classList.add("eliminaschedapopupactive");
@@ -174,7 +165,6 @@ function rinominaScheda(){
         }
     });
 
-    // alert(nomescheda);
     nuovonome = document.getElementById('rinomina').value;
 
     //controlli nuovonome
@@ -203,11 +193,9 @@ function rinominaScheda(){
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Gestisci la risposta del server se necessario
             console.log('Richiesta inviata con successo.');
             location.reload();
         } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            // Gestisci gli errori se la richiesta non è stata inviata
             console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
         }
     };
@@ -278,13 +266,11 @@ function removeExerciseBox(nomescheda, nomeesercizio, posizione) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Gestisci la risposta del server se necessario
             console.log('Richiesta inviata con successo.');
             localStorage.setItem('esercizioEliminato', 'true');
             localStorage.setItem('nomescheda', nomescheda);
             location.reload();
         } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            // Gestisci gli errori se la richiesta non è stata inviata
             console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
         }
     };
@@ -336,14 +322,12 @@ function aggiungiEsercizio(nomeesercizio, button){
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Gestisci la risposta del server se necessario
             console.log('Richiesta inviata con successo.');
             localStorage.setItem('esercizioEliminato', 'true');
             localStorage.setItem('nomescheda', nomescheda);
             location.reload();
 
         } else if (xhr.readyState === 4 && xhr.status !== 200) {
-            // Gestisci gli errori se la richiesta non è stata inviata
             console.error('Errore durante l\'invio della richiesta:', xhr.statusText);
         }
     };
@@ -351,9 +335,6 @@ function aggiungiEsercizio(nomeesercizio, button){
     var params = "aggiungies_nomescheda=" + encodeURIComponent(nomescheda) + "&aggiungies_nomeesercizio=" + encodeURIComponent(nomeesercizio)
                     + "&serie=" + encodeURIComponent(serie) + "&ripetizioni=" + encodeURIComponent(ripetizioni) + "&recupero=" + encodeURIComponent(recupero);
     xhr.send(params);
-
-    // CloseEsercizio(nomeesercizio + 'popup');
-    // closePopupDB();
 }
 
 // per la searchbar

@@ -44,7 +44,6 @@
 
                 if(password_verify($password, $stored_password)){
                     $_SESSION['username'] = $username;
-                    //echo "Login avvenuto con successo, benvenuto " . $_SESSION['username'];
                     header("Location: ../html/main.php");
                     exit();
                 }

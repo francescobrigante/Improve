@@ -6,13 +6,8 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-image:url("../img/wallpaper.jpg"); */
-  background-size:cover ;
-  background-repeat: no-repeat;
-  min-height: 140vh; 
   justify-content: center;
   align-items: center;
-  
 }
 .barra_secondaria{
   margin: 0 auto; /* Centrare il contenitore */

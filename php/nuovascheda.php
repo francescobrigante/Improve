@@ -56,8 +56,6 @@
         $username = $_SESSION['username'];
 
         $query = "DELETE FROM schede WHERE username = '$username' AND nomescheda = '$nomescheda' AND nomeesercizio='$nomeesercizio' AND posizione='$posizione' AND numeroesercizi>1";
-        // POSSIBILE BUG: se io utente fra ho la scheda day 1 che ha 2 volte lo stesso esercizio,
-        // se premo la x rossa, allora mi vengono eliminati entrambi gli es invece di solo 1
         $result = pg_query($dbconn, $query);
 
         if (!$result) {
@@ -125,7 +123,6 @@
 
         //calcolo posizione esercizio e numero di esercizi
         //query al db per ottenere la posizione più alta attualmente ed incrementarla di 1
-        //OPZIONALE: per evitare incrementi infiniti, fare un limite dopo il quale si resettano tutti
 
         $query = "SELECT MAX(posizione) as posizione FROM schede WHERE username=$1 AND nomescheda=$2";
         $result = pg_query_params($dbconn, $query, array($username, $nomescheda));

@@ -736,14 +736,18 @@ h4:hover{
    border: none;
    border-radius: 30px;
    color: #1b1b1b;
-   font-weight: bold;
+   font-weight: 550;
    font-size:20px;
    cursor: pointer;
    font-family: Poppins;
+   transition: 0.2s;
 }
 .aggiungies{
     margin-top: 10px;
     margin-left: 20px;
+}
+.annullaes:hover, .aggiungies:hover{
+    color: white;
 }
 
 /*/////////////////////////////*/

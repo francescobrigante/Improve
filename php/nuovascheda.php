@@ -1,5 +1,6 @@
 <?php
     session_start();
+    // inserimento della nuova scheda (vuota)
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nomescheda"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
                 die("Connessione fallita: " . pg_last_error());
@@ -16,6 +17,7 @@
         }
 
     }
+    // elimina scheda
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminascheda"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
                 die("Connessione fallita: " . pg_last_error());
@@ -30,6 +32,8 @@
             echo "Errore durante l'operazione di eliminazione";
         }
     }
+
+    // rinomina scheda
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["rinominascheda1"]) && isset($_POST["rinominascheda2"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
                 die("Connessione fallita: " . pg_last_error());
@@ -47,6 +51,7 @@
         }
 
     }
+    // elimina esercizio
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminaes_nomescheda"]) && isset($_POST["eliminaes_nomeesercizio"])) {
         $dbconn = pg_connect("host=localhost port=5432 dbname=Improve user=postgres password=admin") or 
                 die("Connessione fallita: " . pg_last_error());
@@ -109,6 +114,8 @@
         }
 
     }
+
+    // aggiungi esercizio
     elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["aggiungies_nomescheda"]) && isset($_POST["aggiungies_nomeesercizio"]) 
             && isset($_POST["serie"]) && isset($_POST["ripetizioni"]) && isset($_POST["recupero"])) {
 

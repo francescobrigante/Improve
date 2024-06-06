@@ -27,6 +27,7 @@
                 }
             }
 
+            // query per salvare tutti gli es
             $query = "SELECT * FROM esercizi";
             $result = pg_query($dbconn, $query);
             $esercizi = array();
@@ -113,6 +114,7 @@
     </div>
 
 
+    <!-- filtro -->
     <div class="contenitore" id="contenitore_filtro">
          <ul class="list-items" id="list">
             <li class="item" onclick="CheckBox('Petto')">
@@ -172,6 +174,7 @@
         </ul>
     </div>
 
+    <!-- esercizi -->
     <div class="scrollbox" id="scrollbox">
         <?php foreach ($esercizi as $esercizio): ?>
             <button class="box-exercise" onclick="openPopup('popup_<?php echo $esercizio['nome']; ?>', 'overlay_<?php echo $esercizio['nome']; ?>')">  
@@ -182,6 +185,7 @@
         <?php endforeach; ?>
     </div>
 
+    <!-- popup -->
     <?php foreach ($esercizi as $esercizio): ?>
         <div class="popup" id="popup_<?php echo $esercizio['nome']; ?>">
             <h1><?php echo $esercizio['nome']; ?></h1>

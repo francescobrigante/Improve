@@ -343,8 +343,6 @@ body {
 }
 
 
-
-
 h3{
     font-family: Poppins,sans-serif;
     font-size:30px ;
@@ -427,12 +425,16 @@ h4:hover{
     border: none;
     border-radius: 30px;
     color: #1b1b1b;
-    font-weight: bold;
+    font-weight: 550;
     cursor: pointer;
     margin-top: 10px; 
     font-family: Poppins;
     margin-top: 30px;
     margin-left: 110px;
+}
+
+#chiudi_popupscheda:hover{
+    color: white;
 }
 
 #annulla_popupscheda{

@@ -91,6 +91,7 @@
                 </ul>
             </div>
             <div class="first3">
+
             <?php 
             // query per selezionare i primi 3 esercizi di ogni scheda e farli visualizzare nel box
             $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' AND numeroesercizi > 0 AND posizione > 0 order by posizione LIMIT 3";
@@ -143,6 +144,7 @@
             <div class="contenitoreesercizi">
             
             <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
+            <!-- query -->
             <?php
                 $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "' ORDER BY posizione";
                 $result = pg_query($dbconn, $query);
@@ -157,10 +159,12 @@
                 
             ?>
 
+            <!-- effettiva visdualizzazione degli eservizi -->
             <?php if ($schedeUtente): ?>
                 <?php foreach($schedeUtente as $scheda): ?>
                     <!-- non aggiungiamo gli esercizi per una scheda che ha 0 esercizi -->
                     <?php if ($scheda['numeroesercizi'] > 0 && $scheda['posizione'] > 0): ?>
+                        <!-- creazione box-exercise -->
                         <div class="box-exercise">
                             <h1><?php echo htmlspecialchars($scheda['nomeesercizio']); ?></h1>
 

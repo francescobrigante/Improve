@@ -342,6 +342,9 @@ body {
     pointer-events: all;
 }
 
+.box-exercise h1::-webkit-scrollbar {
+    display: none;
+}
 
 h3{
     font-family: Poppins,sans-serif;

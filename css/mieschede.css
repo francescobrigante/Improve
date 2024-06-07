@@ -63,6 +63,10 @@ h1{
     display: none;
 }
 
+.box-exercise h1::-webkit-scrollbar {
+    display: none;
+}
+
 .scrollbox{
     width: 30%; /* Larghezza del contenitore */
     margin: 0 auto;

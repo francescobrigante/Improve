@@ -1,20 +1,26 @@
-
-body {
+/* Global settings */
+* {
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+ }
+ 
+ body {
    margin: 0;
    padding: 0;
    height: 100%;
  }
-
+ 
  .wrapper {
    display: flex;
    flex-direction: column;
    min-height: 100vh;
  }
-
- .content{
+ 
+ .content {
    flex: 1;
-}
-
+ }
+ 
+ /* Barra superiore */
  .barrasup {
    height: 350px;
    min-height: 250px;
@@ -22,60 +28,57 @@ body {
    background-size: cover;
    width: 100%;
    display: flex;
-   justify-content: center; /* allinea orizzontalmente */
+   flex-direction: column;
+   justify-content: center;
    align-items: center;
-   flex-direction: column; /* allinea verticalmente logo e sottotitolo */
    text-align: center;
    color: white;
    font-size: 2rem;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
    margin: 0 auto;
  }
-
-.barrasup img{
-   width: 70vw; 
+ 
+ .barrasup img {
+   width: 70vw;
    max-width: 600px;
    height: auto;
    margin-top: 20px;
-}
-
-.barrasup .subtitle{
+ }
+ 
+ .barrasup .subtitle {
    font-size: 2.5vw;
-   font-family: Poppins;
    font-weight: 500;
+   margin: 20px 10px;
    color: white;
-   text-align: center;
-   margin-top: 20px;
-   margin-left: 10px;
-   margin-right: 10px;
-   margin-bottom: 20px;
-}
-
-b{
+ }
+ 
+ /* Highlighted text */
+ b {
    color: #e6851e;
    font-weight: 600;
-}
-.container{
-   font-family: Poppins;
+ }
+ 
+ /* Container */
+ .container {
    text-align: center;
-   margin-top: 5vh;
-   margin-bottom: 20px;
-   margin-left: 15px;
-   margin-right: 15px;
-}
-p{
-   font-family: Poppins;
+   margin: 5vh 15px 20px;
+ }
+ 
+ /* Paragraphs */
+ p {
    font-size: 2.5vw;
    font-weight: 450;
-}
-.container2-button {
+ }
+ 
+ /* Buttons */
+ .container2-button {
    display: flex;
-   justify-content: center; 
-   align-items: center; 
-   margin-left: 60px;
-   margin-right: 60px;
-}
-.button {
+   justify-content: center;
+   align-items: center;
+   margin: 0 60px;
+ }
+ 
+ .button {
    max-width: 420px;
    min-width: 200px;
    background-color: #e6851e;
@@ -87,137 +90,125 @@ p{
    cursor: pointer;
    padding: 10px 80px;
    transition: 0.3s;
-   margin-right: 2vw;
-   margin-left: 2vw;
+   margin: 0 2vw;
    display: flex;
    justify-content: center;
    align-items: center;
-}
-.button:hover {
+ }
+ 
+ .button:hover {
    background-color: #1b1b1b;
    color: #e6851e;
-}
-#accessbutton{
+ }
+ 
+ #accessbutton {
    max-width: 420px;
-   padding : 10px 104px;
+   padding: 10px 104px;
    min-width: 200px;
-}
-
-.footer{
+ }
+ 
+ /* Footer */
+ .footer {
    color: white;
-   height: 100%;
-   position: sticky;
-   top:100%; 
-   text-align: center;
    background-color: #151515;
-   padding-top: 20px;
+   padding: 20px 10px;
    margin-top: 40px;
-   padding-left: 10px;
-   padding-right: 10px;
+   text-align: center;
    display: flex;
    justify-content: center;
-}
-
-.credits{
+ }
+ 
+ .credits {
    font-size: 18px;
-   font-family: Poppins;
    font-weight: 400;
-   text-align: center;
    width: 90%;
-}
-.credits b{
-   font-weight: 500;  
+ }
+ 
+ .credits b {
+   font-weight: 500;
    color: #e6851e;
-}
-
-
-
-/* Responsive */
-
-@media(max-width:770px){
-   .container2-button{
-      flex-direction: column;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 770px) {
+   .container2-button {
+     flex-direction: column;
    }
-   .button{
-      margin-bottom: 10px;
-   }
-   .barrasup{
-      height: 300px;
-   }
-}
-
-@media(max-width: 650px){
+   
    .button {
-      max-width: 100%;
+     margin-bottom: 10px;
    }
-   #accessbutton{
-      padding: 10px 100px;
-      max-width: 100%;
+   
+   .barrasup {
+     height: 300px;
    }
-}
-
-@media(max-width: 550px){
-   #accessbutton{
-      padding: 10px 95px;
+ }
+ 
+ @media (max-width: 650px) {
+   .button,
+   #accessbutton {
+     max-width: 100%;
    }
-   .credits{
-      font-size: 14px;
+   
+   #accessbutton {
+     padding: 10px 100px;
    }
-}
-
-@media(max-width: 450px){
-   #accessbutton{
-      padding: 10px 93px;
+ }
+ 
+ @media (max-width: 550px) {
+   #accessbutton {
+     padding: 10px 95px;
    }
-}
-
-@media(max-width: 380px){
-   .barrasup{
-      height: 250px;
+   
+   .credits {
+     font-size: 14px;
    }
-}
-
-@media(max-width : 645px) and (min-width: 418px){
+ }
+ 
+ @media (max-width: 450px) {
+   #accessbutton {
+     padding: 10px 93px;
+   }
+ }
+ 
+ @media (max-width: 380px) {
+   .barrasup {
+     height: 250px;
+   }
+ }
+ 
+ @media (max-width: 417px) {
+   .barrasup .subtitle,
    p {
-      font-size: 18px;
+     font-size: 15px;
    }
-   .barrasup .subtitle{
-      font-size: 18px;
+ }
+ 
+ @media (max-width: 355px) {
+   .barrasup .subtitle,
+   p {
+     font-size: 12px;
    }
-}
-
-@media(min-width: 931px){
-   .button{
-      width: 300px;
-      font-size: 40px;
+ }
+ 
+ @media (max-width: 645px) and (min-width: 418px) {
+   .barrasup .subtitle,
+   p {
+     font-size: 18px;
    }
-}
-
-@media(min-width: 1156px){
-   p{
-      font-size: 30px ;
+ }
+ 
+ @media (min-width: 931px) {
+   .button {
+     width: 300px;
+     font-size: 40px;
    }
-   .barrasup .subtitle{
-      font-size: 30px;
+ }
+ 
+ @media (min-width: 1156px) {
+   .barrasup .subtitle,
+   p {
+     font-size: 30px;
    }
-}
-
-@media(max-width: 417px){
-   .barrasup .subtitle{
-      font-size: 15px;
-   }
-   p{
-      font-size: 15px;
-   }
-}
-@media(max-width: 355px){
-   .barrasup .subtitle{
-      font-size: 12px;
-   }
-   p{
-      font-size: 12px;
-   }
-}
-
-
-/* sistemare grandezza subtitle per dimensioni inferiori a 417px */
+ }
+ 

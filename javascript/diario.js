@@ -30,21 +30,21 @@ $(document).ready(function(){
 const trainingDays = allenamenti.map(a => `${a.giorno}-${a.mese}-${a.anno}`);
 
 const daysTag = document.querySelector(".days"),
-currentDate = document.querySelector(".current-date"),
-prevNextIcon = document.querySelectorAll(".icons span");
+dataAttuale = document.querySelector(".current-date"),
+icone = document.querySelectorAll(".icons span");
 
 let date = new Date(),
-currYear = date.getFullYear(),
-currMonth = date.getMonth();
+annoCorrente = date.getFullYear(),
+meseCorrente = date.getMonth();
 
-const months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio",
+const mesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio",
                 "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
 
 const renderCalendar = () => {
-    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), 
-        lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), 
-        lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), 
-        lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let firstDayofMonth = new Date(annoCorrente, meseCorrente, 1).getDay(), 
+        lastDateofMonth = new Date(annoCorrente, meseCorrente + 1, 0).getDate(), 
+        lastDayofMonth = new Date(annoCorrente, meseCorrente, lastDateofMonth).getDay(), 
+        lastDateofLastMonth = new Date(annoCorrente, meseCorrente, 0).getDate();
     let liTag = "";
 
     for (let i = firstDayofMonth; i > 0; i--) { 
@@ -53,7 +53,7 @@ const renderCalendar = () => {
 
     for (let i = 1; i <= lastDateofMonth; i++) {
         //funzione some restituisce true se almeno un elemento dell'array allenamenti è stato salvato nel db
-        let isWorkoutDay = allenamenti.some(all => all.giorno == i && all.mese - 1 == currMonth && all.anno == currYear);
+        let isWorkoutDay = allenamenti.some(all => all.giorno == i && all.mese - 1 == meseCorrente && all.anno == annoCorrente);
         let activeClass = isWorkoutDay ? "active" : "";
         liTag += `<li class="${activeClass}">${i}</li>`;
     }
@@ -61,7 +61,7 @@ const renderCalendar = () => {
     for (let i = lastDayofMonth; i < 6; i++) { 
         liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
     }
-    currentDate.innerText = `${months[currMonth]} ${currYear}`; 
+    dataAttuale.innerText = `${mesi[meseCorrente]} ${annoCorrente}`; 
     daysTag.innerHTML = liTag;
 
     document.querySelectorAll(".days li").forEach(day => {
@@ -69,19 +69,19 @@ const renderCalendar = () => {
             e.target.classList.toggle("active");
 
             let clickedDay = e.target.innerText;
-            let clickedMonth = currMonth + 1; //+1 perchè altrimenti sarebbero da 0 a 11
-            let clickedYear = currYear;
+            let clickedMonth = meseCorrente + 1; //+1 perchè altrimenti sarebbero da 0 a 11
+            let clickedYear = annoCorrente;
 
             //se si seleziona un giorno inactive
             if (e.target.classList.contains("inactive")) {
                 if (parseInt(clickedDay) > 15) { // Se il giorno cliccato è maggiore del 15, allora è del mese precedente
-                    clickedMonth = currMonth;
+                    clickedMonth = meseCorrente;
                     if (clickedMonth > 12) {
                         clickedMonth = 1; // Se si supera Dicembre, torna a Gennaio dell'anno successivo
                         clickedYear++;
                     }
                 } else {
-                    clickedMonth = currMonth + 2; // Altrimenti è del mese successivo
+                    clickedMonth = meseCorrente + 2; // Altrimenti è del mese successivo
                     if (clickedMonth > 12) {
                         clickedMonth = 1; // Se si supera Dicembre, torna a Gennaio dell'anno successivo
                         clickedYear++;
@@ -107,14 +107,14 @@ const renderCalendar = () => {
 renderCalendar();
 
 //gestione cambio mese
-prevNextIcon.forEach(icon => {
+icone.forEach(icon => {
     icon.addEventListener("click", () => {
-        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+        meseCorrente = icon.id === "prev" ? meseCorrente - 1 : meseCorrente + 1;
 
-        if (currMonth < 0 || currMonth > 11) {
-            date = new Date(currYear, currMonth, new Date().getDate());
-            currYear = date.getFullYear();
-            currMonth = date.getMonth();
+        if (meseCorrente < 0 || meseCorrente > 11) {
+            date = new Date(annoCorrente, meseCorrente, new Date().getDate());
+            annoCorrente = date.getFullYear();
+            meseCorrente = date.getMonth();
         } else {
             date = new Date();
         }
@@ -133,7 +133,7 @@ const getTrainingDaysPerMonth = () => {
     const trainingDaysPerMonth = [];
     for (let i = 0; i < 12; i++) {
         const month = i + 1; // I mesi partono da 1 in SQL
-        const daysInMonth = allenamenti.filter(a => a.mese == month && a.anno == currYear).length;
+        const daysInMonth = allenamenti.filter(a => a.mese == month && a.anno == annoCorrente).length;
         trainingDaysPerMonth.push(daysInMonth);
     }
     return trainingDaysPerMonth;
@@ -158,7 +158,7 @@ const trainingChart = new Chart(ctx, {
         scales: {
             y: {
                 beginAtZero: true,
-                max: 31 // Numero massimo di giorni in un mese
+                max: 31 // numero max di giorni in un mese
             }
         }
     }

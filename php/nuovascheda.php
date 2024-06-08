@@ -8,8 +8,8 @@
         $nomescheda = $_POST["nomescheda"];
         $username = $_SESSION['username'];
 
-        $query = "INSERT INTO schede(username, nomescheda, posizione) VALUES ('$username', '$nomescheda', 0)";
-        $result = pg_query($dbconn, $query);
+        $query = "INSERT INTO schede(username, nomescheda, posizione) VALUES ($1, $2, 0)";
+        $result = pg_query_params($dbconn, $query, array($username, $nomescheda));
 
 
         if (!$result) {
@@ -25,8 +25,8 @@
         $nomescheda = $_POST["eliminascheda"];
         $username = $_SESSION['username'];
 
-        $query = "DELETE FROM schede WHERE username = '$username' AND nomescheda = '$nomescheda'";
-        $result = pg_query($dbconn, $query);
+        $query = "DELETE FROM schede WHERE username = $1 AND nomescheda = $2";
+        $result = pg_query_params($dbconn, $query, array($username, $nomescheda));
 
         if (!$result) {
             echo "Errore durante l'operazione di eliminazione";
@@ -42,8 +42,8 @@
         $username = $_SESSION['username'];
 
 
-        $query = "UPDATE schede SET nomescheda='$nuovonome' WHERE username = '$username' AND nomescheda = '$vecchionome'";
-        $result = pg_query($dbconn, $query);
+        $query = "UPDATE schede SET nomescheda=$1 WHERE username = $2 AND nomescheda = $3";
+        $result = pg_query_params($dbconn, $query, array($nuovonome, $username, $vecchionome));
 
 
         if (!$result) {
@@ -60,8 +60,8 @@
         $posizione = $_POST["eliminaes_posizione"];
         $username = $_SESSION['username'];
 
-        $query = "DELETE FROM schede WHERE username = '$username' AND nomescheda = '$nomescheda' AND nomeesercizio='$nomeesercizio' AND posizione='$posizione' AND numeroesercizi>1";
-        $result = pg_query($dbconn, $query);
+        $query = "DELETE FROM schede WHERE username = $1 AND nomescheda = $2 AND nomeesercizio=$3 AND posizione=$4 AND numeroesercizi>1";
+        $result = pg_query($dbconn, $query, array($username, $nomescheda, $nomeesercizio, $posizione));
 
         if (!$result) {
             echo "Errore durante l'operazione di rinomina";
@@ -176,8 +176,8 @@
         }
 
         // //query che incrementa di 1 numeroesercizi di tutti gli esercizi di questa scheda
-        $query = "UPDATE schede SET numeroesercizi=numeroesercizi+1 WHERE username = '$username' AND nomescheda = '$nomescheda'";
-        $result = pg_query($dbconn, $query);
+        $query = "UPDATE schede SET numeroesercizi=numeroesercizi+1 WHERE username = $1 AND nomescheda = $2";
+        $result = pg_query($dbconn, $query, array($username, $nomescheda));
 
         if (!$result) {
             echo "Errore durante l'operazione di incremento di 1 numeroesercizi";

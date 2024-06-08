@@ -6,11 +6,11 @@ html, body{
 
 .barrasup {
     background-image: url("../img/sfondobarrasup.jpg");
-    padding: 10px 20px; /* spaziatura interna */
-    display: flex; /* allineare contenuti */
+    padding: 10px 20px; 
+    display: flex; 
     background-position: center;
-    justify-content: space-between; /* spaziare contenuti */
-    align-items: center; /* centra verticalmente contenuti */
+    justify-content: space-between; 
+    align-items: center; 
     background-size: cover;
     height: 100px;
 }

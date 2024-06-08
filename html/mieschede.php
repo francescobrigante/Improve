@@ -16,8 +16,8 @@
         //se la connessione è andata a buon fine, inizio una sessione
         if($dbconn){
             // query per salvare tutte le schede realizzate da un utente
-            $query = "SELECT distinct nomescheda FROM schede where username='$username' order by nomescheda";
-            $result = pg_query($dbconn, $query);
+            $query = "SELECT distinct nomescheda FROM schede where username=$1 order by nomescheda";
+            $result = pg_query_params($dbconn, $query, array($username));
             $nomischede = array();
 
             if ($result) {
@@ -94,8 +94,8 @@
 
             <?php 
             // query per selezionare i primi 3 esercizi di ogni scheda e farli visualizzare nel box
-            $query_new = "SELECT * FROM schede WHERE username='$username' AND nomescheda='{$scheda['nomescheda']}' AND numeroesercizi > 0 AND posizione > 0 order by posizione LIMIT 3";
-            $result = pg_query($dbconn, $query_new);
+            $query_new = "SELECT * FROM schede WHERE username=$1 AND nomescheda='{$scheda['nomescheda']}' AND numeroesercizi > 0 AND posizione > 0 order by posizione LIMIT 3";
+            $result = pg_query_params($dbconn, $query_new, array($username));
             
             if ($result) {
                 $count = 0;
@@ -146,8 +146,8 @@
             <!-- ulteriore ciclo for php che scorre sugli esercizi della scheda per visualizzarli -->
             <!-- query -->
             <?php
-                $query = "SELECT * FROM schede WHERE username='$username' AND nomescheda='" . $scheda['nomescheda'] . "' ORDER BY posizione";
-                $result = pg_query($dbconn, $query);
+                $query = "SELECT * FROM schede WHERE username=$1 AND nomescheda='" . $scheda['nomescheda'] . "' ORDER BY posizione";
+                $result = pg_query_params($dbconn, $query, array($username));
 
 
                 if (!$result) {

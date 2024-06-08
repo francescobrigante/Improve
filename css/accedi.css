@@ -1,3 +1,8 @@
+body {
+    font-family: Poppins, sans-serif; 
+    margin: 0; 
+    padding: 0;
+}
 
 .barrasup {
     background-image: url("../img/sfondobarrasup.jpg");
@@ -10,13 +15,13 @@
     height: 150px;
 }
 
-.barrasup img{
+.barrasup img {
     width: 400px;
     max-width: 100%;
     margin-left: -60px;
 }
 
-#home_container{
+#home_container {
     color: white;
     transition: color 0.3s;
     margin-left: 30px;
@@ -24,7 +29,7 @@
     cursor: pointer;
 }
 
-#home_container:hover{
+#home_container:hover {
     color: #e6851e;
 }
 
@@ -32,42 +37,41 @@ label {
     font-family: Poppins, sans-serif;
     font-weight: bold;
 }
-h1{
-    color:#e6851e;
+
+h1 {
+    color: #e6851e;
     font-size: 7rem; 
     font-family: Poppins, sans-serif;
     font-weight: bold;
     margin: 0 auto; 
     margin-top: 5px;
     margin-bottom: -45px;
-    justify-content: center;
     display: flex;
+    justify-content: center;
     max-width: 100%;
 }
-h2{
+
+h2 {
     color: black;
     font-size: 1.4rem;
     font-family: Poppins, sans-serif;
     font-weight: 500;
     margin-top: 20px;
-    justify-content: center;
     display: flex;
+    justify-content: center;
     max-width: 100%;
 }
+
 .title {
     color: white;
     font-size: 56px;
-    text-align:center;
+    text-align: center;
     flex-grow: 1;
     font-weight: bolder;
     margin: 0 auto; 
     cursor: pointer;
 }
-body {
-    font-family: Poppins,sans-serif; 
-    margin : 0 ; 
-    padding: 0;
-}
+
 .container {
     max-width: 400px;
     margin: 0 auto;
@@ -77,14 +81,14 @@ body {
     background: linear-gradient(to bottom, white, #eeeeee);
 }
 
-.scriviPassword{
+.scriviPassword {
     width: 100%;
     max-width: 500px;
     display: flex;
     align-items: center;
 }
 
-.scriviPassword input{
+.scriviPassword input {
     width: 100%;
     max-width: 400px;
     padding: 10px 0;
@@ -92,14 +96,14 @@ body {
     outline: 0;
 }
 
-#eyeIcon{
+#eyeIcon {
     color: black;
     transition: color 0.3s;
     cursor: pointer;
     margin-left: -30px;
 }
 
-#eyeIcon:hover{
+#eyeIcon:hover {
     color: #e6851e;
 }
 
@@ -116,20 +120,20 @@ input[type="submit"] {
     background-color: #e6851e;
     border: none;
     border-radius: 20px;
-    color:white;
+    color: white;
     padding: 15px 35.2%;
     font-size: 32px;
     font-weight: 550;
     letter-spacing: 0.5px;
-    display: flex; /*fa in modo che la scritta si adatti ai cambiamenti */
-    justify-content: center; /* mette al centro la scrittta */
+    display: flex; 
+    justify-content: center;
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 8px;
     width: 100%;
     transition: 0.2s;
-    
 }
+
 input[type="submit"]:hover {
     background-color: #1b1b1b;
     color: #e6851e;
@@ -141,9 +145,9 @@ input[type="submit"]:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.65); /* Opacità del 50% */
-    display: none; /* Inizialmente nascosto */
-    z-index: 999; /* Assicura che l'overlay sia sopra gli altri elementi */
+    background-color: rgba(0, 0, 0, 0.65); 
+    display: none; 
+    z-index: 999;
 }
 
 #popup {
@@ -154,50 +158,47 @@ input[type="submit"]:hover {
     background-color: black;
     border: 7px solid #e6851e;
     border-radius: 20px;
-    padding: 15px 40px ;
-    z-index: 1000; /* Assicura che il popup sia sopra l'overlay */
-    display: none; /* Inizialmente nascosto */
+    padding: 15px 40px;
+    z-index: 1000; 
+    display: none; 
 }
 
-#testo_popup{
+#testo_popup {
     color: #e6851e;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 25px;
 }
 
-@media(max-width:376px){
-    h1{
+@media (max-width: 376px) {
+    h1 {
         font-size: 20vw;
         margin-bottom: -40px;
     }
-    h2{
+
+    h2 {
         font-size: 5vw; 
         margin-top: 40px;
     }
 }
 
-@media(max-width:580px){
-    .barrasup img{
-        width:70%;
-        padding: 10px 20px; /* spaziatura interna */
-        display: flex; /* allineare contenuti */
-        background-position: center;
-        justify-content: center; /* posiziona al centro */
-        align-items: center; /* centra verticalmente contenuti */
-        background-size: cover;
-        margin-left: auto;
-        margin-right: auto;
+@media (max-width: 580px) {
+    .barrasup img {
+        width: 70%;
+        margin: 0 auto;
     }
-    h1{
-        font-size:14vw
+
+    h1 {
+        font-size: 14vw;
     }
-    h2{
+
+    h2 {
         font-size: 5vw; 
         margin-top: 40px;
     }
-    #home_container{
+
+    #home_container {
         font-size: 3vw;
-        margin-left: 10px; /* aggiunto margine sinistro */
+        margin-left: 10px; 
     }
 }

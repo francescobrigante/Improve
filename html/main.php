@@ -39,8 +39,8 @@
             }
             
             //query per salvare il sesso
-            $query = "SELECT sesso FROM utenti where username='$username'";
-            $result = pg_query($dbconn, $query);
+            $query = "SELECT sesso FROM utenti where username=$1";
+            $result = pg_query_params($dbconn, $query, array($username));
 
             if($result){
                 $row = pg_fetch_assoc($result);

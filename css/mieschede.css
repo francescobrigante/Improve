@@ -106,15 +106,9 @@ h1{
     margin-left: 5px;
     height: 230px;
     background-color: #1b1b1b;
-    /* background: rgba(255,255,255,.05);
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    backdrop-filter: blur(10px); */
     border: none;
 }
 
-/* body{
-    background-color: #1b1b1b;
-} */
 
 .box-scheda h1{
     font-size: 50px;
@@ -138,10 +132,10 @@ h1{
 .scrolling-container {
     cursor: pointer;
     position: relative;
-    width: 75%; /* Larghezza desiderata del contenitore h1 */
+    width: 75%;
     height: 48%;
     overflow: hidden;
-    white-space: nowrap; /* Evita il wrapping del testo */
+    white-space: nowrap;
 }
 
 @keyframes scroll-text {
@@ -174,8 +168,8 @@ h1{
 }
 .first3 h2{
     width: 75%;
-    white-space: nowrap; /* Evita che il testo vada a capo */
-    overflow: auto; /* Nasconde il testo che eccede il contenitore */
+    white-space: nowrap; 
+    overflow: auto; 
 }
 
 #ThreeDots{
@@ -192,7 +186,7 @@ h1{
         top: 15%; 
         left :59%;
         border-radius: 20px;
-        background-color: #242424;  /*rgb(59, 55, 55);*/
+        background-color: #242424;  
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         height: 80px;
         width: 132px;
@@ -462,15 +456,6 @@ h4:hover{
     font-family: Poppins;
     margin-top: 30px;   
 }
-
-/* .contenitoreesercizi{
-    background-color: #1b1b1b;
-    height: 350px;
-    width: 100%;
-    border-radius: 30px;
-    margin-top: 15px;
-    overflow-y: auto;
-} */
 
 .contenitoreesercizi{
     background-color: #1b1b1b;

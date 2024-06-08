@@ -1,24 +1,28 @@
-html, body{
+html, body {
     margin: 0;
     padding: 0;
-
 }
+
+body {
+    font-family: Poppins, sans-serif;
+}
+
 .barrasup {
-    background-image: url("../img/sfondobarrasup.jpg"); 
+    background-image: url("../img/sfondobarrasup.jpg");
     background-size: cover;
     display: flex;
     height: 100px;
     width: 100%;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
 
-.barrasup img{
+.barrasup img {
     width: 400px;
     max-width: 100%;
 }
 
-#home_container{
+#home_container {
     color: white;
     transition: color 0.3s;
     margin-left: 30px;
@@ -26,11 +30,11 @@ html, body{
     cursor: pointer;
 }
 
-#home_container:hover{
+#home_container:hover {
     color: #e6851e;
 }
 
-#account{
+#account {
     color: white;
     transform: scale(2);
     transition: color 0.3s;
@@ -38,8 +42,8 @@ html, body{
     margin-right: 30px;
 }
 
-#account:hover{
-    color:#e6851e
+#account:hover {
+    color: #e6851e;
 }
 
 .dropdown {
@@ -48,75 +52,58 @@ html, body{
     top: 90px;
     right: 43px;
     border-radius: 20px;
-    background-color: #242424;  /*rgb(59, 55, 55);*/
+    background-color: #242424;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     width: 230px;
     height: auto;
     outline: 2px solid #b76812;
-  }
-  
+}
+
 .dropdown ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 5px;
+    margin: 5px 0 0 0;
 }
-  
+
 .dropdown ul li {
-    padding: 10px;
-    font-family: Poppins;
+    padding: 10px 20px 10px 20px;
     font-size: 15px;
     font-weight: 400;
     text-align: left;
-    padding-left: 20px;
-    margin-bottom: -10px;
 }
-  
+
 .dropdown ul li a {
     text-decoration: none;
     color: #ffffff;
     transition: color 0.2s;
 }
 
-.dropdown ul li a:hover{
+.dropdown ul li a:hover {
     color: #e6851e;
 }
 
-p{
+p {
     color: white;
     background-color: #e6851e;
-    font-family: Poppins;
-    margin: 0;
-    padding: 0;
     font-weight: 500;
-    padding-left: 10px;
+    margin: 0;
+    padding: 10px;
 }
 
-/* .barra2{
-    margin: 0 auto;
-    padding: 20px 10px ;
+.rettangolo {
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-} */
-
-.rettangolo{
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Ombra leggera */
     border-radius: 8px;
     display: flex;
     width: 100%;
     height: 100px;
 }
 
-.barra2{
+.barra2 {
     width: 80%;
-    padding: 0px 0px 20px;
-    border-radius: 8px; 
-    margin-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    margin: 20px auto 0 auto;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
 }
